@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca85407ae60c8fd439a2625ec5a838e3, type: 3}
+  m_Name: Starve
+  m_EditorClassIdentifier: 
+  FieldPrefab: {fileID: 2100144331227584053, guid: 5828fd0424ffa8146b86de1e940e93cc, type: 3}
