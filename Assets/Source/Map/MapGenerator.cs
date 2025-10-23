@@ -22,7 +22,9 @@ public class MapGenerator : MonoBehaviour
 	[SerializeField] GameObject bossGate; // 추후 추가될 보스 게이트 게임오브젝트
 	
 	[SerializeField] GameObject ms; // 몬스터 스포너를 부착하는 부분. 추후에 여러 몬스터 스포너를 적용하여, 각 방마다 다른 몬스터 풀을 적용할 수 있도록 하는 것이 추후 목표.
-	
+	[SerializeField] GameObject itemSpawn; // 아이템 스포너 부착하는 부분. 여기도 몬스터 스포너처럼 여러 몬스터 풀 중 임의로 골라서 넣을지는 모르겠음
+	[SerializeField] GameObject objSpawn; // 오브젝트 스포너 부착하는 부분. 기본적인 소환 시기는 아이템스포너와 동일하나, 아이템 스포너와 달리 규칙이 필요하여 소환 로직을 고민해봐야 함.
+
 	private GameObject player;
 	public Vector3 playerLoc = new Vector3(0, 0);
 	public int seed; // 시드 적용을 위해 일단 작성
@@ -201,16 +203,25 @@ public class MapGenerator : MonoBehaviour
 		BoxCollider2D bx = this.AddComponent<BoxCollider2D>();
 		bx.offset = new Vector2(offset.x, offset.y);
 		bx.size = size;
+
 		bx.isTrigger = true;
 		
 		Transform tr = bx.transform;
 		tr.position = offset;
 		//Debug.Log($"박스 콜라이더의 오프셋 : {tr.position}");
-
-		//FillRoom 함수에서 방을 만들며, 동시에 몬스터가 스폰되는 스포너를 생성한다.
+		//FillRoom 함수에서 방을 만들며, 동시에 몬스터가 스폰되는 스포너와, 아이템 스포너를 생성한다.
 		GameObject spawn = GameObject.Instantiate(ms, tr.position, Quaternion.identity);
+		GameObject iSpawn = GameObject.Instantiate(itemSpawn, tr.position, Quaternion.identity);
+		GameObject oSpawn = GameObject.Instantiate(objSpawn, tr.position, Quaternion.identity);
+
 		MobSpawner spawner = spawn.GetComponent<MobSpawner>(); // 스포너에 부착된 MobSpawner 함수를 GetComponent를 활용하여 가져온다.
+		ItemSpawner iSpawner = iSpawn.GetComponent<ItemSpawner>();
+		ObjectSpawner oSpawner = oSpawn.GetComponent<ObjectSpawner>();
+
 		spawner.SetRoom(rect); // MobSpawner에 있는 SetRoom 함수를 실행하여 room 값을 넣어준다.
+		iSpawner.SetRoom(rect);
+		oSpawner.SetRoom(rect);
+		
 
 		mc.roomData.Add(new RoomData(rect, bx, spawn)); // 활성화 할 몬스터 스포너를 판별하기 위한 roomData를 모아둔 List(mc)에 rect와, box collider2d, spawn을 엮은 struct를 add.
 	}

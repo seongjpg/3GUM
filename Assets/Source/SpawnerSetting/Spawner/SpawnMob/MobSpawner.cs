@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class MobSpawner : MonoBehaviour
 {
-    [SerializeField] GenMob gm;
+    [SerializeField] GenSequential gs;
     [SerializeField] SpanwerPoolAssets poolAssets;
     private List<SpanwerPoolAssets.Elem_And_Prop> objPool;
     float spawnerLifeTime;
@@ -25,11 +25,13 @@ public class MobSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         curCycle += Time.deltaTime;
         if (curCycle >= summonCycle) // 몬스터 소환 사이클이 도래
         {
+            summonMob = Random.Range(3, 20);
             curCycle = 0;
-            gm.SpawnObj(limit: 50, room, objPool); // limit는 사후 적절하게 바꿔 관리하여야 한다.
+            gs.SpawnObj(limit: summonMob, room, objPool); // limit는 사후 적절하게 바꿔 관리하여야 한다.
             summonCycle += 3;
             Debug.Log($"current summon cycle : {summonCycle}");
         }     
@@ -42,7 +44,7 @@ public class MobSpawner : MonoBehaviour
 
     public void SetRoom(RectInt rect)
     {
-        room = gm.SetRoom(rect);
+        room = gs.SetRoom(rect);
     }
 
 }

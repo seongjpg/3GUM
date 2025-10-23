@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4987085809744007610}
   - component: {fileID: 6070185505439639910}
   m_Layer: 0
-  m_Name: MobSpawner
+  m_Name: TestMobSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,8 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b41182251f8d2bf47909cbc423589e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 11400000, guid: 7d5099b5d64779f4b8a944cfbb8a1806, type: 2}
+  gs: {fileID: 11400000, guid: 7d5099b5d64779f4b8a944cfbb8a1806, type: 2}
   poolAssets: {fileID: 11400000, guid: 58bee1cc063397449afe75350eb8bfa3, type: 2}
+  room:
+    x: 0
+    y: 0
+    width: 0
+    height: 0
 --- !u!114 &6070185505439639910
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,10 +3,10 @@ using UnityEngine;
 
 
 // Interface와 ScriptableObject를 활용하여 만든 것은 결국 CreateAssetMenu를 사용하여, 인스펙터에서 에셋화하여 사용할 수 있게 만들어야 한다.
-[CreateAssetMenu(menuName ="Spawner/GenMob")] 
+[CreateAssetMenu(menuName ="Spawner/GenSequential")] 
 
 //genMob을 달고있는 스포너는, 플레이어가 트리거에 감지되는 순간 스포너를 소환한다.
-public class GenMob : ScriptableObject, IGetArea, ISpawnRealTime {
+public class GenSequential: ScriptableObject, IGetArea, ISpawnRealTime {
 
 	
 	public RoomData GetRoomSize() // 안씀
