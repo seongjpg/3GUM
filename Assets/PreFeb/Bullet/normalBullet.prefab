@@ -105,7 +105,7 @@ MonoBehaviour:
   damage: 3
   lifeTime: 3
   timer: 0
-  p: {fileID: 270622205502257872, guid: 225711115d4de9b42922a8c8ed1caacd, type: 3}
+  p: {fileID: 270622205502257872, guid: 54d0c4e017ec3f2458dfc1c4ae0b5345, type: 3}
 --- !u!61 &7706437838925378963
 BoxCollider2D:
   m_ObjectHideFlags: 0

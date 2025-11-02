@@ -6,7 +6,7 @@ public class Zako_shortRich : MonoBehaviour
 	private GameObject p;
 	public GameObject m;
 	public MobManager mm;
-	private PlayerManager pm;
+	public PlayerManager pm;
 	// 외부에서 추적 대상을 지정
 	public void Seek()
 	{
@@ -37,15 +37,5 @@ public class Zako_shortRich : MonoBehaviour
 
 		// 3) 속도 적용 + DeltaTime
 		transform.position += normalizedDir * mm.speed * Time.deltaTime;
-	}
-	private void OnTriggerEnter2D(Collider2D other)
-	{
-		GameObject collided = other.gameObject;
-		WeaponStatus weapon = collided.GetComponent<WeaponStatus>();
-		if (collided.CompareTag("PlayerAttack"))
-		{
-			//PlayerManager pm = collided.GetComponent<PlayerManager>();
-			mm.curHealth -= pm.damage * weapon.damage; // 단순히 공격력에서 차감하는 것이 아닌, 계수를 고려해주어야 한다.
-		}
 	}
 }

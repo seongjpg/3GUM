@@ -5,15 +5,21 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/Player.unity
+    path: Assets/Scenes/Test/GenMap.unity
+    guid: af9f6297cdec9fa4c89a30795cd624ab
+  - enabled: 1
+    path: Assets/Scenes/Test/TestBossScene.unity
+    guid: 4e5726f3448feae4c8cf51ffcd1fd878
+  - enabled: 1
+    path: Assets/Scenes/Test/ObjectCreateScene.unity
     guid: b51f92fd54e0c094890745265152102b
   - enabled: 1
-    path: Assets/Scenes/GenMap.unity
-    guid: af9f6297cdec9fa4c89a30795cd624ab
+    path: Assets/Scenes/Test/ConvertScene.unity
+    guid: 7ff3a98ca31ba324ea6c1bc55b8308cd
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 851ce691c09d64e4fab54bec7122376f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

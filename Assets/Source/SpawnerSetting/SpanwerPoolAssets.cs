@@ -16,5 +16,5 @@ public class SpanwerPoolAssets : ScriptableObject {
 				prop = _prop;
 			}
 	}
-	[SerializeField] public List<Elem_And_Prop> pool = new List<Elem_And_Prop>();
+	[SerializeField]  public List<Elem_And_Prop> pool = new List<Elem_And_Prop>();
 }

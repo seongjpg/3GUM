@@ -241,6 +241,7 @@ public class MapGenerator : MonoBehaviour
 		}
 		Vector3 bossRoomPos = tileMap.GetCellCenterWorld(new Vector3Int(farRoom.x + farRoom.width/2, farRoom.y + farRoom.height/2, 0));
 		Debug.Log($"가장 먼 노드의 센터 : {bossRoomPos.x}, {bossRoomPos.y}");
+		GameObject.Instantiate(bossGate, bossRoomPos, Quaternion.identity);
 	}
 
 }
