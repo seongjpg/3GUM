@@ -1,0 +1,44 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="PopUp" style="flex-grow: initial; background-color: rgba(0, 0, 0, 0.4); height: 692px; width: 1274px; border-top-left-radius: 32px; border-top-right-radius: 32px; border-bottom-right-radius: 32px; border-bottom-left-radius: 32px; position: relative; top: 169px; left: 272px; right: auto; bottom: auto; min-width: auto; min-height: auto; max-width: initial; max-height: initial; flex-shrink: initial; border-top-width: -4px;">
+        <ui:Label text="千本桜影厳" name="myLabel" style="height: 94px; top: 31px; left: 393px; width: 1168px; -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); font-size: 89px; color: rgb(0, 0, 0); position: absolute;">
+            <ui:Button text="Button" name="myButton" style="width: 317px; height: 110px; top: 0; left: 506px; position: absolute; border-top-left-radius: 32px; border-top-right-radius: 32px; border-bottom-right-radius: 32px; border-bottom-left-radius: 32px;" />
+        </ui:Label>
+        <ui:ScrollView name="ScrollView" style="top: 18px; left: 12px; position: absolute; width: 15%; height: 94%; color: rgb(255, 255, 255);">
+            <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+                <ui:Label text="안녕?!" style="color: rgb(184, 184, 184); font-size: 30px;" />
+            </ui:VisualElement>
+        </ui:ScrollView>
+    </ui:VisualElement>
+</ui:UXML>
