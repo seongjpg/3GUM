@@ -5,8 +5,8 @@ using UnityEngine.UIElements;
 public class PlayerManager : MonoBehaviour
 {
     //플레이어 라이프 사이클 관리(탄생, 사망), 플레이어 스테이터스
-    [SerializeField] public float maxHealth; // 최대 체력
-    [SerializeField] public float curHealth; // 현재 체력
+    [SerializeField] public int maxHealth; // 최대 체력
+    [SerializeField] public int curHealth; // 현재 체력
     [SerializeField] public float maxSpeed;
     [SerializeField] public float speed; // 이동 속도
     [SerializeField] public float hitRate; // 피격 확률(0-1범위)

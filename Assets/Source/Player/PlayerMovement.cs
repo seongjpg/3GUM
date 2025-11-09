@@ -3,8 +3,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
-
-
 public interface IDamageDealer {
     [SerializeField] int damage { get; }
 }
@@ -13,17 +11,20 @@ public class PlayerMovement : MonoBehaviour
 {
     //플레이어의 이동 방식 / 플레이어 체력 가감 
     private GameObject player;
+    [SerializeField] GameObject UI;
+    private MainUI mainUI;
     public PlayerManager pm;
 	public Transform playerTr;
 	public GameObject playerWeapon;
     public float fireTimer;
 
-	void Start()
+    void Start()
     {
         //플레이어 게임 오브젝트 내에 존재하는 PlayerManager를 뽑아온다.
         player = GameObject.Find("Player");
         pm = player.GetComponent<PlayerManager>();
 		playerTr = player.GetComponent<Transform>();
+        mainUI = UI.GetComponent<MainUI>();
     }
 
     // Update is called once per frame
@@ -92,7 +93,6 @@ public class PlayerMovement : MonoBehaviour
                 GameObject item = pm.oneTime.gameObject;
                 pm.oneTimeSpell.UseSpell(player, item);
                 Destroy(pm.oneTime);
-                
             }
 		}
         return;
@@ -127,6 +127,9 @@ public class PlayerMovement : MonoBehaviour
 			{
 				Debug.Log($"{mm.damage}만큼의 피해!");
 				pm.curHealth -= mm.damage;
+                if (pm.curHealth < 0) pm.curHealth = 0;
+                //ui에서의 작용도 해줘야 한다.
+                mainUI.HealthChange(pm.curHealth);
 			}
 		}
 
@@ -148,4 +151,8 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
+    public void EarnHeal()
+    {
+        mainUI.HealthChange(pm.curHealth);
+    }
 }

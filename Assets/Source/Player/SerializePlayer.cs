@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class SerializePlayer : MonoBehaviour
 {
-	private float maxHealth; // 최대 체력
-	private float curHealth; // 현재 체력
+	private int maxHealth; // 최대 체력
+	private int curHealth; // 현재 체력
 	private float maxSpeed;
 	private float speed; // 이동 속도
 	private float hitRate; // 피격 확률(0-1범위)
@@ -95,8 +95,8 @@ public class SerializePlayer : MonoBehaviour
 
 [System.Serializable]
 public class SerializeP {
-	public float maxHealth; // 최대 체력
-	public float curHealth; // 현재 체력
+	public int maxHealth; // 최대 체력
+	public int curHealth; // 현재 체력
 	public float maxSpeed;
 	public float speed; // 이동 속도
 	public float hitRate; // 피격 확률(0-1범위)
@@ -121,7 +121,7 @@ public class SerializeP {
 
 	}
 
-	public SerializeP(float maxHealth, float curHealth, float maxSpeed, float speed, float hitRate, float damage, float fireRate, Vector3 pos)
+	public SerializeP(int maxHealth, int curHealth, float maxSpeed, float speed, float hitRate, float damage, float fireRate, Vector3 pos)
 	{
 		this.maxHealth = maxHealth;
 		this.curHealth = curHealth;
