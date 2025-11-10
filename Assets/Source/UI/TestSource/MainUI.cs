@@ -6,6 +6,7 @@ public class MainUI : MonoBehaviour
 
     GameObject Player;
     PlayerManager pm;
+    PlayerMovement pMov;
 
     [SerializeField] Sprite Heart_full;
     [SerializeField] Sprite Heart_3per4;
@@ -35,6 +36,7 @@ public class MainUI : MonoBehaviour
     {
         Player = GameObject.FindWithTag("Player");
         pm = Player.GetComponent<PlayerManager>();
+        pMov = Player.GetComponent<PlayerMovement>();
 
         // UIDocument 컴포넌트를 가져옵니다.
         var uiDocument = GetComponent<UIDocument>();
@@ -183,34 +185,43 @@ public class MainUI : MonoBehaviour
     private void FireClicked()
     {
         Debug.Log("Fire 입력.");
+        pMov.NewPlayerAttack();
     }
     private void Skill01Clicked()
     {
         Debug.Log("SKill 01 입력.");
+        pMov.NewSkill_01();
     }
     private void Skill02Clicked()
     {
         Debug.Log("Skill 02 입력.");
+        pMov.NewSkill_02();
     }
     private void SpellClicked()
     {
         Debug.Log("Spell 입력.");
+        pMov.Spell();
     }
     private void UpClicked()
     {
         Debug.Log("Up 입력.");
+        pMov.PlayerUp();
+        
     }
     private void DownClicked()
     {
         Debug.Log("Down 입력.");
+        pMov.PlayerDown();
     }
     private void LeftClicked()
     {
         Debug.Log("Left 입력.");
+        pMov.PlayerLeft();
     }
     private void RightClicked()
     {
         Debug.Log("Right 입력.");
+        pMov.PlayerRight();
     }
     private void TabClicked()
     {

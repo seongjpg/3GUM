@@ -54,16 +54,44 @@ public class PlayerMovement : MonoBehaviour
         playerTr.position += move * Time.deltaTime;
 
 	}
+    public void PlayerUp()
+    {
+        float speed = pm.speed;
+        playerTr.position += new Vector3(0, speed, 0) * Time.deltaTime;
+    }
+    public void PlayerDown()
+    {
+        float speed = pm.speed;
+        playerTr.position += new Vector3(0, -speed, 0) * Time.deltaTime;
+    }
+    public void PlayerLeft()
+    {
+        float speed = pm.speed;
+        playerTr.position += new Vector3(-speed, 0, 0) * Time.deltaTime;
+    }
+    public void PlayerRight()
+    {
+        float speed = pm.speed;
+        playerTr.position += new Vector3(speed, 0, 0) * Time.deltaTime;
+    }
+
     //기본 공격
-	private void PlayerAttack() 
+    void PlayerAttack() 
 	{
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             Debug.Log("좌클릭");
             Instantiate(playerWeapon, playerTr.position, playerTr.rotation);
             fireTimer = 0;
         }
 	}
+
+    public void NewPlayerAttack()
+    {
+        Debug.Log("좌클릭-구조개선");
+        Instantiate(playerWeapon, playerTr.position, playerTr.rotation);
+        fireTimer = 0;
+    }
 
     //스킬 1번
     private void Skill_01()
@@ -72,14 +100,24 @@ public class PlayerMovement : MonoBehaviour
 			Debug.Log("스킬1");
 		}
     }
+    
+    public void NewSkill_01()
+    {
+        Debug.Log("스킬1-구조개선");
+    }
 
     //스킬 2번
-    private void Skill_02()
+    public void Skill_02()
     {
         if (Input.GetKeyDown("2"))
         {
 			Debug.Log("스킬2");
 		}
+    }
+
+    public void NewSkill_02()
+    {
+        Debug.Log("스킬2-구조개선");
     }
 
     //1회성 아이템
@@ -96,6 +134,17 @@ public class PlayerMovement : MonoBehaviour
             }
 		}
         return;
+    }
+
+    public void Spell()
+    {
+        if (pm.oneTime != null)
+        {
+            Debug.Log($"1회용 아이템 사용 - {pm.oneTime.name}");
+            GameObject item = pm.oneTime.gameObject;
+            pm.oneTimeSpell.UseSpell(player, item);
+            Destroy(pm.oneTime);
+        }
     }
 
     private void DebugingPassive()
