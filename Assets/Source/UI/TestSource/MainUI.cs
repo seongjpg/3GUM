@@ -30,13 +30,27 @@ public class MainUI : MonoBehaviour
     Button Right;
     Button Tab;
 
+    bool holdFire = false;
+    bool holdUp = false;
+    bool holdDown = false;
+    bool holdLeft = false;
+    bool holdRight = false;
 
+    float fireTimer = 0;
+    float fireInterval;
+    float upTimer = 0;
+    float downTimer = 0;
+    float leftTimer = 0;
+    float rightTimer = 0;
+
+    float holdInterval = 0.02f;
 
     private void OnEnable()
     {
         Player = GameObject.FindWithTag("Player");
         pm = Player.GetComponent<PlayerManager>();
         pMov = Player.GetComponent<PlayerMovement>();
+        fireInterval = pm.fireRate;
 
         // UIDocument 컴포넌트를 가져옵니다.
         var uiDocument = GetComponent<UIDocument>();
@@ -65,7 +79,6 @@ public class MainUI : MonoBehaviour
         Right = root.Q<Button>("Right");
         Tab = root.Q<Button>("Tab");
 
-        Fire.clicked += FireClicked;
         Skill01.clicked += Skill01Clicked;
         Skill02.clicked += Skill02Clicked;
         Spell.clicked += SpellClicked;
@@ -74,7 +87,25 @@ public class MainUI : MonoBehaviour
         Left.clicked += LeftClicked;
         Right.clicked += RightClicked;
         Tab.clicked += TabClicked;
+
+        Fire.RegisterCallback<PointerDownEvent>(OnFireDown);
+        Fire.RegisterCallback<PointerUpEvent>(OnFireUp);
     }
+
+    void Update()
+    {
+        if (holdFire)
+        {
+            fireTimer += Time.deltaTime;
+            if (fireTimer >= holdInterval)
+            {
+                fireTimer = 0f;
+                FireOnce();
+            }
+        }
+    }
+
+
 
     private void OnDisable()
     {
@@ -182,7 +213,18 @@ public class MainUI : MonoBehaviour
     }
 
 
-    private void FireClicked()
+    void OnFireDown(PointerDownEvent evt)
+    {
+        FireOnce();
+        holdFire = true;
+        fireTimer = 0;
+    }
+    void OnFireUp(EventBase evt)
+    {
+        holdFire = false;
+    }
+
+    private void FireOnce()
     {
         Debug.Log("Fire 입력.");
         pMov.NewPlayerAttack();
