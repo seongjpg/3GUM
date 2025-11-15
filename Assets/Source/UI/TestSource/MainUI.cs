@@ -8,6 +8,10 @@ public class MainUI : MonoBehaviour
     PlayerManager pm;
     PlayerMovement pMov;
 
+
+    [SerializeField] GameObject PauseUI;
+    [SerializeField] GameObject SettingUI;
+
     [SerializeField] Sprite Heart_full;
     [SerializeField] Sprite Heart_3per4;
     [SerializeField] Sprite Heart_half;
@@ -43,10 +47,15 @@ public class MainUI : MonoBehaviour
     float leftTimer = 0;
     float rightTimer = 0;
 
-    float holdInterval = 0.02f;
+    float holdInterval = 1f;
 
     private void OnEnable()
     {
+        //ui의 관리는 MainUI에서 겸한다.
+        PauseUI.SetActive(false);
+        SettingUI.SetActive(false);
+        Time.timeScale = 1f;
+
         Player = GameObject.FindWithTag("Player");
         pm = Player.GetComponent<PlayerManager>();
         pMov = Player.GetComponent<PlayerMovement>();
@@ -268,5 +277,6 @@ public class MainUI : MonoBehaviour
     private void TabClicked()
     {
         Debug.Log(" Tab입력.");
+        PauseUI.SetActive(true);
     }
 }
