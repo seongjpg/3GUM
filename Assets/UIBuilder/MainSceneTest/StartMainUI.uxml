@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="MainUI" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/IMG/Tile/black_metal.png?fileID=2800000&amp;guid=8a4f268bad4949a4197df10441c581d0&amp;type=3#black_metal&quot;); position: absolute; top: 0; width: 1565px; height: 868px;">
+        <ui:VisualElement name="VisualElement" style="flex-grow: 1; width: 636px; height: 352px; position: absolute; top: 378px; left: 474px; background-color: rgba(0, 0, 0, 0.64);">
+            <ui:Button text="START GAME" name="BTN_START" style="position: absolute; top: 25px; left: 146px; height: 84px; width: 335px;" />
+            <ui:Button text="SETTING" name="BTN_SETTING" style="position: absolute; top: 138px; left: 151px; height: 78px; width: 321px;" />
+            <ui:Button text="QUIT GAME" name="BTN_QUIT_GAME" style="position: absolute; top: 240px; left: 155px; width: 312px; height: 83px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Label text="3GUM" name="3GUM" style="position: absolute; top: 210px; left: 640px; width: 324px; height: 94px; font-size: 99px;" />
+</ui:UXML>

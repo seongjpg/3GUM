@@ -414,6 +414,7 @@ GameObject:
   - component: {fileID: 473259319}
   - component: {fileID: 473259318}
   - component: {fileID: 473259320}
+  - component: {fileID: 473259321}
   m_Layer: 5
   m_Name: PauseUI
   m_TagString: Untagged
@@ -468,6 +469,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SettingUI: {fileID: 741967092}
+  WTG_ASSET: {fileID: 11400000, guid: 155db67f84cdf7d499785267392fe650, type: 2}
+  smm: {fileID: 473259321}
+--- !u!114 &473259321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473259317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8fc34889fe62ee44a3b9096d6c753c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &556116925
 GameObject:
   m_ObjectHideFlags: 0
