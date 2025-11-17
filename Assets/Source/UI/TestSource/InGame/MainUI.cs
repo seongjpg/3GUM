@@ -128,49 +128,42 @@ public class MainUI : MonoBehaviour
         int notFullAmt = health % 4;
         Sprite notFullSprite;
 
+        FillEmptyHeart();
         FillFullHeart(fullAmt); // 꽉 찬 하트를 채움, 빈 하트도 채움.
         notFullSprite = FindNotFullSprite(notFullAmt); // 체력을 4로 나눈 나머지가 무엇인지에 따라 스프라이트 결정.
         FillNotFullHeart(fullAmt, notFullSprite); // 꼬다리 하트도 채우기
     }
 
+
+    private void FillEmptyHeart()
+    {
+        Heart01.style.backgroundImage = Heart_empty.texture;
+        Heart02.style.backgroundImage = Heart_empty.texture;
+        Heart03.style.backgroundImage = Heart_empty.texture;
+        Heart04.style.backgroundImage = Heart_empty.texture;
+        Heart05.style.backgroundImage = Heart_empty.texture;
+    }
     private void FillFullHeart(int fullAmt)
     {
         switch (fullAmt)
         {
-            case 0:
-                Heart01.style.backgroundImage = Heart_empty.texture;
-                Heart02.style.backgroundImage = Heart_empty.texture;
-                Heart03.style.backgroundImage = Heart_empty.texture;
-                Heart04.style.backgroundImage = Heart_empty.texture;
-                Heart05.style.backgroundImage = Heart_empty.texture;
-                break;
             case 1:
                 Heart01.style.backgroundImage = Heart_full.texture;
-                Heart02.style.backgroundImage = Heart_empty.texture;
-                Heart03.style.backgroundImage = Heart_empty.texture;
-                Heart04.style.backgroundImage = Heart_empty.texture;
-                Heart05.style.backgroundImage = Heart_empty.texture;
                 break;
             case 2:
                 Heart01.style.backgroundImage = Heart_full.texture;
                 Heart02.style.backgroundImage = Heart_full.texture;
-                Heart03.style.backgroundImage = Heart_empty.texture;
-                Heart04.style.backgroundImage = Heart_empty.texture;
-                Heart05.style.backgroundImage = Heart_empty.texture;
                 break;
             case 3:
                 Heart01.style.backgroundImage = Heart_full.texture;
                 Heart02.style.backgroundImage = Heart_full.texture;
                 Heart03.style.backgroundImage = Heart_full.texture;
-                Heart04.style.backgroundImage = Heart_empty.texture;
-                Heart05.style.backgroundImage = Heart_empty.texture;
                 break;
             case 4:
                 Heart01.style.backgroundImage = Heart_full.texture;
                 Heart02.style.backgroundImage = Heart_full.texture;
                 Heart03.style.backgroundImage = Heart_full.texture;
                 Heart04.style.backgroundImage = Heart_full.texture;
-                Heart05.style.backgroundImage = Heart_empty.texture;
                 break;
 
             case 5:
