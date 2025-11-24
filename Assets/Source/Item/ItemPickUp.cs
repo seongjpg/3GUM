@@ -5,6 +5,7 @@ public class ItemPickUp : MonoBehaviour
 	[SerializeField] private ScriptableObject shieldAsset;
 	[SerializeField] private ScriptableObject spellAsset;
 	[SerializeField] private ScriptableObject passiveAsset;
+	//액티브의 스크립터블 오브젝트 적용해야 함. 실드에셋은 패스브로 편입시켜야 한다.
 	private IShield shield;
 	private IAffectToPlayer spell;
 	private IPassiveEquip passive;
