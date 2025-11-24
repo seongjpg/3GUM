@@ -7,7 +7,7 @@ public class SceneMoveManager : MonoBehaviour {
 	void Awake()
 	{
 	
-		DontDestroyOnLoad(gameObject); // 씬 전환 시에도 유지
+		//DontDestroyOnLoad(gameObject); // 씬 전환 시에도 유지
 	}
 
 	public void MoveToScene(string sceneName)
@@ -18,5 +18,6 @@ public class SceneMoveManager : MonoBehaviour {
 			return;
 		}
 		SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+		Time.timeScale = 1.0f;
 	}
 }

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public interface IDamageDealer {
     [SerializeField] int damage { get; }

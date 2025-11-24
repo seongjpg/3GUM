@@ -120,6 +120,15 @@ public class MainUI : MonoBehaviour
     private void OnDisable()
     {
         if (Player != null) HealthChange(pm.curHealth);
+
+        Skill01.clicked -= Skill01Clicked;
+        Skill02.clicked -= Skill02Clicked;
+        Spell.clicked -= SpellClicked;
+        Up.clicked -= UpClicked;
+        Down.clicked -= DownClicked;
+        Left.clicked -= LeftClicked;
+        Right.clicked -= RightClicked;
+        Tab.clicked -= TabClicked;
     }
 
     public void HealthChange(int health)

@@ -29,6 +29,15 @@ public class MainSceneUI : MonoBehaviour
         Quit.clicked += QuitClicked;
     }
 
+    private void OnDisable()
+    {
+        SaveFileUI.SetActive(false);
+        SettingUI.SetActive(false);
+        Setting.clicked -= SettingClicked;
+        Quit.clicked -= QuitClicked;
+        Start.clicked -= StartClicked;
+    }
+
     void StartClicked()
     {
         SaveFileUI.SetActive(true);

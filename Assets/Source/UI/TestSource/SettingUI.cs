@@ -21,6 +21,11 @@ public class SettingUI: MonoBehaviour
         Save.clicked += SaveClicked;
         Quit.clicked += QuitClicked;
     }
+    private void OnDisable()
+    {
+        Save.clicked -= SaveClicked;
+        Quit.clicked -= QuitClicked;
+    }
 
     void SaveClicked()
     {

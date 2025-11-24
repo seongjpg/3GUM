@@ -32,6 +32,13 @@ public class PauseUI : MonoBehaviour
         Setting.clicked += SettingClicked;
         Quit.clicked += QuitClicked;
     }
+    private void OnDisable()
+    {
+        Time.timeScale = 1f;
+        Resume.clicked -= ResumeClicked;
+        Setting.clicked -= SettingClicked;
+        Quit.clicked -= QuitClicked;
+    }
 
     void ResumeClicked()
     {
@@ -52,6 +59,7 @@ public class PauseUI : MonoBehaviour
 
     void QuitClicked()
     {
+        Time.timeScale = 1f;
         Debug.Log("Quit Clicked");
         // 게임의 진행 상황을 Json 직렬화하여 저장.
         // 게임의 현재 씬을 종료하고, 시작 화면 씬으로 이동.   
