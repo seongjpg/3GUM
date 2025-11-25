@@ -50,10 +50,7 @@ public class Shield : ScriptableObject, IPassiveEquip, IFusionWithWeapon, IApply
 
     public void ApplyEffect(GameObject user)
     {
-        //penetrate는 이곳에 구현할 것이 없어서 별도의 효과 적용하는 함수가 필요없다. 호출될 때 그대로 리턴
-        //Debug.Log("penetrate 효과 적용중(사실 이미 적용됨)");
         return;
-
     }
 
 

@@ -13,6 +13,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public float damage; // 공격력
     [SerializeField] public float fireRate; // 연사 속도
 
+    public bool isUsingBullet = false;
+
 
     public GameObject oneTime;
     public IUseSpell oneTimeSpell;

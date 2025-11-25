@@ -17,8 +17,8 @@ public class Penetrate : ScriptableObject, IPassiveEquip, IFusionWithWeapon, IAp
 			pm.passive.Add(save);
 			pm.applyPassives.Add(this);
 			ApplyPassive(user);
-
-		}
+            save.SetActive(false);
+        }
 		else
 		{
 			Debug.Log("플레이어 존재 안한다!(by penetrate)");
@@ -39,7 +39,8 @@ public class Penetrate : ScriptableObject, IPassiveEquip, IFusionWithWeapon, IAp
 	public void ApplyPassive(GameObject user)
 	{
 		PlayerMovement pMov = user.GetComponent<PlayerMovement>();
-		if (pMov.playerWeapon != null)
+		PlayerManager pm = user.GetComponentInParent<PlayerManager>();
+		if (pMov.playerWeapon != null && pm.isUsingBullet)
 		{
 			PlayerBullet pb = pMov.playerWeapon.GetComponent<PlayerBullet>();
 			pb.destroyByCollision = false; // 근접 무기일때에는 어떻게 처리해야할까?
@@ -58,7 +59,8 @@ public class Penetrate : ScriptableObject, IPassiveEquip, IFusionWithWeapon, IAp
 	public void LostEffect(GameObject user)
 	{
 		PlayerMovement pMov = user.GetComponent<PlayerMovement>();
-		if (pMov.playerWeapon != null)
+		PlayerManager pm = user.GetComponent <PlayerManager>();
+		if (pMov.playerWeapon != null && pm.isUsingBullet)
 		{
 			PlayerBullet pb = pMov.playerWeapon.GetComponent<PlayerBullet>();
 			pb.destroyByCollision = true;

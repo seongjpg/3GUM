@@ -26,7 +26,7 @@ TagManager:
   - GameObjects
   - Bullet
   - Player
-  - 
+  - Effect
   - 
   - 
   - 
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Map
     uniqueID: 132932163
+    locked: 0
+  - name: Effects
+    uniqueID: 2235672653
     locked: 0
   - name: GameObjects
     uniqueID: 3191682767
