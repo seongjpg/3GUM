@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour
 {
-	[SerializeField] private ScriptableObject shieldAsset;
+	[SerializeField] private ScriptableObject WeaponAsset;
 	[SerializeField] private ScriptableObject spellAsset;
 	[SerializeField] private ScriptableObject passiveAsset;
-	//액티브의 스크립터블 오브젝트 적용해야 함. 실드에셋은 패스브로 편입시켜야 한다.
-	private IShield shield;
+	//액티브의 스크립터블 오브젝트 적용해야 함. 실드에셋은 패시브로 편입시켜야 한다.
+	private IWeaponEquip weapon;
 	private IAffectToPlayer spell;
 	private IPassiveEquip passive;
 
 	private void Start()
 	{
-		shield = shieldAsset as IShield;
+		weapon = WeaponAsset as IWeaponEquip;
 
 		spell = spellAsset as IAffectToPlayer;
 
@@ -40,13 +40,10 @@ public class ItemPickUp : MonoBehaviour
 			}
 			if (this.CompareTag("Weapon")) // 무기
 			{
-			}
-			if (this.CompareTag("Shield")) // 방어구
-			{
-				Debug.Log("방어구!");
-				shield.Upgrade(collided); // 사실 스펠과 동일한 구조로 만들어져야 한다.
-				Destroy(this.gameObject);
-			}
+                Debug.Log("무기!"); // 현재 방어구와 동일한 구조
+                weapon.SaveWeapon(collided, this.gameObject); // 최초 실행부
+                Destroy(this.gameObject);
+            }
 			if (this.CompareTag("OneTime")) // 일회용 아이템
 			{
 				Debug.Log("1회용 아이템");

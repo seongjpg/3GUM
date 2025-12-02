@@ -1,17 +1,24 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerBesideAttack : MonoBehaviour
+public class PlayerBesideAttack : MonoBehaviour, IWeaponBody
 {
+	
+
 	private float timer = 0f;
-	private WeaponStatus weapon;
+	public WeaponStatus weapon;
 	private GameObject player;
-	private float startAngle = 60;
+	private float startAngle;
 
 	void Start()
 	{
-		weapon = GetComponent<WeaponStatus>();
 		player = GameObject.FindWithTag("Player");
-		transform.Rotate(0, 0, startAngle);
+		Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 dir = mouseWorldPos - transform.position;
+
+        float startAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg+45;
+
+        transform.Rotate(0, 0, startAngle);
 	}
 
 	void Update()
@@ -37,4 +44,19 @@ public class PlayerBesideAttack : MonoBehaviour
 			Debug.Log("적 피격!");
 		}
 	}
+    public float DMG()
+    {
+        if (weapon != null && !weapon.isBullet)
+        {
+
+            return weapon.damage;
+        }
+
+        else
+        {
+            Debug.Log("이건 근접무기 아니다.");
+            return 0;
+        }
+    }
+
 }

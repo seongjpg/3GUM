@@ -62,5 +62,8 @@ TagManager:
   - name: GameObjects
     uniqueID: 3191682767
     locked: 0
+  - name: Weapon
+    uniqueID: 2523744207
+    locked: 0
   m_RenderingLayers:
   - Default
