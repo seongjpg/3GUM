@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] public float hitRate; // 피격 확률(0-1범위)
     [SerializeField] public float damage; // 공격력
     [SerializeField] public float fireRate; // 연사 속도
+    [SerializeField] public float CoolTime_01; // 스킬1 쿨타임
+    [SerializeField] public float CoolTime_02; // 스킬2 쿨타임
 
     public bool isUsingBullet = false;
 

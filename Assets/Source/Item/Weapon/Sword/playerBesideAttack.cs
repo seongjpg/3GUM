@@ -1,10 +1,7 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerBesideAttack : MonoBehaviour, IWeaponBody
 {
-	
-
 	private float timer = 0f;
 	public WeaponStatus weapon;
 	private GameObject player;

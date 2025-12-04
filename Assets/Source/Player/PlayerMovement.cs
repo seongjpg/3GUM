@@ -13,7 +13,10 @@ public class PlayerMovement : MonoBehaviour
     public PlayerManager pm;
 	public Transform playerTr;
 	public GameObject playerWeapon;
+    public ISkill01 skill01;
     public float fireTimer;
+    public float skill01Timer;
+    public float skill02Timer;
 
     void Start()
     {
@@ -28,14 +31,23 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         fireTimer += Time.deltaTime;
+        skill01Timer += Time.deltaTime;
+        skill02Timer += Time.deltaTime;
         if (fireTimer >= pm.fireRate)
         {
             PlayerAttack();
         }
         PlayerMove();
         
-        Skill_01();
-        Skill_02();
+        if(skill01Timer >= pm.CoolTime_01)
+        {
+            Skill_01();
+        }
+        if(skill02Timer >= pm.CoolTime_02)
+        {
+
+            Skill_02();
+        }
         OTS();
         DebugingPassive();
     }
@@ -93,14 +105,23 @@ public class PlayerMovement : MonoBehaviour
     //스킬 1번
     private void Skill_01()
     {
-        if (Input.GetKeyDown("1")){
+        if (skill01 == null)
+        {
+            return;
+        }
+        if (Input.GetKeyDown("e")){
 			Debug.Log("스킬1");
+            skill01.SkillEffect(player);
+            //weapon.SkillATK();
+            skill01Timer = 0;
 		}
     }
     
     public void NewSkill_01()
     {
         Debug.Log("스킬1-구조개선");
+        //weapon.SkillATK();
+        skill01Timer = 0;
     }
 
     //스킬 2번

@@ -30,7 +30,6 @@ public class ItemPickUp : MonoBehaviour
 				Debug.Log("액티브 아이템!");
 				spell.SaveSpell(collided, this.gameObject);
 				Destroy(this.gameObject);
-
 			}
 			if (this.CompareTag("Passive")) // 패시브 아이템
 			{

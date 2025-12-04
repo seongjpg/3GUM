@@ -28,7 +28,7 @@ public class PlayerBullet : MonoBehaviour, IWeaponBody
 			Destroy(gameObject);
 			return;
 		}
-		gameObject.transform.position += wayToGO * weapon.speed * Time.deltaTime;
+		gameObject.transform.position += wayToGO * weapon.shotSpeed * Time.deltaTime;
 
 
     }
