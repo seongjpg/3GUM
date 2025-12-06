@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17fffbda130d554291376e7a833a945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponAsset: {fileID: 11400000, guid: dfd9151401d796d42a836da3a7ae82c3, type: 2}
+  WeaponAsset: {fileID: 11400000, guid: 27561412fc267264a8d4de634f4ba76b, type: 2}
   spellAsset: {fileID: 0}
   passiveAsset: {fileID: 0}
 --- !u!1 &9119664196397822557
