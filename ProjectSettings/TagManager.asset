@@ -65,5 +65,8 @@ TagManager:
   - name: Weapon
     uniqueID: 2523744207
     locked: 0
+  - name: InterEffect
+    uniqueID: 3196267489
+    locked: 0
   m_RenderingLayers:
   - Default
