@@ -3,6 +3,8 @@ using UnityEngine;
 
 public interface IAffectToPlayer {
 	void SaveSpell(GameObject collided, GameObject prefab);
+
+    void DiscardSpell(PlayerManager pm);
 }
 
 public interface ISummonPrefab {
@@ -15,7 +17,11 @@ public interface IFirePrefab {
 
 public interface IUseSpell {
 	void UseSpell(GameObject user, GameObject prefab);
-	void DiscardSpell(PlayerManager pm);
+}
+
+interface ISpellEffect
+{
+	void Effect(GameObject user, GameObject prefab);
 }
 
 

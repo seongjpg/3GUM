@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponAsset: {fileID: 0}
-  spellAsset: {fileID: 11400000, guid: ca26bf5b363a65d48aacd3ea174a75de, type: 2}
+  spellAsset: {fileID: 11400000, guid: 466a57b21232c6d46be543d27886b5a3, type: 2}
   passiveAsset: {fileID: 0}
 --- !u!114 &1328295551459847572
 MonoBehaviour:

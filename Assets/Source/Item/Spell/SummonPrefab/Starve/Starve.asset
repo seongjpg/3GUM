@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a525c1fa89294f64385d060146dec501, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b0f4ef6032f09847bddf31c515c87f3, type: 3}
   m_Name: Starve
   m_EditorClassIdentifier: 
-  FieldPrefab: {fileID: 2100144331227584053, guid: 5828fd0424ffa8146b86de1e940e93cc, type: 3}
+  FieldPrefab: {fileID: 0}
+  se: {fileID: 0}

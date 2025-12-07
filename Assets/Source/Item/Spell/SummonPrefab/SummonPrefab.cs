@@ -1,45 +1,11 @@
 using UnityEngine;
-
-[CreateAssetMenu(menuName = "Spell/SummonPrefab")]
-
-public class SummonPrefab : ScriptableObject, IAffectToPlayer, ISummonPrefab, IUseSpell
+[CreateAssetMenu(menuName = "Spell/Effect/SummonPrefab")]
+public class SummonPrefab : ScriptableObject, ISpellEffect, ISummonPrefab
 {
-    [SerializeField] GameObject FieldPrefab;
-    public void SaveSpell(GameObject user, GameObject prefab)
+    float timer;
+    public void Effect(GameObject user, GameObject prefab)
     {
-
-        if (user != null && prefab != null)
-        {
-            PlayerManager pm = user.GetComponent<PlayerManager>();
-            GameObject save = Instantiate(
-                    prefab,
-                    user.transform.position,
-                    Quaternion.identity,
-                    user.transform
-                    );
-
-            if (pm.oneTime == null)
-            {
-                pm.oneTime = save;
-                pm.oneTimeSpell = this;
-
-                Debug.Log("일회용 아이템 장착!");
-            }
-
-            //교체
-            else
-            {
-                DiscardSpell(pm);
-                pm.oneTime = save;
-                pm.oneTimeSpell = this;
-                Debug.Log("일회용 아이템 교체");
-            }
-
-        }
-        else
-        {
-            Debug.Log("플레이어 존재하지 않는다.(by StarveField)");
-        }
+        UsePrefab(user, prefab);
     }
 
     public void UsePrefab(GameObject user, GameObject prefab)
@@ -57,26 +23,5 @@ public class SummonPrefab : ScriptableObject, IAffectToPlayer, ISummonPrefab, IU
         {
             Debug.Log("프리팹 존재하지 않음!");
         }
-    }
-
-    public void UseSpell(GameObject user, GameObject prefab)
-    {
-        if (user != null && prefab != null)
-        {
-            UsePrefab(user, FieldPrefab);
-        }
-        return;
-    }
-
-    public void DiscardSpell(PlayerManager pm)
-    {
-        Debug.Log("스펠 뱉기");
-
-        Instantiate(pm.oneTime,
-                new Vector3(pm.transform.position.x, pm.transform.position.y - 2, pm.transform.position.z),
-                Quaternion.identity);
-        Destroy(pm.oneTime);
-        pm.oneTime = null;
-        pm.oneTimeSpell = null;
     }
 }
