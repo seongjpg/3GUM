@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1103284529
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -138,8 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17fffbda130d554291376e7a833a945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldAsset: {fileID: 0}
-  spellAsset: {fileID: 11400000, guid: 2addea51100851d4bb0350b4604f8e58, type: 2}
+  WeaponAsset: {fileID: 0}
+  spellAsset: {fileID: 11400000, guid: ca26bf5b363a65d48aacd3ea174a75de, type: 2}
   passiveAsset: {fileID: 0}
 --- !u!114 &1328295551459847572
 MonoBehaviour:
@@ -156,6 +156,6 @@ MonoBehaviour:
   assetRef:
     m_AssetGUID: 54dabafa6ac39084597ca229501e864b
     m_SubObjectName: 
-    m_SubObjectGUID: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0

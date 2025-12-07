@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c488d63a18051ee4e973bfe8277c94f5, type: 3}
+  m_Script: {fileID: 11500000, guid: a525c1fa89294f64385d060146dec501, type: 3}
   m_Name: Abundance
   m_EditorClassIdentifier: 
   FieldPrefab: {fileID: 2401506211502585028, guid: 663aea223dfaa4341b2f8359b22ed526, type: 3}

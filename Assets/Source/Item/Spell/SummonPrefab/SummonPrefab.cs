@@ -1,45 +1,44 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
-[CreateAssetMenu(menuName = "Spell/AbundacneField")]
+[CreateAssetMenu(menuName = "Spell/SummonPrefab")]
 
-public class AbundanceField : ScriptableObject, IAffectToPlayer, ISummonPrefab, IUseSpell
+public class SummonPrefab : ScriptableObject, IAffectToPlayer, ISummonPrefab, IUseSpell
 {
     [SerializeField] GameObject FieldPrefab;
     public void SaveSpell(GameObject user, GameObject prefab)
     {
-        
+
         if (user != null && prefab != null)
         {
             PlayerManager pm = user.GetComponent<PlayerManager>();
             GameObject save = Instantiate(
-					prefab,
-					user.transform.position,
-					Quaternion.identity,
-					user.transform
+                    prefab,
+                    user.transform.position,
+                    Quaternion.identity,
+                    user.transform
                     );
 
-			if (pm.oneTime == null)
-			{
-				pm.oneTime = save;
-				pm.oneTimeSpell = this;
+            if (pm.oneTime == null)
+            {
+                pm.oneTime = save;
+                pm.oneTimeSpell = this;
 
-				Debug.Log("일회용 아이템 장착!");
-			}
+                Debug.Log("일회용 아이템 장착!");
+            }
 
-			//교체
-			else
-			{
+            //교체
+            else
+            {
                 DiscardSpell(pm);
-				pm.oneTime = save;
-				pm.oneTimeSpell = this;
+                pm.oneTime = save;
+                pm.oneTimeSpell = this;
+                Debug.Log("일회용 아이템 교체");
+            }
 
-				Debug.Log("일회용 아이템 교체");
-			}
-		}
+        }
         else
         {
-            Debug.Log("플레이어 존재하지 않는다.");
+            Debug.Log("플레이어 존재하지 않는다.(by StarveField)");
         }
     }
 
@@ -51,7 +50,7 @@ public class AbundanceField : ScriptableObject, IAffectToPlayer, ISummonPrefab, 
         {
             Instantiate(prefab, userPos, Quaternion.identity);
             Destroy(pm.oneTime);
-            pm.oneTime = null; 
+            pm.oneTime = null;
             pm.oneTimeSpell = null;
         }
         else
@@ -64,7 +63,6 @@ public class AbundanceField : ScriptableObject, IAffectToPlayer, ISummonPrefab, 
     {
         if (user != null && prefab != null)
         {
-            Debug.Log("스펠 사용! 이제 내용물 구현하거라");
             UsePrefab(user, FieldPrefab);
         }
         return;
@@ -72,11 +70,13 @@ public class AbundanceField : ScriptableObject, IAffectToPlayer, ISummonPrefab, 
 
     public void DiscardSpell(PlayerManager pm)
     {
-		Instantiate(pm.oneTime,
-				new Vector3(pm.transform.position.x, pm.transform.position.y - 2, pm.transform.position.z),
-				Quaternion.identity);
+        Debug.Log("스펠 뱉기");
+
+        Instantiate(pm.oneTime,
+                new Vector3(pm.transform.position.x, pm.transform.position.y - 2, pm.transform.position.z),
+                Quaternion.identity);
         Destroy(pm.oneTime);
         pm.oneTime = null;
         pm.oneTimeSpell = null;
-	}
+    }
 }
