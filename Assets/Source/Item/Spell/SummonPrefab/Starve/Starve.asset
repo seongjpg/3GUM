@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0f4ef6032f09847bddf31c515c87f3, type: 3}
   m_Name: Starve
   m_EditorClassIdentifier: 
-  FieldPrefab: {fileID: 0}
-  se: {fileID: 0}
+  FieldPrefab: {fileID: 2100144331227584053, guid: 5828fd0424ffa8146b86de1e940e93cc, type: 3}
+  se: {fileID: 11400000, guid: 82ff2e344b68e914e94f51136c0d4d75, type: 2}

@@ -9,7 +9,7 @@ public class BeGiant : ScriptableObject, ISpellEffect
         user.transform.localScale *= 2;
         Debug.Log("효과 적용");
         if (timer < durable) {
-            timer += Time.deltaTime;
+            timer += Time.fixedDeltaTime;
         }
         user.transform.localScale /= 2;
         Debug.Log("효과 해제");
