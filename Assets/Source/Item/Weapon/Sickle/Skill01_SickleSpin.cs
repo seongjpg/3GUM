@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = ("Weapon/Sickle/SickleSpin"))]
-public class Skill01_SickleSpin : ScriptableObject, ISkill01
+public class Skill01_SickleSpin : ScriptableObject, ISkill
 {
     [SerializeField] GameObject SickleSpinObj;
 

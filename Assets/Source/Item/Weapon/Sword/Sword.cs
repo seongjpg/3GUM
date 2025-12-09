@@ -18,7 +18,7 @@ public class Sword : ScriptableObject, IWeaponEquip
             PlayerMovement pMov = user.GetComponent <PlayerMovement>();
  
             pMov.playerWeapon = swordObj;
-            pMov.skill01 = skill_kenki as ISkill01;
+            pMov.skill01 = skill_kenki as ISkill;
             pm.CoolTime_01 = pMov.skill01.SkillTimer();
         }
         else

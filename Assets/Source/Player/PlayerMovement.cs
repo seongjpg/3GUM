@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public PlayerManager pm;
 	public Transform playerTr;
 	public GameObject playerWeapon;
-    public ISkill01 skill01;
+    public ISkill skill01;
+    public ISkill skill02;
     public float fireTimer;
     public float skill01Timer;
     public float skill02Timer;
@@ -127,10 +128,16 @@ public class PlayerMovement : MonoBehaviour
     //스킬 2번
     public void Skill_02()
     {
-        if (Input.GetKeyDown("2"))
+        if (skill02 == null)
         {
-			Debug.Log("스킬2");
-		}
+            return;
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            Debug.Log("스킬2");
+            skill02.SkillEffect(player);
+            skill02Timer = 0;
+        }
     }
 
     public void NewSkill_02()

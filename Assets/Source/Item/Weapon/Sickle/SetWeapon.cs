@@ -17,7 +17,7 @@ public class SetWeapon : ScriptableObject, IWeaponEquip
             PlayerMovement pMov = user.GetComponent<PlayerMovement>();
 
             pMov.playerWeapon = weaponObj;
-            pMov.skill01 = skill_01 as ISkill01;
+            pMov.skill01 = skill_01 as ISkill;
             pm.CoolTime_01 = pMov.skill01.SkillTimer();
         }
         else

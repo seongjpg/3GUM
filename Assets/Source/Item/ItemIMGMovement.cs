@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//아이템이 필드 아이템으로 있을 때 표현을 위한 스크립트
 public class ItemIMGMovement : MonoBehaviour
 {
     private float amplitude = 0.3f;

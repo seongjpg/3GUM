@@ -10,7 +10,12 @@ public interface IWeaponEquip
     void SaveWeapon(GameObject user, GameObject prefab); // 주운 무기를 PlayerManager의 Weapon에 반영
 }
 
-public interface ISkill01
+public interface IActiveEquip
+{
+    void SaveActive(GameObject user, GameObject prefab); // 주운 액티브 스킬을 PlayerManager의 Skill02에 반영 
+}
+
+public interface ISkill
 {
     void SkillEffect(GameObject user);
     float SkillTimer();

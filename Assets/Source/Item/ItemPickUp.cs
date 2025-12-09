@@ -5,10 +5,12 @@ public class ItemPickUp : MonoBehaviour
 	[SerializeField] private ScriptableObject WeaponAsset;
 	[SerializeField] private ScriptableObject spellAsset;
 	[SerializeField] private ScriptableObject passiveAsset;
-	//액티브의 스크립터블 오브젝트 적용해야 함. 실드에셋은 패시브로 편입시켜야 한다.
+	[SerializeField] private ScriptableObject activeAsset;
+
 	private IWeaponEquip weapon;
 	private IAffectToPlayer spell;
 	private IPassiveEquip passive;
+	private IActiveEquip active;
 
 	private void Start()
 	{
@@ -17,18 +19,19 @@ public class ItemPickUp : MonoBehaviour
 		spell = spellAsset as IAffectToPlayer;
 
 		passive = passiveAsset as IPassiveEquip;
+
+		active = activeAsset as IActiveEquip;
 	}
 	
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		GameObject collided = collision.gameObject;
-		//Active
 		if (collided.CompareTag("Player"))
 		{
 			if (this.CompareTag("Active")) // 액티브 아이템
 			{
 				Debug.Log("액티브 아이템!");
-				spell.SaveSpell(collided, this.gameObject);
+				active.SaveActive(collided, this.gameObject);
 				Destroy(this.gameObject);
 			}
 			if (this.CompareTag("Passive")) // 패시브 아이템

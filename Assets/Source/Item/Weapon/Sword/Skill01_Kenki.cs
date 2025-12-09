@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName =("Weapon/Sword/Kenki"))]
-public class Skill01_Kenki : ScriptableObject, ISkill01
+public class Skill01_Kenki : ScriptableObject, ISkill
 {
     [SerializeField] GameObject KenkiObj;
 

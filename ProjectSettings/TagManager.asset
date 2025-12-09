@@ -16,6 +16,7 @@ TagManager:
   - Scene
   - MapGen
   - Tile
+  - Stealth
   layers:
   - Default
   - TransparentFX

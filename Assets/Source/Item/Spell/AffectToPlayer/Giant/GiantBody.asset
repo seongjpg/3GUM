@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0f4ef6032f09847bddf31c515c87f3, type: 3}
   m_Name: GiantBody
   m_EditorClassIdentifier: 
-  FieldPrefab: {fileID: 0}
+  FieldPrefab: {fileID: 5399102062153813569, guid: 2e0a345099b01d248bc328d3f1fd9848, type: 3}
   se: {fileID: 11400000, guid: 13456d986f31b6f4ea757858cc0daf2a, type: 2}
