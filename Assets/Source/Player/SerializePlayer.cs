@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SerializePlayer : MonoBehaviour
 {
+
+	//플레이어의 기본 스테이터스. 이는 각 캐릭터별로 다름.
 	private int curHealth; // 현재 체력
 	private float maxSpeed;
 	private float speed; // 이동 속도
