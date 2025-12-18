@@ -13,9 +13,19 @@ MonoBehaviour:
   m_Name: TestItemPool
   m_EditorClassIdentifier: 
   pool:
-  - elem: {fileID: 2096558885749434460, guid: 452a3905c2022a74c99c3a1981b38858, type: 3}
-    prop: 20
+  - elem: {fileID: 8292754467184260618, guid: cc030a0b25205c5439a5c32a6d262e26, type: 3}
+    prop: 10
   - elem: {fileID: 1394239744011554229, guid: c1bc4242a28af164597c51537e0e8f2d, type: 3}
-    prop: 30
+    prop: 10
   - elem: {fileID: 7562851750089515652, guid: 54dabafa6ac39084597ca229501e864b, type: 3}
-    prop: 50
+    prop: 10
+  - elem: {fileID: 4921031783086492566, guid: 89a29c48964b9ff4c90d6e09714f1ca4, type: 3}
+    prop: 10
+  - elem: {fileID: 5429547033416283867, guid: 61e173c9bbe3cca4b93f2767d796c61b, type: 3}
+    prop: 10
+  - elem: {fileID: 8940206145734138670, guid: 452a3905c2022a74c99c3a1981b38858, type: 3}
+    prop: 10
+  - elem: {fileID: 5145508014328699598, guid: 9d859ad2100a10f439cc148adc1a86d6, type: 3}
+    prop: 10
+  - elem: {fileID: 5145508014328699598, guid: 9d859ad2100a10f439cc148adc1a86d6, type: 3}
+    prop: 10

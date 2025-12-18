@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SerializePlayer : MonoBehaviour
 {
-	private int maxHealth; // 최대 체력
 	private int curHealth; // 현재 체력
 	private float maxSpeed;
 	private float speed; // 이동 속도
@@ -40,7 +39,6 @@ public class SerializePlayer : MonoBehaviour
 	{
 		GameObject player = GameObject.FindWithTag("Player");
 		PlayerManager pm = player.GetComponent<PlayerManager>();
-		maxHealth = pm.maxHealth;
 		curHealth = pm.curHealth;
 		maxSpeed = pm.maxSpeed;
 		speed = pm.speed;
@@ -50,7 +48,7 @@ public class SerializePlayer : MonoBehaviour
 		Vector3 pos = player.transform.position;
 		//더 저장할 요소가 필요한 경우 여기에 반영
 
-		SerializeP playerJsonData = new SerializeP(maxHealth, curHealth, maxSpeed, speed, hitRate, damage, fireRate, pos);
+		SerializeP playerJsonData = new SerializeP(curHealth, maxSpeed, speed, hitRate, damage, fireRate, pos);
 		string playerJson = ObjectToJson(playerJsonData);
 		CreateJsonFile($"{Application.persistentDataPath}/", "user", playerJson);
 	}
@@ -95,7 +93,6 @@ public class SerializePlayer : MonoBehaviour
 
 [System.Serializable]
 public class SerializeP {
-	public int maxHealth; // 최대 체력
 	public int curHealth; // 현재 체력
 	public float maxSpeed;
 	public float speed; // 이동 속도
@@ -121,9 +118,8 @@ public class SerializeP {
 
 	}
 
-	public SerializeP(int maxHealth, int curHealth, float maxSpeed, float speed, float hitRate, float damage, float fireRate, Vector3 pos)
+	public SerializeP(int curHealth, float maxSpeed, float speed, float hitRate, float damage, float fireRate, Vector3 pos)
 	{
-		this.maxHealth = maxHealth;
 		this.curHealth = curHealth;
 		this.maxSpeed = maxSpeed;
 		this.speed = speed;
@@ -139,7 +135,6 @@ public class SerializeP {
 	{
 		GameObject player = GameObject.FindWithTag("Player");
 		PlayerManager pm = player.GetComponent<PlayerManager>();
-		pm.maxHealth = maxHealth;
 		pm.curHealth = curHealth;
 		pm.maxSpeed = maxSpeed;
 		pm.speed = speed;

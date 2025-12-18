@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FireField_Effect : MonoBehaviour
+public class FireField_Effect : MonoBehaviour, IWeaponBody, IPerWeapon
 {
     private float timer = 0f;
     private float effectTimer = 0f;
@@ -25,6 +25,15 @@ public class FireField_Effect : MonoBehaviour
         this.transform.position = player.transform.position;
     }
 
+    public float DMG()
+    {
+        return activeStat.damage;
+    }
+    public float DMGCycle()
+    {
+        return activeStat.shotSpeed;
+    }
+
     public float CoolTime()
     {
         if (activeStat != null && activeStat.isBullet)
@@ -38,7 +47,7 @@ public class FireField_Effect : MonoBehaviour
             return 1000;
         }
     }
-
+    /*
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -52,6 +61,7 @@ public class FireField_Effect : MonoBehaviour
             }
         }
     }
+    */
 }
 
 

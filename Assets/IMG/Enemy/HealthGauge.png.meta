@@ -1,0 +1,1703 @@
+fileFormatVersion: 2
+guid: fd64b17edfcda2446b166ec1dccf2d9b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8901458240539152392
+    second: HealthGauge_0
+  - first:
+      213: 8137486098581811264
+    second: HealthGauge_1
+  - first:
+      213: -933916296226769734
+    second: HealthGauge_2
+  - first:
+      213: 4345880378834253813
+    second: HealthGauge_3
+  - first:
+      213: -8908623815464982371
+    second: HealthGauge_4
+  - first:
+      213: -4787491158008553853
+    second: HealthGauge_5
+  - first:
+      213: 1643923925434974335
+    second: HealthGauge_6
+  - first:
+      213: -683780693348145643
+    second: HealthGauge_7
+  - first:
+      213: 5229200272179305405
+    second: HealthGauge_8
+  - first:
+      213: 8871127036713580403
+    second: HealthGauge_9
+  - first:
+      213: -7263847807640632001
+    second: HealthGauge_10
+  - first:
+      213: 958470032982646754
+    second: HealthGauge_11
+  - first:
+      213: -6550151514980124086
+    second: HealthGauge_12
+  - first:
+      213: 6824173503372192826
+    second: HealthGauge_13
+  - first:
+      213: 6021297322308260095
+    second: HealthGauge_14
+  - first:
+      213: 3106424553783309173
+    second: HealthGauge_15
+  - first:
+      213: -7963439792054342192
+    second: HealthGauge_16
+  - first:
+      213: 4657528178916319433
+    second: HealthGauge_17
+  - first:
+      213: 4707310891635253567
+    second: HealthGauge_18
+  - first:
+      213: 3121398528229141808
+    second: HealthGauge_19
+  - first:
+      213: -7188706579357471801
+    second: HealthGauge_20
+  - first:
+      213: -2327363989699095972
+    second: HealthGauge_21
+  - first:
+      213: -2575475678321448283
+    second: HealthGauge_22
+  - first:
+      213: -8271829864991828382
+    second: HealthGauge_23
+  - first:
+      213: -4381478231822855670
+    second: HealthGauge_24
+  - first:
+      213: 7605164397933990176
+    second: HealthGauge_25
+  - first:
+      213: -8710721662177382677
+    second: HealthGauge_26
+  - first:
+      213: 8525913761101822801
+    second: HealthGauge_27
+  - first:
+      213: 3921518410036578267
+    second: HealthGauge_28
+  - first:
+      213: -5074956134521137410
+    second: HealthGauge_29
+  - first:
+      213: 5139824871550104422
+    second: HealthGauge_30
+  - first:
+      213: -6114144470232938753
+    second: HealthGauge_31
+  - first:
+      213: 6334162695085556374
+    second: HealthGauge_32
+  - first:
+      213: -1978894569643387455
+    second: HealthGauge_33
+  - first:
+      213: -6705993604095291309
+    second: HealthGauge_34
+  - first:
+      213: 9025023356585548940
+    second: HealthGauge_35
+  - first:
+      213: -2858938174706295743
+    second: HealthGauge_36
+  - first:
+      213: 7876697495250266299
+    second: HealthGauge_37
+  - first:
+      213: -4954737596352581384
+    second: HealthGauge_38
+  - first:
+      213: -8839680028433726403
+    second: HealthGauge_39
+  - first:
+      213: 5022676761294263350
+    second: HealthGauge_40
+  - first:
+      213: -5530600380941578991
+    second: HealthGauge_41
+  - first:
+      213: -6637693574132988998
+    second: HealthGauge_42
+  - first:
+      213: 3629948048268682864
+    second: HealthGauge_43
+  - first:
+      213: -8477477814268031178
+    second: HealthGauge_44
+  - first:
+      213: -6448652113403439131
+    second: HealthGauge_45
+  - first:
+      213: 6888070674519009703
+    second: HealthGauge_46
+  - first:
+      213: -5510315920950470010
+    second: HealthGauge_47
+  - first:
+      213: 4635028268018920837
+    second: HealthGauge_48
+  - first:
+      213: -6054357860622031889
+    second: HealthGauge_49
+  - first:
+      213: -9106073131849853093
+    second: HealthGauge_50
+  - first:
+      213: 5408411286334808075
+    second: HealthGauge_51
+  - first:
+      213: -8947517730451638186
+    second: HealthGauge_52
+  - first:
+      213: -8947844762275730593
+    second: HealthGauge_53
+  - first:
+      213: 8943608964614287679
+    second: HealthGauge_54
+  - first:
+      213: 7337352061739665648
+    second: HealthGauge_55
+  - first:
+      213: 5970047604387119079
+    second: HealthGauge_56
+  - first:
+      213: -8982945160097714370
+    second: HealthGauge_57
+  - first:
+      213: 3130980153382936839
+    second: HealthGauge_58
+  - first:
+      213: -4028259099391318545
+    second: HealthGauge_59
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HealthGauge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7599
+        width: 1009
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ffa0b564eaa77480800000000000000
+      internalID: -8901458240539152392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_1
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 7599
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040f5ae0e782ee070800000000000000
+      internalID: 8137486098581811264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_2
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 7599
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab47471a3101a03f0800000000000000
+      internalID: -933916296226769734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_3
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 7599
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f771c8dd2baf4c30800000000000000
+      internalID: 4345880378834253813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_4
+      rect:
+        serializedVersion: 2
+        x: 4095
+        y: 7599
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d98ef99f6d53e5480800000000000000
+      internalID: -8908623815464982371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_5
+      rect:
+        serializedVersion: 2
+        x: 5119
+        y: 7599
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38e9391382a6f8db0800000000000000
+      internalID: -4787491158008553853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_6
+      rect:
+        serializedVersion: 2
+        x: 6143
+        y: 7599
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70415da91460d610800000000000000
+      internalID: 1643923925434974335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_7
+      rect:
+        serializedVersion: 2
+        x: 7167
+        y: 7599
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516a6bc0519b286f0800000000000000
+      internalID: -683780693348145643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6575
+        width: 1009
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbb9f9a21f9d19840800000000000000
+      internalID: 5229200272179305405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_9
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 6575
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3773da4e9039c1b70800000000000000
+      internalID: 8871127036713580403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_10
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 6575
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35841b87e0a13b90800000000000000
+      internalID: -7263847807640632001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_11
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 6575
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef99c3ba6b2d4d00800000000000000
+      internalID: 958470032982646754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_12
+      rect:
+        serializedVersion: 2
+        x: 4095
+        y: 6575
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4a7f9cb6ef2915a0800000000000000
+      internalID: -6550151514980124086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_13
+      rect:
+        serializedVersion: 2
+        x: 5119
+        y: 6575
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3ce12235a554be50800000000000000
+      internalID: 6824173503372192826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_14
+      rect:
+        serializedVersion: 2
+        x: 6143
+        y: 6575
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff0d13f2302ff8350800000000000000
+      internalID: 6021297322308260095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_15
+      rect:
+        serializedVersion: 2
+        x: 7167
+        y: 6575
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5733ec15cac3c1b20800000000000000
+      internalID: 3106424553783309173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5551
+        width: 1009
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dde36483bd2c7190800000000000000
+      internalID: -7963439792054342192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_17
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 5551
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c0edabb33dd2a040800000000000000
+      internalID: 4657528178916319433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_18
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 5551
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f312f37c05ab35140800000000000000
+      internalID: 4707310891635253567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_19
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 5551
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03d668d6c6f615b20800000000000000
+      internalID: 3121398528229141808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_20
+      rect:
+        serializedVersion: 2
+        x: 4095
+        y: 5551
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb62e614759c3c90800000000000000
+      internalID: -7188706579357471801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_21
+      rect:
+        serializedVersion: 2
+        x: 5119
+        y: 5551
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5213f248ca83bfd0800000000000000
+      internalID: -2327363989699095972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_22
+      rect:
+        serializedVersion: 2
+        x: 6143
+        y: 5551
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5aaedf91482124cd0800000000000000
+      internalID: -2575475678321448283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_23
+      rect:
+        serializedVersion: 2
+        x: 7167
+        y: 5551
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 266d1b6509e843d80800000000000000
+      internalID: -8271829864991828382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4527
+        width: 1009
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a02971123ccd133c0800000000000000
+      internalID: -4381478231822855670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_25
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 4527
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0219d4dd9b8fa8960800000000000000
+      internalID: 7605164397933990176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_26
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 4527
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beeed94bccc4d1780800000000000000
+      internalID: -8710721662177382677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_27
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 4527
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15bb61cb461225670800000000000000
+      internalID: 8525913761101822801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_28
+      rect:
+        serializedVersion: 2
+        x: 4095
+        y: 4527
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd7826287380c6630800000000000000
+      internalID: 3921518410036578267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_29
+      rect:
+        serializedVersion: 2
+        x: 5119
+        y: 4527
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef69d2fa8422299b0800000000000000
+      internalID: -5074956134521137410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_30
+      rect:
+        serializedVersion: 2
+        x: 6143
+        y: 4527
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 663367c1d73545740800000000000000
+      internalID: 5139824871550104422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_31
+      rect:
+        serializedVersion: 2
+        x: 7167
+        y: 4527
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff6c85a9ff1362ba0800000000000000
+      internalID: -6114144470232938753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3503
+        width: 1009
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6920b1e496777e750800000000000000
+      internalID: 6334162695085556374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_33
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 3503
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5d470afdd8984e0800000000000000
+      internalID: -1978894569643387455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_34
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 3503
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 350dbd1d8568fe2a0800000000000000
+      internalID: -6705993604095291309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_35
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 3503
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8c92ea1de25f3d70800000000000000
+      internalID: 9025023356585548940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_36
+      rect:
+        serializedVersion: 2
+        x: 4095
+        y: 3503
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14cd3dd90e20358d0800000000000000
+      internalID: -2858938174706295743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_37
+      rect:
+        serializedVersion: 2
+        x: 5119
+        y: 3503
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb8e99fa3a6af4d60800000000000000
+      internalID: 7876697495250266299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_38
+      rect:
+        serializedVersion: 2
+        x: 6143
+        y: 3503
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0b12e486c3d3bb0800000000000000
+      internalID: -4954737596352581384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_39
+      rect:
+        serializedVersion: 2
+        x: 7167
+        y: 3503
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d34c71949d5235580800000000000000
+      internalID: -8839680028433726403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2479
+        width: 1009
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 634dd8237e124b540800000000000000
+      internalID: 5022676761294263350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_41
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 2479
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11d4653814c5f33b0800000000000000
+      internalID: -5530600380941578991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_42
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 2479
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab309e1ccdc22e3a0800000000000000
+      internalID: -6637693574132988998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_43
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 2479
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0766d22848a206230800000000000000
+      internalID: 3629948048268682864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_44
+      rect:
+        serializedVersion: 2
+        x: 4095
+        y: 2479
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63f8c41f7d2f95a80800000000000000
+      internalID: -8477477814268031178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_45
+      rect:
+        serializedVersion: 2
+        x: 5119
+        y: 2479
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7148cb119c186a0800000000000000
+      internalID: -6448652113403439131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_46
+      rect:
+        serializedVersion: 2
+        x: 6143
+        y: 2479
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a9ad7ea8c7579f50800000000000000
+      internalID: 6888070674519009703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_47
+      rect:
+        serializedVersion: 2
+        x: 7167
+        y: 2479
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68a51936ddc6783b0800000000000000
+      internalID: -5510315920950470010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1455
+        width: 1009
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d692ff6ade25040800000000000000
+      internalID: 4635028268018920837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_49
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 1455
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe3a7866a999afba0800000000000000
+      internalID: -6054357860622031889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_50
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 1455
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b575c5d8bbab0a180800000000000000
+      internalID: -9106073131849853093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_51
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 1455
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b002331f8698e0b40800000000000000
+      internalID: 5408411286334808075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_52
+      rect:
+        serializedVersion: 2
+        x: 4095
+        y: 1455
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 658bbe6b70804d380800000000000000
+      internalID: -8947517730451638186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_53
+      rect:
+        serializedVersion: 2
+        x: 5119
+        y: 1455
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5b273fa89ed2d380800000000000000
+      internalID: -8947844762275730593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_54
+      rect:
+        serializedVersion: 2
+        x: 6143
+        y: 1455
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3175d1d7f41e1c70800000000000000
+      internalID: 8943608964614287679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_55
+      rect:
+        serializedVersion: 2
+        x: 7167
+        y: 1455
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f809ff33d283d560800000000000000
+      internalID: 7337352061739665648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 431
+        width: 1009
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ef7aaf5aaed9d250800000000000000
+      internalID: 5970047604387119079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_57
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 431
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3faf8778fa265380800000000000000
+      internalID: -8982945160097714370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_58
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 431
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70120316cd9737b20800000000000000
+      internalID: 3130980153382936839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealthGauge_59
+      rect:
+        serializedVersion: 2
+        x: 3071
+        y: 431
+        width: 1010
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe5ab8511bfb818c0800000000000000
+      internalID: -4028259099391318545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      HealthGauge_0: -8901458240539152392
+      HealthGauge_1: 8137486098581811264
+      HealthGauge_10: -7263847807640632001
+      HealthGauge_11: 958470032982646754
+      HealthGauge_12: -6550151514980124086
+      HealthGauge_13: 6824173503372192826
+      HealthGauge_14: 6021297322308260095
+      HealthGauge_15: 3106424553783309173
+      HealthGauge_16: -7963439792054342192
+      HealthGauge_17: 4657528178916319433
+      HealthGauge_18: 4707310891635253567
+      HealthGauge_19: 3121398528229141808
+      HealthGauge_2: -933916296226769734
+      HealthGauge_20: -7188706579357471801
+      HealthGauge_21: -2327363989699095972
+      HealthGauge_22: -2575475678321448283
+      HealthGauge_23: -8271829864991828382
+      HealthGauge_24: -4381478231822855670
+      HealthGauge_25: 7605164397933990176
+      HealthGauge_26: -8710721662177382677
+      HealthGauge_27: 8525913761101822801
+      HealthGauge_28: 3921518410036578267
+      HealthGauge_29: -5074956134521137410
+      HealthGauge_3: 4345880378834253813
+      HealthGauge_30: 5139824871550104422
+      HealthGauge_31: -6114144470232938753
+      HealthGauge_32: 6334162695085556374
+      HealthGauge_33: -1978894569643387455
+      HealthGauge_34: -6705993604095291309
+      HealthGauge_35: 9025023356585548940
+      HealthGauge_36: -2858938174706295743
+      HealthGauge_37: 7876697495250266299
+      HealthGauge_38: -4954737596352581384
+      HealthGauge_39: -8839680028433726403
+      HealthGauge_4: -8908623815464982371
+      HealthGauge_40: 5022676761294263350
+      HealthGauge_41: -5530600380941578991
+      HealthGauge_42: -6637693574132988998
+      HealthGauge_43: 3629948048268682864
+      HealthGauge_44: -8477477814268031178
+      HealthGauge_45: -6448652113403439131
+      HealthGauge_46: 6888070674519009703
+      HealthGauge_47: -5510315920950470010
+      HealthGauge_48: 4635028268018920837
+      HealthGauge_49: -6054357860622031889
+      HealthGauge_5: -4787491158008553853
+      HealthGauge_50: -9106073131849853093
+      HealthGauge_51: 5408411286334808075
+      HealthGauge_52: -8947517730451638186
+      HealthGauge_53: -8947844762275730593
+      HealthGauge_54: 8943608964614287679
+      HealthGauge_55: 7337352061739665648
+      HealthGauge_56: 5970047604387119079
+      HealthGauge_57: -8982945160097714370
+      HealthGauge_58: 3130980153382936839
+      HealthGauge_59: -4028259099391318545
+      HealthGauge_6: 1643923925434974335
+      HealthGauge_7: -683780693348145643
+      HealthGauge_8: 5229200272179305405
+      HealthGauge_9: 8871127036713580403
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

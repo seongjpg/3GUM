@@ -29160,6 +29160,10 @@ PrefabInstance:
       propertyPath: boss
       value: 
       objectReference: {fileID: 1813000308}
+    - target: {fileID: 1507571159411811292, guid: 40c1b29a8e5ff494ca2e8b2c6388061e, type: 3}
+      propertyPath: curHealth
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 2217833142997568187, guid: 40c1b29a8e5ff494ca2e8b2c6388061e, type: 3}
       propertyPath: bm
       value: 
