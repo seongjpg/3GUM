@@ -14,7 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Active
   m_GUID: 07cba7481095d964bbe33e204fd2dd2f
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 9d859ad2100a10f439cc148adc1a86d6
+    m_Address: Assets/PreFeb/Item/FieldItem/Active/FireField/FireField.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2ad4451e6cda864ba9e554c275504fb
+    m_Address: Assets/PreFeb/Item/FieldItem/Active/Stealth/Stealth.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 9a2d40cbdc32b68458eaea97909c368e, type: 2}
   m_SchemaSet:

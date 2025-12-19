@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 3852609734062925121}
   - component: {fileID: 7759230327744783589}
   - component: {fileID: 8867803359974818914}
+  - component: {fileID: 2573745996931702257}
   m_Layer: 6
   m_Name: RunningShoes
   m_TagString: Passive
@@ -194,9 +195,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17fffbda130d554291376e7a833a945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldAsset: {fileID: 0}
+  WeaponAsset: {fileID: 0}
   spellAsset: {fileID: 0}
   passiveAsset: {fileID: 11400000, guid: a70a840d3273c4d4b916ae680e5de451, type: 2}
+  activeAsset: {fileID: 0}
+--- !u!114 &2573745996931702257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5806089763073512444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeab850f5b70b340a4e05169cb084d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetRef:
+    m_AssetGUID: e618acec82c9c73448e226c718b3a65c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1 &6359144752521221833
 GameObject:
   m_ObjectHideFlags: 0

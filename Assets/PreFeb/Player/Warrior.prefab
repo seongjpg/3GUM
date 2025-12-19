@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 4674402328540468753}
   - component: {fileID: 1804388558919431052}
   - component: {fileID: 6835908661949885839}
+  - component: {fileID: -8744192659196812341}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Warrior
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,6 +211,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-8744192659196812341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270622205502257872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeab850f5b70b340a4e05169cb084d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetRef:
+    m_AssetGUID: 54d0c4e017ec3f2458dfc1c4ae0b5345
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1 &5373760165925360938
 GameObject:
   m_ObjectHideFlags: 0

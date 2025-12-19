@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 8940519278878397870}
   - component: {fileID: 1161510357865880299}
   - component: {fileID: 6892991476607489028}
+  - component: {fileID: -4034378713266085863}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Weapon
@@ -197,6 +198,25 @@ MonoBehaviour:
   WeaponAsset: {fileID: 11400000, guid: 27561412fc267264a8d4de634f4ba76b, type: 2}
   spellAsset: {fileID: 0}
   passiveAsset: {fileID: 0}
+  activeAsset: {fileID: 0}
+--- !u!114 &-4034378713266085863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8292754467184260618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeab850f5b70b340a4e05169cb084d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetRef:
+    m_AssetGUID: cc030a0b25205c5439a5c32a6d262e26
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1 &9119664196397822557
 GameObject:
   m_ObjectHideFlags: 0

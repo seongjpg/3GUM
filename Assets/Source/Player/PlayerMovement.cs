@@ -7,6 +7,9 @@ public interface IDamageDealer {
 public class PlayerMovement : MonoBehaviour
 {
     //플레이어의 이동 방식 / 플레이어 체력 가감 
+
+
+
     private GameObject player;
     [SerializeField] GameObject UI;
     private MainUI mainUI;

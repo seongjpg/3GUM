@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 1784992406117683681}
   - component: {fileID: 6243103706310082318}
   - component: {fileID: 7093653732529887434}
+  - component: {fileID: 3839029298327032922}
   m_Layer: 6
   m_Name: FireField
   m_TagString: Active
@@ -285,3 +286,21 @@ MonoBehaviour:
   spellAsset: {fileID: 0}
   passiveAsset: {fileID: 0}
   activeAsset: {fileID: 11400000, guid: 1e59fd118c7616a48ae15be60ba3f908, type: 2}
+--- !u!114 &3839029298327032922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145508014328699598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeab850f5b70b340a4e05169cb084d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetRef:
+    m_AssetGUID: 9d859ad2100a10f439cc148adc1a86d6
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0

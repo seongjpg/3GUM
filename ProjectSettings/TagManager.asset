@@ -18,6 +18,7 @@ TagManager:
   - Tile
   - Stealth
   - PerAttack
+  - GameManager
   layers:
   - Default
   - TransparentFX

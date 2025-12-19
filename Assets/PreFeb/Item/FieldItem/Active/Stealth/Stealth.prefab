@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1214410685991575799}
   - component: {fileID: 373579654558699946}
   - component: {fileID: 3382619806222468923}
+  - component: {fileID: 4573346731895925412}
   m_Layer: 0
   m_Name: Stealth
   m_TagString: Active
@@ -151,3 +152,21 @@ MonoBehaviour:
   spellAsset: {fileID: 0}
   passiveAsset: {fileID: 0}
   activeAsset: {fileID: 11400000, guid: 701ccdae924d56e458bfe714d34aa08c, type: 2}
+--- !u!114 &4573346731895925412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5997789654037003903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeab850f5b70b340a4e05169cb084d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetRef:
+    m_AssetGUID: a2ad4451e6cda864ba9e554c275504fb
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0

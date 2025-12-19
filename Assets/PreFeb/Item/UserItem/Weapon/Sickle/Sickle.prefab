@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3120301191115500810}
   - component: {fileID: 2656912566063958864}
   - component: {fileID: 6687301983863135137}
+  - component: {fileID: -1026989744401550694}
   m_Layer: 0
   m_Name: Sickle
   m_TagString: Weapon
@@ -183,6 +184,25 @@ MonoBehaviour:
   WeaponAsset: {fileID: 11400000, guid: 68575dd9f595c674f8b616f11a9b4743, type: 2}
   spellAsset: {fileID: 0}
   passiveAsset: {fileID: 0}
+  activeAsset: {fileID: 0}
+--- !u!114 &-1026989744401550694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4921031783086492566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeab850f5b70b340a4e05169cb084d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetRef:
+    m_AssetGUID: 89a29c48964b9ff4c90d6e09714f1ca4
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1 &7528106520407437025
 GameObject:
   m_ObjectHideFlags: 0

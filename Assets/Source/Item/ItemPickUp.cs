@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour
 {
+	private GameObject GameManager;
+	private GameManager GM;
+
 	[SerializeField] private ScriptableObject WeaponAsset;
 	[SerializeField] private ScriptableObject spellAsset;
 	[SerializeField] private ScriptableObject passiveAsset;
@@ -12,7 +15,7 @@ public class ItemPickUp : MonoBehaviour
 	private IPassiveEquip passive;
 	private IActiveEquip active;
 
-	private void Start()
+	private void Awake()
 	{
 		weapon = WeaponAsset as IWeaponEquip;
 
@@ -21,6 +24,9 @@ public class ItemPickUp : MonoBehaviour
 		passive = passiveAsset as IPassiveEquip;
 
 		active = activeAsset as IActiveEquip;
+
+		GameManager = GameObject.FindWithTag("GameManager");
+		GM = GameManager.GetComponent<GameManager>();
 	}
 	
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -30,30 +36,53 @@ public class ItemPickUp : MonoBehaviour
 		{
 			if (this.CompareTag("Active")) // 액티브 아이템
 			{
-				Debug.Log("액티브 아이템!");
-				active.SaveActive(collided, this.gameObject);
-				Destroy(this.gameObject);
+				SA(collided, this.gameObject);
 			}
 			if (this.CompareTag("Passive")) // 패시브 아이템
 			{
-				Debug.Log("패시브 아이템!"); // 현재 방어구와 동일한 구조
-				passive.SavePassive(collided, this.gameObject); // 최초 실행부
-				Destroy(this.gameObject);
+				SP(collided, this.gameObject);
 			}
 			if (this.CompareTag("Weapon")) // 무기
 			{
-                Debug.Log("무기!"); // 현재 방어구와 동일한 구조
-                weapon.SaveWeapon(collided, this.gameObject); // 최초 실행부
-                Destroy(this.gameObject);
+				SW(collided, this.gameObject);
             }
 			if (this.CompareTag("OneTime")) // 일회용 아이템
 			{
-				Debug.Log("1회용 아이템");
-				spell.SaveSpell(collided, this.gameObject);
-				Destroy(this.gameObject);
+				SS(collided, this.gameObject);
 			}
 
 		}
 		
 	}
+
+	public void SA(GameObject player, GameObject activeItem)
+	{
+        Debug.Log("액티브 아이템!");
+        active.SaveActive(player, activeItem);
+		GM.SetActivePath(activeItem);
+		Destroy(this.gameObject);
+    }
+	public void SP(GameObject player, GameObject passiveItem)
+	{
+		Debug.Log("패시브 아이템!"); // 현재 방어구와 동일한 구조
+        passive.SavePassive(player, passiveItem); // 최초 실행부
+		GM.SetPassivePath(passiveItem);
+        Destroy(this.gameObject);
+    }
+	public void SW(GameObject player, GameObject weaponItem)
+    {
+        Debug.Log("무기!"); // 현재 방어구와 동일한 구조
+        weapon.SaveWeapon(player, weaponItem); // 최초 실행부
+		GM.SetWeaponPath(weaponItem);
+        Destroy(this.gameObject);
+    }
+	public void SS(GameObject player, GameObject spellItem)
+	{
+		Debug.Log("1회용 아이템");
+        spell.SaveSpell(player, spellItem);
+		GM.SetoneTimePath(spellItem);
+        Destroy(this.gameObject);
+    }
+
+
 }

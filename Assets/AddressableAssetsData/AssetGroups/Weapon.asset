@@ -14,7 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Weapon
   m_GUID: df1d8c89099fbc346bf0a62aa21c9a5b
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 89a29c48964b9ff4c90d6e09714f1ca4
+    m_Address: Assets/PreFeb/Item/UserItem/Weapon/Sickle/Sickle.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc030a0b25205c5439a5c32a6d262e26
+    m_Address: Assets/PreFeb/Item/UserItem/Weapon/sword/Sword.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 9a2d40cbdc32b68458eaea97909c368e, type: 2}
   m_SchemaSet:

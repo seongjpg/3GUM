@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7919963870272698765}
   - component: {fileID: 5676107808790061164}
   - component: {fileID: 3956279559602799692}
+  - component: {fileID: -5355174313049190601}
   m_Layer: 0
   m_Name: Giant
   m_TagString: OneTime
@@ -104,6 +105,7 @@ MonoBehaviour:
   WeaponAsset: {fileID: 0}
   spellAsset: {fileID: 11400000, guid: ce9fb08ba2e78f645a25b99d8a16d1ae, type: 2}
   passiveAsset: {fileID: 0}
+  activeAsset: {fileID: 0}
 --- !u!58 &3956279559602799692
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -140,3 +142,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &-5355174313049190601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3520678900840205529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeab850f5b70b340a4e05169cb084d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetRef:
+    m_AssetGUID: ee12209a9239f4b4a83be0b0b2c03c36
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0

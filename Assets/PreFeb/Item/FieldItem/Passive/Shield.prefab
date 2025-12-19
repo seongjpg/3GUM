@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7556108475983784714}
   - component: {fileID: 9009767241898907014}
   - component: {fileID: 1693571282577154906}
+  - component: {fileID: -6214941017568701837}
   m_Layer: 0
   m_Name: Shield
   m_TagString: Passive
@@ -93,9 +94,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f17fffbda130d554291376e7a833a945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldAsset: {fileID: 0}
+  WeaponAsset: {fileID: 0}
   spellAsset: {fileID: 0}
   passiveAsset: {fileID: 11400000, guid: 8c1c95b963dae2f48aa34bbd0bdb83ca, type: 2}
+  activeAsset: {fileID: 0}
+--- !u!114 &-6214941017568701837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5429547033416283867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeab850f5b70b340a4e05169cb084d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetRef:
+    m_AssetGUID: 61e173c9bbe3cca4b93f2767d796c61b
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1 &8148829955560522043
 GameObject:
   m_ObjectHideFlags: 0

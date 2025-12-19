@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee12209a9239f4b4a83be0b0b2c03c36
+    m_Address: Assets/PreFeb/Item/Spell/Giant/Giant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 9a2d40cbdc32b68458eaea97909c368e, type: 2}
   m_SchemaSet:
