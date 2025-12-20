@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,8 +20,13 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void SetSceneName(string _sceneName)
+    private void Start()
     {
+        GameObject gate = GameObject.FindWithTag("Gate");
+    }
+public void SetSceneName(string _sceneName)
+    {
+       
         sceneName = _sceneName;
     }
 

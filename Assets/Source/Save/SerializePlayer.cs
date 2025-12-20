@@ -281,7 +281,7 @@ public class SerializeP {
                 {
                     GameObject passive = GameObject.Instantiate(handle.Result, Vector3.zero, Quaternion.identity);
                     ItemPickUp IP = passive.GetComponent<ItemPickUp>();
-                    if (IP != null && player != null && passive != null)
+                    if (IP != null)
                     {
                         IP.SP(player, passive);
                     }
