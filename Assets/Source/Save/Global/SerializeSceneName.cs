@@ -10,23 +10,35 @@ public class SerializeSceneName : MonoBehaviour
     [SerializeField] private GameObject globalMaanger;
     private GlobalAmt GA;
 
-    private string sceneName01 = "GenMap";
+    private string sceneName01;
 
 
     private void Awake()
     {
         GA = globalMaanger.GetComponent<GlobalAmt>();
 
-        LoadSceneName();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown("u"))
+            LoadSceneName();
+    }
 
     public void SaveSceneName() // 외부에서 json 파일 변환을 필요로 할 때 호출
     {
         sceneName01 = GA.GetSceneName01();
+        Debug.Log($"씬 이름 저장 - {sceneName01}");
         SerializeS sceneNameJsonData = new SerializeS(sceneName01);
         string sceneNameJson = ObjectToJson(sceneNameJsonData);
         CreateJsonFile($"{Application.persistentDataPath}/", "SceneName01", sceneNameJson);
+    }
+
+    public void LoadInitSceneName()
+    {
+        var sceneNameJson = LoadJsonFile<SerializeS>($"{Application.persistentDataPath}/", "InitSceneName");
+
+        sceneNameJson.LoadCurSceneName(GA);
     }
 
     public void LoadSceneName()
@@ -34,6 +46,8 @@ public class SerializeSceneName : MonoBehaviour
         var sceneNameJson = LoadJsonFile<SerializeS>($"{Application.persistentDataPath}/", "SceneName01");
 
         sceneNameJson.LoadCurSceneName(GA);
+
+        Debug.Log($"{sceneName01} 불러오기!");
     }
 
     string ObjectToJson(object obj)

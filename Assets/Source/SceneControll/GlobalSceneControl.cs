@@ -9,7 +9,7 @@ public class GlobalSceneControl : MonoBehaviour
     {
     }
 
-
+    /*
     private void Update()
     {
         if (Input.GetKeyDown("p"))
@@ -24,5 +24,18 @@ public class GlobalSceneControl : MonoBehaviour
             SSN.LoadSceneName();
             SMM.MoveToScene(GA.GetSceneName01());
         }
+    }
+    */
+
+    public void SaveScene()
+    {
+        GA.SetCurSceneName();
+        SSN.SaveSceneName();
+    }
+
+    public void LoadScene()
+    {
+        SSN.LoadSceneName();
+        SMM.MoveToScene(GA.GetSceneName01());
     }
 }

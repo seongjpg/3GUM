@@ -31,13 +31,6 @@ public class SerializePlayer : MonoBehaviour
 	private string activePath;
 	private string oneTimePath;
     private List<string> passivePath = new List<string>();
-    /*
-	public GameObject oneTime;
-	public IUseSpell oneTimeSpell; // 이건 oneTime을 복원해내면 같이 복원해낼 수 있는거다.
-
-	public List<GameObject> passive = new List<GameObject>();
-	public List<IApplyEffect> applyPassives = new List<IApplyEffect>();
-	*/
 
 	//직렬화 해제시, pos, 남은 체력, 보유 아이템, 플레이어프리펩를 전부 따로 불러오는 편이 좋을 것.
 
@@ -47,6 +40,7 @@ public class SerializePlayer : MonoBehaviour
 		gameManager = GameObject.FindWithTag("GameManager");
 		GM = gameManager.GetComponent<GameManager>();
     }
+    /*
     private void Update()
 	{
 		if (Input.GetKeyDown("p"))
@@ -57,12 +51,12 @@ public class SerializePlayer : MonoBehaviour
 		if (Input.GetKeyDown("o"))
 		{
 			Debug.Log("json 직렬화 파일 해제");
-			LoadAllPlayerData();
+			LoadFromSaveData();
 		}
 	}
-	
+	*/
 
-	void SavePlayerData() // 외부에서 json 파일 변환을 필요로 할 때 호출
+	public void SavePlayerData() // 외부에서 json 파일 변환을 필요로 할 때 호출
 	{
 		GameObject player = GameObject.FindWithTag("Player");
 		PlayerManager pm = player.GetComponent<PlayerManager>();
@@ -82,7 +76,7 @@ public class SerializePlayer : MonoBehaviour
 		CreateJsonFile($"{Application.persistentDataPath}/", "user", playerJson);
 	}
 
-	void LoadAllPlayerData()
+	public void LoadFromSaveData() // 세이브 파일 로드시 사용한다.
 	{
 		var playerJson =  LoadJsonFile<SerializeP>($"{Application.persistentDataPath}/", "user");
 		//playerJson.LoadPlayable(); // 우선 플레이어가 소환되어야 함.
@@ -95,6 +89,32 @@ public class SerializePlayer : MonoBehaviour
 		playerJson.LoadOneTime(player);
 		playerJson.LoadPassive(player);
 	}
+
+
+    public void LoadInit() // 초기 로드 및 씬 이동시 사용한다.
+    {
+        var playerJson = LoadJsonFile<SerializeP>($"{Application.persistentDataPath}/", "user"); // << 여기를 초기 파일로 변경해주어야 한다.
+        //playerJson.LoadPlayable(); // 우선 플레이어가 소환되어야 함.
+        GameObject player = GameObject.FindWithTag("Player");
+        PlayerManager pm = player.gameObject.GetComponent<PlayerManager>();
+        playerJson.LoadPlayerHealth(pm);
+        playerJson.LoadWeapon(player);
+        playerJson.LoadActive(player);
+        playerJson.LoadOneTime(player);
+        playerJson.LoadPassive(player);
+    }
+    public void LoadNextScene() // 초기 로드 및 씬 이동시 사용한다.
+	{
+        var playerJson = LoadJsonFile<SerializeP>($"{Application.persistentDataPath}/", "user");
+        //playerJson.LoadPlayable(); // 우선 플레이어가 소환되어야 함.
+        GameObject player = GameObject.FindWithTag("Player");
+        PlayerManager pm = player.gameObject.GetComponent<PlayerManager>();
+        playerJson.LoadPlayerHealth(pm);
+        playerJson.LoadWeapon(player);
+        playerJson.LoadActive(player);
+        playerJson.LoadOneTime(player);
+        playerJson.LoadPassive(player);
+    }
 
 	string ObjectToJson(object obj)
 	{

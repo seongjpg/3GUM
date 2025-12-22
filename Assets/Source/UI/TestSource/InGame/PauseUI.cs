@@ -5,6 +5,8 @@ public class PauseUI : MonoBehaviour
 { 
     [SerializeField] GameObject SettingUI;
 
+    [SerializeField] GameManager GM;
+
     [SerializeField] Scene_WTG_ASSET WTG_ASSET;
     [SerializeField] SceneMoveManager smm;
 
@@ -61,6 +63,7 @@ public class PauseUI : MonoBehaviour
     {
         Time.timeScale = 1f;
         Debug.Log("Quit Clicked");
+        GM.SaveInGame();
         // 게임의 진행 상황을 Json 직렬화하여 저장.
         // 게임의 현재 씬을 종료하고, 시작 화면 씬으로 이동.   
         smm.MoveToScene(WTG_ASSET.fts.targetScene);

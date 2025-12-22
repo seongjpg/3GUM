@@ -9,6 +9,7 @@ public class MainUI : MonoBehaviour
     PlayerManager pm;
     PlayerMovement pMov;
 
+    [SerializeField] GameManager GM;
 
     [SerializeField] GameObject PauseUI;
     [SerializeField] GameObject SettingUI;
@@ -281,5 +282,6 @@ public class MainUI : MonoBehaviour
     {
         Debug.Log(" TabÀÔ·Â.");
         PauseUI.SetActive(true);
+        GM.SaveInGame();
     }
 }
