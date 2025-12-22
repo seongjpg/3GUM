@@ -7,49 +7,33 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class SerializeSceneName : MonoBehaviour
 {
-    private GameObject gameManager;
-    private GameManager GM;
+    [SerializeField] private GameObject globalMaanger;
+    private GlobalAmt GA;
 
-    private string sceneName;
+    private string sceneName01 = "GenMap";
 
 
     private void Awake()
     {
-        gameManager = GameObject.FindWithTag("GameManager");
-        GM = gameManager.GetComponent<GameManager>();
+        GA = globalMaanger.GetComponent<GlobalAmt>();
 
         LoadSceneName();
-        GM.SetSceneName(sceneName);
-
-        SaveSceneName();
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown("p"))
-        {
-            Debug.Log("json 직렬화");
-            
-        }
-        if (Input.GetKeyDown("o"))
-        {
-            Debug.Log("json 직렬화 파일 해제");
-        }
     }
 
 
-    void SaveSceneName() // 외부에서 json 파일 변환을 필요로 할 때 호출
+    public void SaveSceneName() // 외부에서 json 파일 변환을 필요로 할 때 호출
     {
-        sceneName = GM.GetSceneName();
-        SerializeS sceneNameJsonData = new SerializeS(sceneName);
+        sceneName01 = GA.GetSceneName01();
+        SerializeS sceneNameJsonData = new SerializeS(sceneName01);
         string sceneNameJson = ObjectToJson(sceneNameJsonData);
-        CreateJsonFile($"{Application.persistentDataPath}/", "SceneName", sceneNameJson);
+        CreateJsonFile($"{Application.persistentDataPath}/", "SceneName01", sceneNameJson);
     }
 
-    void LoadSceneName()
+    public void LoadSceneName()
     {
-        var sceneNameJson = LoadJsonFile<SerializeS>($"{Application.persistentDataPath}/", "SceneName");
+        var sceneNameJson = LoadJsonFile<SerializeS>($"{Application.persistentDataPath}/", "SceneName01");
 
-        sceneNameJson.LoadCurSceneName(GM);
+        sceneNameJson.LoadCurSceneName(GA);
     }
 
     string ObjectToJson(object obj)
@@ -87,7 +71,7 @@ public class SerializeSceneName : MonoBehaviour
 [System.Serializable]
 public class SerializeS
 {
-    public string sceneName;
+    public string sceneName01;
     public SerializeS()
     {
 
@@ -95,12 +79,12 @@ public class SerializeS
     
     public SerializeS(string _sceneName)
     {
-        this.sceneName = _sceneName;
+        this.sceneName01 = _sceneName;
     }
 
-    public void LoadCurSceneName(GameManager GM)
+    public void LoadCurSceneName(GlobalAmt GA)
     {
-        GM.SetSceneName(sceneName);
+        GA.SetSceneName01(sceneName01);
     }
 
 }

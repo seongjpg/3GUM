@@ -68,7 +68,7 @@ public class GenImmediate : ScriptableObject, IGetArea, ISpawnRealTime
         {
             loc = new Vector3(Random.Range(room.x, room.x + room.width)+0.5f, Random.Range(room.y, room.y + room.height)+0.5f);
         }
-        Debug.Log($"소환 위치 : {room.x}, {room.y}, {room.width}, {room.height}");
+        //Debug.Log($"소환 위치 : {room.x}, {room.y}, {room.width}, {room.height}");
         return loc;
     }
 }

@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class SaveFileUI : MonoBehaviour
 {
     [SerializeField] Scene_WTG_ASSET WTG_ASSET;
     [SerializeField] SceneMoveManager smm;
+    [SerializeField] GlobalAmt GA; 
 
     Button Save01;
     Button Save02;
@@ -44,6 +46,7 @@ public class SaveFileUI : MonoBehaviour
     void Save01Clicked()
     {
         smm.MoveToScene(WTG_ASSET.fts.targetScene);
+        //smm.MoveToScene(GA.GetSceneName01());
         //this.gameObject.SetActive(false);
     }
     void Save02Clicked() 

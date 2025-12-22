@@ -4,8 +4,6 @@ using System.Runtime.CompilerServices;
 
 public class GameManager : MonoBehaviour
 {
-    public string sceneName;
-
     public string playablePath;
     
     public string weaponPath;
@@ -22,18 +20,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        GameObject gate = GameObject.FindWithTag("Gate");
-    }
-public void SetSceneName(string _sceneName)
-    {
-       
-        sceneName = _sceneName;
     }
 
-    public string GetSceneName()
-    {
-        return sceneName;
-    }
 
     public void SetPlayablePath(GameObject player)
     {
