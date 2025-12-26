@@ -18,6 +18,8 @@ public class SerializeObject : MonoBehaviour
 	private int objectLayer = 6; // 리펙토링 시 레이어 번호 수정 가능성 높음
     public List<Object> objects = new List<Object>() { };
 
+
+
 	private void Update()
 	{
 		if (Input.GetKeyDown("w"))

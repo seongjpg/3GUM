@@ -4,6 +4,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.SceneManagement;
 
 public class SerializePlayer : MonoBehaviour
 {
@@ -40,6 +41,12 @@ public class SerializePlayer : MonoBehaviour
 		gameManager = GameObject.FindWithTag("GameManager");
 		GM = gameManager.GetComponent<GameManager>();
     }
+    private void Start()
+    {
+        Debug.Log("json 직렬화 파일 해제");
+        LoadFromSaveData();
+    }
+
     /*
     private void Update()
 	{
@@ -76,7 +83,26 @@ public class SerializePlayer : MonoBehaviour
 		CreateJsonFile($"{Application.persistentDataPath}/", "user", playerJson);
 	}
 
-	public void LoadFromSaveData() // 세이브 파일 로드시 사용한다.
+    public void SavePlayerDataWithoutPos() // 외부에서 json 파일 변환을 필요로 할 때 호출
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        PlayerManager pm = player.GetComponent<PlayerManager>();
+
+        //더 저장할 요소가 필요한 경우 여기에 반영
+        playablePath = GM.playablePath;
+        curHealth = pm.curHealth;
+        weaponPath = GM.weaponPath;
+        activePath = GM.activePath;
+        oneTimePath = GM.oneTimePath;
+        passivePath = GM.passivePath;
+
+        SerializeP playerJsonData = new SerializeP(playablePath, curHealth, pos, weaponPath, activePath, oneTimePath, passivePath);
+        Debug.Log($"weaponPath : {weaponPath}");
+        string playerJson = ObjectToJson(playerJsonData);
+        CreateJsonFile($"{Application.persistentDataPath}/", "user", playerJson);
+    }
+
+    public void LoadFromSaveData() // 세이브 파일 로드시 사용한다.
 	{
 		var playerJson =  LoadJsonFile<SerializeP>($"{Application.persistentDataPath}/", "user");
 		//playerJson.LoadPlayable(); // 우선 플레이어가 소환되어야 함.
@@ -212,7 +238,10 @@ public class SerializeP {
 
 	public void LoadPos(GameObject player)
 	{
-        player.transform.position = pos;
+        if (pos != null)
+        {
+            player.transform.position = pos;
+        }
     }
 
 	public void LoadWeapon(GameObject player)
