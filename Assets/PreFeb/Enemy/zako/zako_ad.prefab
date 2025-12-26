@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 890142491312675255}
   - component: {fileID: 6485257431797315932}
   - component: {fileID: 7279918102824409806}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: zako_adBody
   m_TagString: Enemy
   m_Icon: {fileID: 0}

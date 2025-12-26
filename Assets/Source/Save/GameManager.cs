@@ -92,15 +92,17 @@ public class GameManager : MonoBehaviour
     {
         //SCTRL.LoadScene();
         //씬 이름 불러오기, 씬 로드
-        SP.LoadFromSaveData();
         SO.LoadObjectData();
+
+        SP.LoadFromSaveData();
         SaveInGame();
     }
     public void SaveInGame() // 인게임에서 저장이 일어날 때(ex-게임 강제종료시, pause버튼 입력시, 아이템 먹을 때마다, 방 진입시 등등...)
     {
-        SP.SavePlayerData();
         SO.LoadSceneObject();
         SO.SaveObjectData();
+
+        SP.SavePlayerData();
         SSN.SaveSceneName();
     }
     public void LoadNextScene() // 다음 씬으로 넘어갈 때 사용. 여기선 플레이어의 위치는 필요없고, 씬의 이름도 바뀌어야 한다. 그 뒤에 SaveInGame적용.

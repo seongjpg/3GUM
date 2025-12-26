@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1321946054407451980}
   - component: {fileID: 5547694271677783509}
   - component: {fileID: -6999042978693172956}
+  - component: {fileID: 1173202452912585661}
   m_Layer: 6
   m_Name: TestConToGen
   m_TagString: Gate
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1103284529
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -102,8 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee178d4209cd8e7438479d299db61578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   moveManager: {fileID: -6999042978693172956}
   WTG_ASSET: {fileID: 11400000, guid: 48f90288e126a154b88f67d3e3e0c9dd, type: 2}
+  GM: {fileID: 0}
 --- !u!58 &5547694271677783509
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -152,3 +155,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fc34889fe62ee44a3b9096d6c753c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1173202452912585661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353140523465370070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbeab850f5b70b340a4e05169cb084d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assetRef:
+    m_AssetGUID: 065fc00ea4811424e9790cac5ecaf3ae
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0

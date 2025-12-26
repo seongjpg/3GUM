@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6454860623937972557}
   - component: {fileID: 5488221097649563033}
   - component: {fileID: 6158467823499132665}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RunningShoes_IMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}

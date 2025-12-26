@@ -15,8 +15,18 @@ MonoBehaviour:
   m_GroupName: AAA
   m_GUID: e9a11bcba8378e64bae030b9266a1ad7
   m_SerializeEntries:
-  - m_GUID: 0da2560687a29f54d96012b6785955b3
-    m_Address: Assets/PreFeb/Object/Stone_0.prefab
+  - m_GUID: 065fc00ea4811424e9790cac5ecaf3ae
+    m_Address: Assets/PreFeb/Scene/GateFolder/TestConToGen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ed41bbd97a35a841b4a613901f87ff3
+    m_Address: Assets/PreFeb/Scene/GateFolder/TestGate.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9776b7be368bc3f4583b800c7a4f32bf
+    m_Address: Assets/PreFeb/Scene/GateFolder/BossToCon.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

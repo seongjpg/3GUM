@@ -98,8 +98,15 @@ public class SerializeObject : MonoBehaviour
 		{
 			//Debug.Log($"{g.name}");
 			Object obj = new Object();
-			obj.prefabPath = g.GetComponent<AddressableTag>().AddressKey;
-			obj.position = g.transform.position;
+			if (g.TryGetComponent<AddressableTag>(out var AddTag))
+			{
+                obj.prefabPath = AddTag.AddressKey;
+            }
+			else
+			{
+				Debug.Log($"{g.name} doesn't have AddressableTag");
+			}
+				obj.position = g.transform.position;
 			objects.Add(obj);
 		}
 		//PrintObjects();
@@ -131,6 +138,7 @@ public class SerializeObj {
 
 	public async void SummonPrefab()
 	{
+		Debug.Log("오브젝트 소환!");
 		foreach (var entry in objects)
 		{
 			var handle = Addressables.LoadAssetAsync<GameObject>(entry.prefabPath);

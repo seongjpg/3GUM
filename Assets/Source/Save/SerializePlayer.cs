@@ -44,7 +44,7 @@ public class SerializePlayer : MonoBehaviour
     private void Start()
     {
         Debug.Log("json 직렬화 파일 해제");
-        //LoadFromSaveData();
+        LoadFromSaveData();
     }
 
     /*
