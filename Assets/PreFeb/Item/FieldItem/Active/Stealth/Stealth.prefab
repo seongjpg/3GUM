@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 373579654558699946}
   - component: {fileID: 3382619806222468923}
   - component: {fileID: 4573346731895925412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stealth
   m_TagString: Active
   m_Icon: {fileID: 0}

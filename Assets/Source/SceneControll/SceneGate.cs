@@ -1,20 +1,29 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class SceneGate : MonoBehaviour {
 
-	//WTG_ASSET¿¡¼­ ÇöÀç ¾À ÀÌ¸§°ú ÀÌµ¿ÇÒ ¾À ÀÌ¸§À» ¹Ş¾Æ¿Í¼­ SceneMoveManager¸¦ »ç¿ëÇØ¼­ °ü¸®ÇÑ´Ù.
+	//WTG_ASSETì—ì„œ í˜„ì¬ ì”¬ ì´ë¦„ê³¼ ì´ë™í•  ì”¬ ì´ë¦„ì„ ë°›ì•„ì™€ì„œ SceneMoveManagerë¥¼ ì‚¬ìš©í•´ì„œ ê´€ë¦¬í•œë‹¤.
 	private string playerTag = "Player";
+	public GameObject gameManager;
 	public SceneMoveManager moveManager;
 	[SerializeField] Scene_WTG_ASSET WTG_ASSET;
-	
+	[SerializeField] GameManager GM;
 
-	private void OnTriggerEnter2D(Collider2D other)
+    private void Start()
+    {
+
+		gameManager = GameObject.FindWithTag("GameManager");
+		GM = gameManager.GetComponent<GameManager>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
 	{
-        Debug.Log("°¨Áö!!!!!!!!!");
+        Debug.Log("ê°ì§€!!!!!!!!!");
 
         if (other.CompareTag(playerTag))
 		{
-			Debug.Log("ÀÌµ¿!!!!!!!");
+			Debug.Log("ì´ë™!!!!!!!");
+			GM.LoadNextScene();
 			moveManager.MoveToScene(WTG_ASSET.fts.targetScene);
 			GameObject.Destroy(gameObject);
 		}

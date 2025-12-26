@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5676107808790061164}
   - component: {fileID: 3956279559602799692}
   - component: {fileID: -5355174313049190601}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Giant
   m_TagString: OneTime
   m_Icon: {fileID: 0}

@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 [CreateAssetMenu(menuName = ("Active/FireField"))]
 public class Active_FireField : ScriptableObject, ISkill
@@ -14,12 +14,12 @@ public class Active_FireField : ScriptableObject, ISkill
     {
         if (FireField_Obj != null)
         {
-            Debug.Log("¾×Æ¼ºê È¿°ú ¹ßµ¿");
+            Debug.Log("ì•¡í‹°ë¸Œ íš¨ê³¼ ë°œë™");
             GameObject.Instantiate(FireField_Obj, user.transform.position, Quaternion.identity);
         }
         else
         {
-            Debug.Log("¼ÒÈ¯ÇÒ ÇÁ¸®ÆéÀÌ ¾øÀ½");
+            Debug.Log("ì†Œí™˜í•  í”„ë¦¬í©ì´ ì—†ìŒ");
         }
     }
 

@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public interface IDamageDealer {
     [SerializeField] int damage { get; }
@@ -6,7 +6,7 @@ public interface IDamageDealer {
 
 public class PlayerMovement : MonoBehaviour
 {
-    //ÇÃ·¹ÀÌ¾îÀÇ ÀÌµ¿ ¹æ½Ä / ÇÃ·¹ÀÌ¾î Ã¼·Â °¡°¨ 
+    //í”Œë ˆì´ì–´ì˜ ì´ë™ ë°©ì‹ / í”Œë ˆì´ì–´ ì²´ë ¥ ê°€ê° 
 
 
 
@@ -24,8 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        //ÇÃ·¹ÀÌ¾î °ÔÀÓ ¿ÀºêÁ§Æ® ³»¿¡ Á¸ÀçÇÏ´Â PlayerManager¸¦ »Ì¾Æ¿Â´Ù.
-        player = GameObject.Find("Player");
+        //í”Œë ˆì´ì–´ ê²Œì„ ì˜¤ë¸Œì íŠ¸ ë‚´ì— ì¡´ì¬í•˜ëŠ” PlayerManagerë¥¼ ë½‘ì•„ì˜¨ë‹¤.
+        player = GameObject.FindWithTag("Player");
         pm = player.GetComponent<PlayerManager>();
 		playerTr = player.GetComponent<Transform>();
         mainUI = UI.GetComponent<MainUI>();
@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
         DebugingPassive();
     }
 
-	private void PlayerMove() // ¹æÇâÅ°¸¦ ÀÌ¿ëÇÑ Á¶ÀÛÀº ¸ğ¹ÙÀÏ·Î ÀÌ½ÄÇÏ´Â °úÁ¤¿¡¼­ ´ëÃ¼µÈ´Ù.
+	private void PlayerMove() // ë°©í–¥í‚¤ë¥¼ ì´ìš©í•œ ì¡°ì‘ì€ ëª¨ë°”ì¼ë¡œ ì´ì‹í•˜ëŠ” ê³¼ì •ì—ì„œ ëŒ€ì²´ëœë‹¤.
 	{
 		float speed = pm.speed;
         if (Input.GetKey(KeyCode.LeftShift)) speed = pm.speed * 2;
@@ -88,12 +88,12 @@ public class PlayerMovement : MonoBehaviour
         playerTr.position += new Vector3(speed, 0, 0) * Time.deltaTime;
     }
 
-    //±âº» °ø°İ
+    //ê¸°ë³¸ ê³µê²©
     void PlayerAttack() 
 	{
         if (Input.GetMouseButton(1))
         {
-            Debug.Log("ÁÂÅ¬¸¯");
+            Debug.Log("ì¢Œí´ë¦­");
             Instantiate(playerWeapon, playerTr.position, playerTr.rotation);
             fireTimer = 0;
         }
@@ -101,12 +101,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void NewPlayerAttack()
     {
-        Debug.Log("ÁÂÅ¬¸¯-±¸Á¶°³¼±");
+        Debug.Log("ì¢Œí´ë¦­-êµ¬ì¡°ê°œì„ ");
         Instantiate(playerWeapon, playerTr.position, playerTr.rotation);
         fireTimer = 0;
     }
 
-    //½ºÅ³ 1¹ø
+    //ìŠ¤í‚¬ 1ë²ˆ
     private void Skill_01()
     {
         if (skill01 == null)
@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         if (Input.GetKeyDown("e")){
-			Debug.Log("½ºÅ³1");
+			Debug.Log("ìŠ¤í‚¬1");
             skill01.SkillEffect(player);
             //weapon.SkillATK();
             skill01Timer = 0;
@@ -123,12 +123,12 @@ public class PlayerMovement : MonoBehaviour
     
     public void NewSkill_01()
     {
-        Debug.Log("½ºÅ³1-±¸Á¶°³¼±");
+        Debug.Log("ìŠ¤í‚¬1-êµ¬ì¡°ê°œì„ ");
         //weapon.SkillATK();
         skill01Timer = 0;
     }
 
-    //½ºÅ³ 2¹ø
+    //ìŠ¤í‚¬ 2ë²ˆ
     public void Skill_02()
     {
         if (skill02 == null)
@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown("3"))
         {
-            Debug.Log("½ºÅ³2");
+            Debug.Log("ìŠ¤í‚¬2");
             skill02.SkillEffect(player);
             skill02Timer = 0;
         }
@@ -145,17 +145,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void NewSkill_02()
     {
-        Debug.Log("½ºÅ³2-±¸Á¶°³¼±");
+        Debug.Log("ìŠ¤í‚¬2-êµ¬ì¡°ê°œì„ ");
     }
 
-    //1È¸¼º ¾ÆÀÌÅÛ
+    //1íšŒì„± ì•„ì´í…œ
     private void OTS()
     {
         if (Input.GetKeyDown("q"))
         {
             if (pm.oneTime != null)
             {
-                Debug.Log($"1È¸¿ë ¾ÆÀÌÅÛ »ç¿ë - {pm.oneTime.name}");
+                Debug.Log($"1íšŒìš© ì•„ì´í…œ ì‚¬ìš© - {pm.oneTime.name}");
                 GameObject item = pm.oneTime.gameObject;
                 pm.oneTimeSpell.UseSpell(player, item);
                 Destroy(pm.oneTime);
@@ -168,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (pm.oneTime != null)
         {
-            Debug.Log($"1È¸¿ë ¾ÆÀÌÅÛ »ç¿ë - {pm.oneTime.name}");
+            Debug.Log($"1íšŒìš© ì•„ì´í…œ ì‚¬ìš© - {pm.oneTime.name}");
             GameObject item = pm.oneTime.gameObject;
             pm.oneTimeSpell.UseSpell(player, item);
             Destroy(pm.oneTime);
@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown("x"))
         {
-            Debug.Log("ÆĞ½Ãºê ¾ÆÀÌÅÛ Á¦°Å");
+            Debug.Log("íŒ¨ì‹œë¸Œ ì•„ì´í…œ ì œê±°");
             GameObject pssItem = pm.passive[pm.passive.Count-1];
             IApplyEffect pss = pm.applyPassives[pm.applyPassives.Count-1];
             pss.RemoveFromPM(gameObject, pssItem, pss);
@@ -189,28 +189,28 @@ public class PlayerMovement : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		GameObject collided = collision.gameObject;
-		//Àû°ú Ãæµ¹½Ã
+		//ì ê³¼ ì¶©ëŒì‹œ
 		if (collided.CompareTag("Enemy"))
 		{
-            Debug.Log("Àû°ú Á¢ÃË!");
+            Debug.Log("ì ê³¼ ì ‘ì´‰!");
             MobManager mm = collided.GetComponent<MobManager>();
-			// ÇÇÇØ Ã³¸® (ÀÌÆåÆ®, µ¥¹ÌÁö µî)
+			// í”¼í•´ ì²˜ë¦¬ (ì´í™íŠ¸, ë°ë¯¸ì§€ ë“±)
 			if (Random.value > pm.hitRate)
 			{
-				Debug.Log("ÇÇÇØ ¹æ¾î!");
+				Debug.Log("í”¼í•´ ë°©ì–´!");
 			}
-			// ÇÇÇØ Ã³¸® (ÀÌÆåÆ®, µ¥¹ÌÁö µî)
+			// í”¼í•´ ì²˜ë¦¬ (ì´í™íŠ¸, ë°ë¯¸ì§€ ë“±)
 			else
 			{
-				Debug.Log($"{mm.damage}¸¸Å­ÀÇ ÇÇÇØ!");
+				Debug.Log($"{mm.damage}ë§Œí¼ì˜ í”¼í•´!");
 				pm.curHealth -= mm.damage;
                 if (pm.curHealth < 0) pm.curHealth = 0;
-                //ui¿¡¼­ÀÇ ÀÛ¿ëµµ ÇØÁà¾ß ÇÑ´Ù.
+                //uiì—ì„œì˜ ì‘ìš©ë„ í•´ì¤˜ì•¼ í•œë‹¤.
                 mainUI.HealthChange(pm.curHealth);
 			}
 		}
 
-		//¾ÆÀÌÅÛ µå¶ø(¿©±â¼­ ¾ÈÇÒµí?)
+		//ì•„ì´í…œ ë“œë(ì—¬ê¸°ì„œ ì•ˆí• ë“¯?)
 		if (collided.CompareTag("Active") || collided.CompareTag("Passive") ||
 			collided.CompareTag("Weapon") || collided.CompareTag("Shield") ||
 			collided.CompareTag("OneTime"))
@@ -218,13 +218,13 @@ public class PlayerMovement : MonoBehaviour
 			string name = collision.gameObject.name;
             pm.equipdItemName = name;
 			pm.equipdItemType = collided.tag;
-			Debug.Log($"¾ÆÀÌÅÛ Å½Áö : {name}");
+			Debug.Log($"ì•„ì´í…œ íƒì§€ : {name}");
 		}
 
-		//´ÙÀ½ ½ºÅ×ÀÌÁö ÀÌµ¿ Â÷¿ø¹®
+		//ë‹¤ìŒ ìŠ¤í…Œì´ì§€ ì´ë™ ì°¨ì›ë¬¸
 		if (collided.CompareTag("Gate"))
 		{
-            Debug.Log("Â÷¿ø¹® ÀÌµ¿..");
+            Debug.Log("ì°¨ì›ë¬¸ ì´ë™..");
 		}
 	}
 

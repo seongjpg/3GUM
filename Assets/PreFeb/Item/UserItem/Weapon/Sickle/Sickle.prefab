@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 2656912566063958864}
   - component: {fileID: 6687301983863135137}
   - component: {fileID: -1026989744401550694}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sickle
   m_TagString: Weapon
   m_Icon: {fileID: 0}

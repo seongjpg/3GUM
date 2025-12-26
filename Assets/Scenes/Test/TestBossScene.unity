@@ -560,7 +560,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 270622205502257872, guid: 54d0c4e017ec3f2458dfc1c4ae0b5345, type: 3}
       propertyPath: m_Name
-      value: Warrior
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3265975808359685208, guid: 54d0c4e017ec3f2458dfc1c4ae0b5345, type: 3}
       propertyPath: m_LocalPosition.x

@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: AAA
   m_GUID: e9a11bcba8378e64bae030b9266a1ad7
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 0da2560687a29f54d96012b6785955b3
+    m_Address: Assets/PreFeb/Object/Stone_0.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 9a2d40cbdc32b68458eaea97909c368e, type: 2}
   m_SchemaSet:

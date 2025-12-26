@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
@@ -10,21 +10,21 @@ public class SerializePlayer : MonoBehaviour
 {
 	private GameObject gameManager;
 	private GameManager GM;
-	//ÇÃ·¹ÀÌ¾îºí Ä³¸¯ÅÍ. AddressableKey¸¦ »ç¿ëÇÏ¿© °æ·Î¸¦ ÀúÀåÇÏ´Â °Í.
+	//í”Œë ˆì´ì–´ë¸” ìºë¦­í„°. AddressableKeyë¥¼ ì‚¬ìš©í•˜ì—¬ ê²½ë¡œë¥¼ ì €ì¥í•˜ëŠ” ê²ƒ.
 
-	//Ä³¸¯ÅÍÀÇ ÇöÀç ÁøÇà »óÈ². curHealth¿Í pos¸¸À» ÀúÀåÇÏ¸é µÈ´Ù., ¾ÆÀÌÅÛÀ» ÀçÀû¿ëÇÏ´Â ½Ã±â¿¡ º¹±¸ÇÒ ¼ö ÀÖ´Ù.
-	private int curHealth; // ÇöÀç Ã¼·Â
+	//ìºë¦­í„°ì˜ í˜„ì¬ ì§„í–‰ ìƒí™©. curHealthì™€ posë§Œì„ ì €ì¥í•˜ë©´ ëœë‹¤., ì•„ì´í…œì„ ì¬ì ìš©í•˜ëŠ” ì‹œê¸°ì— ë³µêµ¬í•  ìˆ˜ ìˆë‹¤.
+	private int curHealth; // í˜„ì¬ ì²´ë ¥
 	private Vector3 pos;
 
 
-	//º¸À¯ ¾ÆÀÌÅÛÀ» °¡Á®¿Â µÚ¿¡ ±×¿Í °ü·ÃµÈ º¯¼öµéÀ» ¹İ¿µÇØÁÖ¾î¾ß ÇÑ´Ù.
-	//Áß¿äÇÑ °Ç, ÆĞ½Ãºê¿Í ½ºÆçÀº ÇÃ·¹ÀÌ¾î¿¡°Ô °´Ã¼¸¦ Á¾¼Ó½ÃÄÑ¾ß ÇÏ°í, ±× ¿Ü¿¡´Â ±×Àú ¹İ¿µÀ» ÇØÁÖ¾î¾ß ÇÑ´Ù(how?)
+	//ë³´ìœ  ì•„ì´í…œì„ ê°€ì ¸ì˜¨ ë’¤ì— ê·¸ì™€ ê´€ë ¨ëœ ë³€ìˆ˜ë“¤ì„ ë°˜ì˜í•´ì£¼ì–´ì•¼ í•œë‹¤.
+	//ì¤‘ìš”í•œ ê±´, íŒ¨ì‹œë¸Œì™€ ìŠ¤í ì€ í”Œë ˆì´ì–´ì—ê²Œ ê°ì²´ë¥¼ ì¢…ì†ì‹œì¼œì•¼ í•˜ê³ , ê·¸ ì™¸ì—ëŠ” ê·¸ì € ë°˜ì˜ì„ í•´ì£¼ì–´ì•¼ í•œë‹¤(how?)
 	/*
-	¹«±â
-	½ºÅ³1
-	½ºÅ³2(¾×Æ¼ºê)	
-	½ºÆç
-	ÆĞ½Ãºê ¸®½ºÆ®
+	ë¬´ê¸°
+	ìŠ¤í‚¬1
+	ìŠ¤í‚¬2(ì•¡í‹°ë¸Œ)	
+	ìŠ¤í 
+	íŒ¨ì‹œë¸Œ ë¦¬ìŠ¤íŠ¸
 	 */
 	private string playablePath;
 
@@ -33,7 +33,7 @@ public class SerializePlayer : MonoBehaviour
 	private string oneTimePath;
     private List<string> passivePath = new List<string>();
 
-	//Á÷·ÄÈ­ ÇØÁ¦½Ã, pos, ³²Àº Ã¼·Â, º¸À¯ ¾ÆÀÌÅÛ, ÇÃ·¹ÀÌ¾îÇÁ¸®Æé¸¦ ÀüºÎ µû·Î ºÒ·¯¿À´Â ÆíÀÌ ÁÁÀ» °Í.
+	//ì§ë ¬í™” í•´ì œì‹œ, pos, ë‚¨ì€ ì²´ë ¥, ë³´ìœ  ì•„ì´í…œ, í”Œë ˆì´ì–´í”„ë¦¬í©ë¥¼ ì „ë¶€ ë”°ë¡œ ë¶ˆëŸ¬ì˜¤ëŠ” í¸ì´ ì¢‹ì„ ê²ƒ.
 
 
     private void Awake()
@@ -43,8 +43,8 @@ public class SerializePlayer : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log("json Á÷·ÄÈ­ ÆÄÀÏ ÇØÁ¦");
-        LoadFromSaveData();
+        Debug.Log("json ì§ë ¬í™” íŒŒì¼ í•´ì œ");
+        //LoadFromSaveData();
     }
 
     /*
@@ -52,23 +52,23 @@ public class SerializePlayer : MonoBehaviour
 	{
 		if (Input.GetKeyDown("p"))
 		{
-			Debug.Log("json Á÷·ÄÈ­");
+			Debug.Log("json ì§ë ¬í™”");
 			SavePlayerData();
 		}
 		if (Input.GetKeyDown("o"))
 		{
-			Debug.Log("json Á÷·ÄÈ­ ÆÄÀÏ ÇØÁ¦");
+			Debug.Log("json ì§ë ¬í™” íŒŒì¼ í•´ì œ");
 			LoadFromSaveData();
 		}
 	}
 	*/
 
-	public void SavePlayerData() // ¿ÜºÎ¿¡¼­ json ÆÄÀÏ º¯È¯À» ÇÊ¿ä·Î ÇÒ ¶§ È£Ãâ
+	public void SavePlayerData() // ì™¸ë¶€ì—ì„œ json íŒŒì¼ ë³€í™˜ì„ í•„ìš”ë¡œ í•  ë•Œ í˜¸ì¶œ
 	{
 		GameObject player = GameObject.FindWithTag("Player");
 		PlayerManager pm = player.GetComponent<PlayerManager>();
 
-		//´õ ÀúÀåÇÒ ¿ä¼Ò°¡ ÇÊ¿äÇÑ °æ¿ì ¿©±â¿¡ ¹İ¿µ
+		//ë” ì €ì¥í•  ìš”ì†Œê°€ í•„ìš”í•œ ê²½ìš° ì—¬ê¸°ì— ë°˜ì˜
 		playablePath = GM.playablePath;
 		curHealth = pm.curHealth;
 		pos = player.transform.position;
@@ -83,29 +83,10 @@ public class SerializePlayer : MonoBehaviour
 		CreateJsonFile($"{Application.persistentDataPath}/", "user", playerJson);
 	}
 
-    public void SavePlayerDataWithoutPos() // ¿ÜºÎ¿¡¼­ json ÆÄÀÏ º¯È¯À» ÇÊ¿ä·Î ÇÒ ¶§ È£Ãâ
-    {
-        GameObject player = GameObject.FindWithTag("Player");
-        PlayerManager pm = player.GetComponent<PlayerManager>();
-
-        //´õ ÀúÀåÇÒ ¿ä¼Ò°¡ ÇÊ¿äÇÑ °æ¿ì ¿©±â¿¡ ¹İ¿µ
-        playablePath = GM.playablePath;
-        curHealth = pm.curHealth;
-        weaponPath = GM.weaponPath;
-        activePath = GM.activePath;
-        oneTimePath = GM.oneTimePath;
-        passivePath = GM.passivePath;
-
-        SerializeP playerJsonData = new SerializeP(playablePath, curHealth, pos, weaponPath, activePath, oneTimePath, passivePath);
-        Debug.Log($"weaponPath : {weaponPath}");
-        string playerJson = ObjectToJson(playerJsonData);
-        CreateJsonFile($"{Application.persistentDataPath}/", "user", playerJson);
-    }
-
-    public void LoadFromSaveData() // ¼¼ÀÌºê ÆÄÀÏ ·Îµå½Ã »ç¿ëÇÑ´Ù.
+    public void LoadFromSaveData() // ì„¸ì´ë¸Œ íŒŒì¼ ë¡œë“œì‹œ ì‚¬ìš©í•œë‹¤.
 	{
 		var playerJson =  LoadJsonFile<SerializeP>($"{Application.persistentDataPath}/", "user");
-		//playerJson.LoadPlayable(); // ¿ì¼± ÇÃ·¹ÀÌ¾î°¡ ¼ÒÈ¯µÇ¾î¾ß ÇÔ.
+		//playerJson.LoadPlayable(); // ìš°ì„  í”Œë ˆì´ì–´ê°€ ì†Œí™˜ë˜ì–´ì•¼ í•¨.
 		GameObject player = GameObject.FindWithTag("Player");
 		PlayerManager pm = player.gameObject.GetComponent<PlayerManager>();
 		playerJson.LoadPlayerHealth(pm);
@@ -117,10 +98,10 @@ public class SerializePlayer : MonoBehaviour
 	}
 
 
-    public void LoadInit() // ÃÊ±â ·Îµå ¹× ¾À ÀÌµ¿½Ã »ç¿ëÇÑ´Ù.
+    public void LoadInit() // ì´ˆê¸° ë¡œë“œ ë° ì”¬ ì´ë™ì‹œ ì‚¬ìš©í•œë‹¤.
     {
-        var playerJson = LoadJsonFile<SerializeP>($"{Application.persistentDataPath}/", "user"); // << ¿©±â¸¦ ÃÊ±â ÆÄÀÏ·Î º¯°æÇØÁÖ¾î¾ß ÇÑ´Ù.
-        //playerJson.LoadPlayable(); // ¿ì¼± ÇÃ·¹ÀÌ¾î°¡ ¼ÒÈ¯µÇ¾î¾ß ÇÔ.
+        var playerJson = LoadJsonFile<SerializeP>($"{Application.persistentDataPath}/", "user"); // << ì—¬ê¸°ë¥¼ ì´ˆê¸° íŒŒì¼ë¡œ ë³€ê²½í•´ì£¼ì–´ì•¼ í•œë‹¤.
+        //playerJson.LoadPlayable(); // ìš°ì„  í”Œë ˆì´ì–´ê°€ ì†Œí™˜ë˜ì–´ì•¼ í•¨.
         GameObject player = GameObject.FindWithTag("Player");
         PlayerManager pm = player.gameObject.GetComponent<PlayerManager>();
         playerJson.LoadPlayerHealth(pm);
@@ -129,10 +110,10 @@ public class SerializePlayer : MonoBehaviour
         playerJson.LoadOneTime(player);
         playerJson.LoadPassive(player);
     }
-    public void LoadNextScene() // ÃÊ±â ·Îµå ¹× ¾À ÀÌµ¿½Ã »ç¿ëÇÑ´Ù.
+    public void LoadNextScene() // ì´ˆê¸° ë¡œë“œ ë° ì”¬ ì´ë™ì‹œ ì‚¬ìš©í•œë‹¤.
 	{
         var playerJson = LoadJsonFile<SerializeP>($"{Application.persistentDataPath}/", "user");
-        //playerJson.LoadPlayable(); // ¿ì¼± ÇÃ·¹ÀÌ¾î°¡ ¼ÒÈ¯µÇ¾î¾ß ÇÔ.
+        //playerJson.LoadPlayable(); // ìš°ì„  í”Œë ˆì´ì–´ê°€ ì†Œí™˜ë˜ì–´ì•¼ í•¨.
         GameObject player = GameObject.FindWithTag("Player");
         PlayerManager pm = player.gameObject.GetComponent<PlayerManager>();
         playerJson.LoadPlayerHealth(pm);
@@ -176,8 +157,8 @@ public class SerializePlayer : MonoBehaviour
 
 [System.Serializable]
 public class SerializeP {
-	public int curHealth; // ÇöÀç Ã¼·Â
-	public Vector3 pos; // ÇÃ·¹ÀÌ¾î À§Ä¡
+	public int curHealth; // í˜„ì¬ ì²´ë ¥
+	public Vector3 pos; // í”Œë ˆì´ì–´ ìœ„ì¹˜
 
 
     /*
@@ -211,7 +192,7 @@ public class SerializeP {
 		this.passivePath = _passivePath;
 		
 		Debug.Log(weaponPath);
-		//Ãß°¡ÇÒ Ç×¸ñÀÌ »ı±â¸é ¿©±â¿¡¼­ Ãß°¡.
+		//ì¶”ê°€í•  í•­ëª©ì´ ìƒê¸°ë©´ ì—¬ê¸°ì—ì„œ ì¶”ê°€.
 	}
 
 
@@ -259,7 +240,7 @@ public class SerializeP {
 				}
 				else
 				{
-					Debug.Log("ItemPickUp ½ºÅ©¸³Æ® Á¸ÀçÇÏÁö ¾ÊÀ½?!");
+					Debug.Log("ItemPickUp ìŠ¤í¬ë¦½íŠ¸ ì¡´ì¬í•˜ì§€ ì•ŠìŒ?!");
 				}
 					Debug.Log($"Loaded prefab by key: {weaponPath}");
             }
@@ -284,7 +265,7 @@ public class SerializeP {
                 }
                 else
                 {
-                    Debug.Log("ItemPickUp ½ºÅ©¸³Æ® Á¸ÀçÇÏÁö ¾ÊÀ½?!");
+                    Debug.Log("ItemPickUp ìŠ¤í¬ë¦½íŠ¸ ì¡´ì¬í•˜ì§€ ì•ŠìŒ?!");
                 }
                 Debug.Log($"Loaded prefab by key: {activePath}");
             }
@@ -309,7 +290,7 @@ public class SerializeP {
                 }
                 else
                 {
-                    Debug.Log("ItemPickUp ½ºÅ©¸³Æ® Á¸ÀçÇÏÁö ¾ÊÀ½?!");
+                    Debug.Log("ItemPickUp ìŠ¤í¬ë¦½íŠ¸ ì¡´ì¬í•˜ì§€ ì•ŠìŒ?!");
                 }
                 Debug.Log($"Loaded prefab by key: {oneTimePath}");
             }
@@ -336,7 +317,7 @@ public class SerializeP {
                     }
                     else
                     {
-                        Debug.Log("ItemPickUp ½ºÅ©¸³Æ® Á¸ÀçÇÏÁö ¾ÊÀ½?!");
+                        Debug.Log("ItemPickUp ìŠ¤í¬ë¦½íŠ¸ ì¡´ì¬í•˜ì§€ ì•ŠìŒ?!");
                     }
                     Debug.Log($"Loaded prefab by key: {passivePath}");
                 }

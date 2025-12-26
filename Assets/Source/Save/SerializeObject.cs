@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -15,35 +15,37 @@ public struct Object {
 
 public class SerializeObject : MonoBehaviour
 {
-	private int objectLayer = 6; // ¸®ÆåÅä¸µ ½Ã ·¹ÀÌ¾î ¹øÈ£ ¼öÁ¤ °¡´É¼º ³ôÀ½
+	private int objectLayer = 6; // ë¦¬í™í† ë§ ì‹œ ë ˆì´ì–´ ë²ˆí˜¸ ìˆ˜ì • ê°€ëŠ¥ì„± ë†’ìŒ
     public List<Object> objects = new List<Object>() { };
 
 
 
 	private void Update()
 	{
+		/*
 		if (Input.GetKeyDown("w"))
 		{
-			Debug.Log("json Á÷·ÄÈ­(¿ÀºêÁ§Æ®)");
-			LoadSceneObject(); // objects ¸®½ºÆ® Ã¤¿ì±â
+			Debug.Log("json ì§ë ¬í™”(ì˜¤ë¸Œì íŠ¸)");
+			LoadSceneObject(); // objects ë¦¬ìŠ¤íŠ¸ ì±„ìš°ê¸°
 			SaveObjectData();
 		}
 		if (Input.GetKeyDown("r"))
 		{
-			Debug.Log("json Á÷·ÄÈ­ ÆÄÀÏ ÇØÁ¦(¿ÀºêÁ§Æ®)");
+			Debug.Log("json ì§ë ¬í™” íŒŒì¼ í•´ì œ(ì˜¤ë¸Œì íŠ¸)");
 			LoadObjectData();
 		}
+		*/
 	}
 
 
-	void SaveObjectData() // ¿ÜºÎ¿¡¼­ json ÆÄÀÏ º¯È¯À» ÇÊ¿ä·Î ÇÒ ¶§ È£Ãâ
+	public void SaveObjectData() // ì™¸ë¶€ì—ì„œ json íŒŒì¼ ë³€í™˜ì„ í•„ìš”ë¡œ í•  ë•Œ í˜¸ì¶œ
 	{
 		SerializeObj objectJsonData = new SerializeObj(objects);
 		string objectJson = ObjectToJson(objectJsonData);
 		CreateJsonFile($"{Application.persistentDataPath}/", "objects", objectJson);
 	}
 
-	void LoadObjectData()
+	public void LoadObjectData()
 	{
 		var objectJson = LoadJsonFile<SerializeObj>($"{Application.persistentDataPath}/", "objects");
 		objectJson.SummonPrefab();
@@ -136,7 +138,7 @@ public class SerializeObj {
 			if (handle.Status == AsyncOperationStatus.Succeeded)
 				UnityEngine.Object.Instantiate(handle.Result, entry.position, Quaternion.identity);
 			else
-				Debug.LogError($"Addressables ·Îµå ½ÇÆĞ: {entry.prefabPath}");
+				Debug.LogError($"Addressables ë¡œë“œ ì‹¤íŒ¨: {entry.prefabPath}");
 		}
 	}
 }

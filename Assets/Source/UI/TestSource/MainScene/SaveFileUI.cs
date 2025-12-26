@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -16,12 +16,12 @@ public class SaveFileUI : MonoBehaviour
     private void OnEnable()
     {
 
-        // UIDocument ÄÄÆ÷³ÍÆ®¸¦ °¡Á®¿É´Ï´Ù.
+        // UIDocument ì»´í¬ë„ŒíŠ¸ ì°¸ì¡°
         var uiDocument = GetComponent<UIDocument>();
 
-        // ·çÆ® ¿ä¼Ò¸¦ °¡Á®¿É´Ï´Ù.
+        // ë£¨íŠ¸ ìš”ì†Œ ì°¸ì¡°
         var root = uiDocument.rootVisualElement;
-        // ÀÌÈÄ, root¸¦ ÀÌ¿ëÇØ ½ÇÁ¦·Î uiDocument¿¡ Á¸ÀçÇÏ´Â ui objectµé¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Ù.
+        // ì´í›„, rootë¥¼ ì´ìš©í•´ ì‹¤ì œë¡œ uiDocumentì— ì¡´ì¬í•˜ëŠ” ui objectë“¤ì— ì ‘ê·¼í•  ìˆ˜ ìˆë‹¤.
         Save01 = root.Q<Button>("BTN_SAVE1");
         Save02 = root.Q<Button>("BTN_SAVE2");
         Save03 = root.Q<Button>("BTN_SAVE3");
@@ -33,6 +33,7 @@ public class SaveFileUI : MonoBehaviour
         Quit.clicked += QuitClicked;
     }
 
+
     private void OnDisable()
     {
         Save01.clicked -= Save01Clicked;
@@ -41,8 +42,8 @@ public class SaveFileUI : MonoBehaviour
         Quit.clicked -= QuitClicked;
     }
 
-    //°á±¹ °¢ ¼¼ÀÌºê¹öÆ°Àº µ¿ÀÏ µ¿ÀÛÀ» ÇÏÁö¸¸, json ÆÄÀÏÀ» ¾î¶² °É ¹Ş¾Æ¿À³ÄÀÇ Â÷ÀÌÀÏ »ÓÀÌ´Ù. 
-    //±×·¡¼­ Â÷ÈÄ jsonÀ» Á¦´ë·Î ±¸ÃàÇÏ°í ³ª¸é targetSceneÀ» µ¿ÀûÀ¸·Î Á¤ÇÒ ¼ö ÀÖµµ·Ï json¿¡ ¹İ¿µÇØ¾ß ÇÑ´Ù.
+    //ê²°êµ­ ê° ì„¸ì´ë¸Œë²„íŠ¼ì€ ë™ì¼ ë™ì‘ì„ í•˜ì§€ë§Œ, json íŒŒì¼ì„ ì–´ë–¤ ê±¸ ë°›ì•„ì˜¤ëƒì˜ ì°¨ì´ì¼ ë¿ì´ë‹¤. 
+    //ê·¸ë˜ì„œ ì°¨í›„ jsonì„ ì œëŒ€ë¡œ êµ¬ì¶•í•˜ê³  ë‚˜ë©´ targetSceneì„ ë™ì ìœ¼ë¡œ ì •í•  ìˆ˜ ìˆë„ë¡ jsonì— ë°˜ì˜í•´ì•¼ í•œë‹¤.
     void Save01Clicked()
     {
         //smm.MoveToScene(WTG_ASSET.fts.targetScene);

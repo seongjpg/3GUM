@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UIElements;
 
 public class PauseUI : MonoBehaviour
@@ -17,14 +17,14 @@ public class PauseUI : MonoBehaviour
 
     private void OnEnable()
     {
-        //ÀÎ°ÔÀÓ ½Ã°£À» ¸ØÃß´Â ÀÛ¿ë ÇÊ¿ä·Î ÇÔ.
+        //ì¸ê²Œì„ ì‹œê°„ì„ ë©ˆì¶”ëŠ” ì‘ìš© í•„ìš”ë¡œ í•¨.
         Time.timeScale = 0f;
-        // UIDocument ÄÄÆ÷³ÍÆ®¸¦ °¡Á®¿É´Ï´Ù.
+        // UIDocument ì»´í¬ë„ŒíŠ¸ë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤.
         var uiDocument = GetComponent<UIDocument>();
 
-        // ·çÆ® ¿ä¼Ò¸¦ °¡Á®¿É´Ï´Ù.
+        // ë£¨íŠ¸ ìš”ì†Œë¥¼ ê°€ì ¸ì˜µë‹ˆë‹¤.
         var root = uiDocument.rootVisualElement;
-        // ÀÌÈÄ, root¸¦ ÀÌ¿ëÇØ ½ÇÁ¦·Î uiDocument¿¡ Á¸ÀçÇÏ´Â ui objectµé¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Ù.
+        // ì´í›„, rootë¥¼ ì´ìš©í•´ ì‹¤ì œë¡œ uiDocumentì— ì¡´ì¬í•˜ëŠ” ui objectë“¤ì— ì ‘ê·¼í•  ìˆ˜ ìˆë‹¤.
         Mother = root.Q<VisualElement>("Mother");
         Resume = root.Q<Button>("BTN_RESUME");
         Setting = root.Q<Button>("BTN_SETTING");
@@ -46,7 +46,7 @@ public class PauseUI : MonoBehaviour
     {
         //debug
         Debug.Log("Resume Clicked.");
-        //½Ã°£ Á¤Áö¸¦ ¸ØÃß°í, ÇöÀçÀÇ settingsUi¸¦ ºñÈ°¼ºÈ­.
+        //ì‹œê°„ ì •ì§€ë¥¼ ë©ˆì¶”ê³ , í˜„ì¬ì˜ settingsUië¥¼ ë¹„í™œì„±í™”.
         Time.timeScale = 1f;
         this.gameObject.SetActive(false);
     }
@@ -54,18 +54,19 @@ public class PauseUI : MonoBehaviour
     {
         //debug
         Debug.Log("Setting Clicked.");
-        // È¯°æ ¼³Á¤ Ã¢ È°¼ºÈ­. 
+        // í™˜ê²½ ì„¤ì • ì°½ í™œì„±í™”. 
         SettingUI.SetActive(true);
 
     }
+
 
     void QuitClicked()
     {
         Time.timeScale = 1f;
         Debug.Log("Quit Clicked");
         GM.SaveInGame();
-        // °ÔÀÓÀÇ ÁøÇà »óÈ²À» Json Á÷·ÄÈ­ÇÏ¿© ÀúÀå.
-        // °ÔÀÓÀÇ ÇöÀç ¾ÀÀ» Á¾·áÇÏ°í, ½ÃÀÛ È­¸é ¾ÀÀ¸·Î ÀÌµ¿.   
+        // ê²Œì„ì˜ ì§„í–‰ ìƒí™©ì„ Json ì§ë ¬í™”í•˜ì—¬ ì €ì¥.
+        // ê²Œì„ì˜ í˜„ì¬ ì”¬ì„ ì¢…ë£Œí•˜ê³ , ì‹œì‘ í™”ë©´ ì”¬ìœ¼ë¡œ ì´ë™.   
         smm.MoveToScene(WTG_ASSET.fts.targetScene);
         this.gameObject.SetActive(false);
     }

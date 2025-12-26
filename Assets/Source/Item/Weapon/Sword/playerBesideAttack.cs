@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class PlayerBesideAttack : MonoBehaviour, IWeaponBody
 {
@@ -35,10 +35,10 @@ public class PlayerBesideAttack : MonoBehaviour, IWeaponBody
 	{
 		GameObject collider = collision.gameObject;
 
-		//Àû ÇÇ°İ(ÀÏ´Ü ÀÌ°Ç ¹üÀ§°ø°İÀÌ¶ó ±»ÀÌ Ã³¸®ÇÒ °Ç ¾ø´Ù.)
+		//ì  í”¼ê²©(ì¼ë‹¨ ì´ê±´ ë²”ìœ„ê³µê²©ì´ë¼ êµ³ì´ ì²˜ë¦¬í•  ê±´ ì—†ë‹¤.)
 		if (collision.CompareTag("Enemy"))
 		{
-			Debug.Log("Àû ÇÇ°İ!");
+			//Debug.Log("ì  í”¼ê²©!");
 		}
 	}
     public float DMG()
@@ -51,7 +51,7 @@ public class PlayerBesideAttack : MonoBehaviour, IWeaponBody
 
         else
         {
-            Debug.Log("ÀÌ°Ç ±ÙÁ¢¹«±â ¾Æ´Ï´Ù.");
+            Debug.Log("ì´ê±´ ê·¼ì ‘ë¬´ê¸° ì•„ë‹ˆë‹¤.");
             return 0;
         }
     }

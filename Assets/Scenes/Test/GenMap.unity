@@ -820,6 +820,10 @@ PrefabInstance:
       propertyPath: SCTRL
       value: 
       objectReference: {fileID: 854413024}
+    - target: {fileID: 8230763255284000280, guid: d19bfabc9c491ee458a308c4e660b506, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

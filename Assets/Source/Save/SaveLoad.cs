@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SaveLoad : MonoBehaviour
 {
@@ -10,9 +10,4 @@ public class SaveLoad : MonoBehaviour
         SSN.LoadSceneName();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

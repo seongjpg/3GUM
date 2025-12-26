@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
@@ -22,11 +22,12 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        
     }
 
     private void Start()
     {
+        //ì˜¤ë¸Œì íŠ¸ ì œì‘ ì‹œì—ëŠ” êº¼ì£¼ê³  í•´ì•¼ í•¨.
+        //LoadFromSaveFile();
     }
 
 
@@ -79,26 +80,30 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void LoadFromInitSaveFile() // ÃÊ±â ¼¼ÀÌºê ÆÄÀÏ »ç¿ë. ÀÌ°É »ç¿ë ÈÄ SaveInGameÀ¸·Î ÀúÀåÀ» ÇØÁÖ¾î¾ß ÇÑ´Ù. ÀÌ°Å´Â ÀÎ°ÔÀÓ ³»¿¡¼­ ÃÊ±âÈ­¸¦ ÇÏ°í ½ÍÀ» ¶§¿¡µµ »ç¿ë °¡´É.
+
+    public void LoadFromInitSaveFile() // ì´ˆê¸° ì„¸ì´ë¸Œ íŒŒì¼ ì‚¬ìš©. ì´ê±¸ ì‚¬ìš© í›„ SaveInGameìœ¼ë¡œ ì €ì¥ì„ í•´ì£¼ì–´ì•¼ í•œë‹¤. ì´ê±°ëŠ” ì¸ê²Œì„ ë‚´ì—ì„œ ì´ˆê¸°í™”ë¥¼ í•˜ê³  ì‹¶ì„ ë•Œì—ë„ ì‚¬ìš© ê°€ëŠ¥.
     {
         SP.LoadInit();
         SCTRL.SaveScene();
         SP.SavePlayerData();
         SaveInGame();
     }
-    public void LoadfromSaveFile() // ¼¼ÀÌºê ÆÄÀÏÀ» ·ÎµåÇÒ ¶§ »ç¿ë.
+    public void LoadFromSaveFile() // ì„¸ì´ë¸Œ íŒŒì¼ì„ ë¡œë“œí•  ë•Œ ì‚¬ìš©.
     {
-        SCTRL.LoadScene();
-        //¾À ÀÌ¸§ ºÒ·¯¿À±â, ¾À ·Îµå
+        //SCTRL.LoadScene();
+        //ì”¬ ì´ë¦„ ë¶ˆëŸ¬ì˜¤ê¸°, ì”¬ ë¡œë“œ
         SP.LoadFromSaveData();
+        SO.LoadObjectData();
         SaveInGame();
     }
-    public void SaveInGame() // ÀÎ°ÔÀÓ¿¡¼­ ÀúÀåÀÌ ÀÏ¾î³¯ ¶§(ex-°ÔÀÓ °­Á¦Á¾·á½Ã, pause¹öÆ° ÀÔ·Â½Ã, ¾ÆÀÌÅÛ ¸ÔÀ» ¶§¸¶´Ù, ¹æ ÁøÀÔ½Ã µîµî...)
+    public void SaveInGame() // ì¸ê²Œì„ì—ì„œ ì €ì¥ì´ ì¼ì–´ë‚  ë•Œ(ex-ê²Œì„ ê°•ì œì¢…ë£Œì‹œ, pauseë²„íŠ¼ ì…ë ¥ì‹œ, ì•„ì´í…œ ë¨¹ì„ ë•Œë§ˆë‹¤, ë°© ì§„ì…ì‹œ ë“±ë“±...)
     {
         SP.SavePlayerData();
+        SO.LoadSceneObject();
+        SO.SaveObjectData();
         SSN.SaveSceneName();
     }
-    public void LoadNextScene() // ´ÙÀ½ ¾ÀÀ¸·Î ³Ñ¾î°¥ ¶§ »ç¿ë. ¿©±â¼± ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡´Â ÇÊ¿ä¾ø°í, ¾ÀÀÇ ÀÌ¸§µµ ¹Ù²î¾î¾ß ÇÑ´Ù. ±× µÚ¿¡ SaveInGameÀû¿ë.
+    public void LoadNextScene() // ë‹¤ìŒ ì”¬ìœ¼ë¡œ ë„˜ì–´ê°ˆ ë•Œ ì‚¬ìš©. ì—¬ê¸°ì„  í”Œë ˆì´ì–´ì˜ ìœ„ì¹˜ëŠ” í•„ìš”ì—†ê³ , ì”¬ì˜ ì´ë¦„ë„ ë°”ë€Œì–´ì•¼ í•œë‹¤. ê·¸ ë’¤ì— SaveInGameì ìš©.
     {
         SP.LoadNextScene();
         SaveInGame();
