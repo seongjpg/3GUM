@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test/TestInteraction.unity
     guid: 3f20ebd0af2485448b2d2e3c48b593c7
+  - enabled: 1
+    path: Assets/Scenes/Test/BootScene.unity
+    guid: 9d72163f62655284aae1144f98dce270
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 851ce691c09d64e4fab54bec7122376f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

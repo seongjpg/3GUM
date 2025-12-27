@@ -44,7 +44,7 @@ public class SerializePlayer : MonoBehaviour
     private void Start()
     {
         Debug.Log("json 직렬화 파일 해제");
-        LoadFromSaveData();
+        //LoadFromSaveData();
     }
 
     /*
@@ -82,6 +82,22 @@ public class SerializePlayer : MonoBehaviour
 		string playerJson = ObjectToJson(playerJsonData);
 		CreateJsonFile($"{Application.persistentDataPath}/", "user", playerJson);
 	}
+
+    public void ClearPlayerData()
+    {
+
+        GameObject player = GameObject.FindWithTag("Player");
+        PlayerManager pm = player.GetComponent<PlayerManager>();
+
+        //더 저장할 요소가 필요한 경우 여기에 반영
+        playablePath = GM.playablePath;
+        curHealth = pm.maxHealth;
+        pos = Vector3.zero;
+        weaponPath = null;
+        activePath = null;
+        oneTimePath = null;
+        passivePath = null;
+    }
 
     public void LoadFromSaveData() // 세이브 파일 로드시 사용한다.
 	{
@@ -317,9 +333,9 @@ public class SerializeP {
                     }
                     else
                     {
-                        Debug.Log("ItemPickUp 스크립트 존재하지 않음?!");
+                        //Debug.Log("ItemPickUp 스크립트 존재하지 않음?!");
                     }
-                    Debug.Log($"Loaded prefab by key: {passivePath}");
+                    //Debug.Log($"Loaded prefab by key: {passivePath}");
                 }
                 else
                 {

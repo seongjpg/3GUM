@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 public class GameManager : MonoBehaviour
 {
-
+    private GameObject SceneManager;
 
     [SerializeField] private SerializePlayer SP;
     [SerializeField] private SerializeObject SO;
@@ -22,12 +22,23 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        SceneManager = GameObject.Find("SceneManager");
+        SCTRL = SceneManager.GetComponent<GlobalSceneControl>();
+        SSN = SceneManager.GetComponent<SerializeSceneName>();
     }
 
     private void Start()
     {
         //오브젝트 제작 시에는 꺼주고 해야 함.
-        //LoadFromSaveFile();
+        LoadFromSaveFile();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown("r"))
+        {
+            LoadFromInitSaveFile();
+        }
     }
 
 
@@ -83,31 +94,33 @@ public class GameManager : MonoBehaviour
 
     public void LoadFromInitSaveFile() // 초기 세이브 파일 사용. 이걸 사용 후 SaveInGame으로 저장을 해주어야 한다. 이거는 인게임 내에서 초기화를 하고 싶을 때에도 사용 가능.
     {
-        SP.LoadInit();
+        SM.ClearMapData();
+        SO.ClearObjectData();
+        SP.ClearPlayerData();
         SCTRL.SaveScene();
-        SP.SavePlayerData();
         SaveInGame();
     }
     public void LoadFromSaveFile() // 세이브 파일을 로드할 때 사용.
     {
         //SCTRL.LoadScene();
         //씬 이름 불러오기, 씬 로드
+        SM.LoadMapData();
         SO.LoadObjectData();
-
         SP.LoadFromSaveData();
+
         SaveInGame();
     }
     public void SaveInGame() // 인게임에서 저장이 일어날 때(ex-게임 강제종료시, pause버튼 입력시, 아이템 먹을 때마다, 방 진입시 등등...)
     {
-        SO.LoadSceneObject();
+        SM.SaveMapData();
         SO.SaveObjectData();
-
         SP.SavePlayerData();
         SSN.SaveSceneName();
     }
     public void LoadNextScene() // 다음 씬으로 넘어갈 때 사용. 여기선 플레이어의 위치는 필요없고, 씬의 이름도 바뀌어야 한다. 그 뒤에 SaveInGame적용.
     {
         SP.LoadNextScene();
-        SaveInGame();
+        SM.ClearMapData();
+        SO.ClearObjectData();
     }
 }

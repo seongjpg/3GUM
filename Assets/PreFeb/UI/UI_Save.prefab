@@ -126,6 +126,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2693107441445798311, guid: 0777922436b47244a8c26af79935f3ef, type: 3}
+      propertyPath: SSN
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693107441445798311, guid: 0777922436b47244a8c26af79935f3ef, type: 3}
+      propertyPath: SCTRL
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3369914293435125620, guid: 0777922436b47244a8c26af79935f3ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -171,7 +179,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5264854126880356547}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5828628253693094413, guid: 0777922436b47244a8c26af79935f3ef, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0777922436b47244a8c26af79935f3ef, type: 3}

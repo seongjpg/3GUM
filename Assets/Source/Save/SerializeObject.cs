@@ -45,6 +45,15 @@ public class SerializeObject : MonoBehaviour
 		CreateJsonFile($"{Application.persistentDataPath}/", "objects", objectJson);
 	}
 
+	public void ClearObjectData() // 오브젝트 데이터를 초기화할때 호출
+	{
+		objects.Clear();
+		SerializeObj objectJsonData = new SerializeObj(objects);
+
+        string objectJson = ObjectToJson(objectJsonData);
+        CreateJsonFile($"{Application.persistentDataPath}/", "objects", objectJson);
+    }
+
 	public void LoadObjectData()
 	{
 		var objectJson = LoadJsonFile<SerializeObj>($"{Application.persistentDataPath}/", "objects");
@@ -144,7 +153,11 @@ public class SerializeObj {
 			var handle = Addressables.LoadAssetAsync<GameObject>(entry.prefabPath);
 			await handle.Task;
 			if (handle.Status == AsyncOperationStatus.Succeeded)
-				UnityEngine.Object.Instantiate(handle.Result, entry.position, Quaternion.identity);
+			{
+				//Debug.Log($"복구한 프리펩 - path : {entry.prefabPath}\nposition : {entry.position}\n");
+                UnityEngine.Object.Instantiate(handle.Result, entry.position, Quaternion.identity);
+            }
+
 			else
 				Debug.LogError($"Addressables 로드 실패: {entry.prefabPath}");
 		}

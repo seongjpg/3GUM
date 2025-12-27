@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
@@ -15,34 +15,46 @@ public class SerializeMap : MonoBehaviour {
 
 	private void Update()
 	{
+		/*
 		if (Input.GetKeyDown("w"))
 		{
-			Debug.Log("json Á÷·ÄÈ­(map)");
+			Debug.Log("json ì§ë ¬í™”(map)");
 			SaveMapData();
 		}
 		if (Input.GetKeyDown("r"))
 		{
-			Debug.Log("json Á÷·ÄÈ­ ÆÄÀÏ ÇØÁ¦(map)");
+			Debug.Log("json ì§ë ¬í™” íŒŒì¼ í•´ì œ(map)");
 			LoadMapData();
 		}
+		*/
 	}
 
 
-	void SaveMapData() // ¿ÜºÎ¿¡¼­ json ÆÄÀÏ º¯È¯À» ÇÊ¿ä·Î ÇÒ ¶§ È£Ãâ
+	public void SaveMapData() // ì™¸ë¶€ì—ì„œ json íŒŒì¼ ë³€í™˜ì„ í•„ìš”ë¡œ í•  ë•Œ í˜¸ì¶œ
 	{
 		GameObject mapGen = GameObject.FindWithTag("MapGen");
 		MapGenerator mg = mapGen.GetComponent<MapGenerator>();
 		xLen = mg.mapSize.x; yLen = mg.mapSize.y;
 		tileArr = new int[xLen, yLen];
 		MakeArr(mg, xLen, yLen);
-		//´õ ÀúÀåÇÒ ¿ä¼Ò°¡ ÇÊ¿äÇÑ °æ¿ì ¿©±â¿¡ ¹İ¿µ
+		//ë” ì €ì¥í•  ìš”ì†Œê°€ í•„ìš”í•œ ê²½ìš° ì—¬ê¸°ì— ë°˜ì˜
 
 		SerializeM mapJsonData = new SerializeM(tileArr, xLen, yLen);
 		string mapJson = ObjectToJson(mapJsonData);
 		CreateJsonFile($"{Application.persistentDataPath}/", "map", mapJson);
 	}
 
-	void LoadMapData()
+	public void ClearMapData() // ë§µ json íŒŒì¼ì„ ì´ˆê¸°í™”í•  ë•Œ í˜¸ì¶œ
+	{
+		xLen = 0; yLen = 0;
+		tileArr = new int[xLen, yLen];
+
+        SerializeM mapJsonData = new SerializeM(tileArr, xLen, yLen);
+        string mapJson = ObjectToJson(mapJsonData);
+        CreateJsonFile($"{Application.persistentDataPath}/", "map", mapJson);
+    }
+
+	public void LoadMapData()
 	{
 		var mapJson = LoadJsonFile<SerializeM>($"{Application.persistentDataPath}/", "map");
 		mapJson.ApplyMap();
@@ -89,14 +101,14 @@ public class SerializeMap : MonoBehaviour {
 				TileBase tile = tileMap.GetTile(tilePos);
 				switch (tile.name)
 				{
-					case "metal_0": // roomTile ÀÇ Å¸ÀÏ ÀÌ¸§
+					case "metal_0": // roomTile ì˜ íƒ€ì¼ ì´ë¦„
 
 						tileArr[i, j] = 1;
 						break;
-					case "wallTile": //wallTileÀÇ Å¸ÀÏ ÀÌ¸§
+					case "wallTile": //wallTileì˜ íƒ€ì¼ ì´ë¦„
 						tileArr[i, j] = 2;
 						break;
-					case "black_metal_0": // outTileÀÇ Å¸ÀÏ ÀÌ¸§
+					case "black_metal_0": // outTileì˜ íƒ€ì¼ ì´ë¦„
 						tileArr[i, j] = 3;
 						break;
 				}
@@ -135,7 +147,7 @@ public class SerializeM {
 				flatTiles[y * xLen + x] = _tileArr[x, y];
 			}
 		}
-		//Ãß°¡ÇÒ Ç×¸ñÀÌ »ı±â¸é ¿©±â¿¡¼­ Ãß°¡.
+		//ì¶”ê°€í•  í•­ëª©ì´ ìƒê¸°ë©´ ì—¬ê¸°ì—ì„œ ì¶”ê°€.
 	}
 
 	public void ApplyMap()

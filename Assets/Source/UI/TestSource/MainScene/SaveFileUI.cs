@@ -6,6 +6,7 @@ public class SaveFileUI : MonoBehaviour
 {
     [SerializeField] Scene_WTG_ASSET WTG_ASSET;
     [SerializeField] SceneMoveManager smm;
+    [SerializeField] GameObject GAOBJ;
     [SerializeField] GlobalAmt GA; 
 
     Button Save01;
@@ -16,6 +17,8 @@ public class SaveFileUI : MonoBehaviour
     private void OnEnable()
     {
 
+        GAOBJ = GameObject.Find("GlobalManager");
+        GA = GAOBJ.GetComponent<GlobalAmt>();
         // UIDocument 컴포넌트 참조
         var uiDocument = GetComponent<UIDocument>();
 
@@ -50,7 +53,7 @@ public class SaveFileUI : MonoBehaviour
         smm.MoveToScene(GA.GetSceneName01());
         //this.gameObject.SetActive(false);
     }
-    void Save02Clicked() 
+    void Save02Clicked()  // 현재 처음부터 시작으로 임시 사용중
     {
         smm.MoveToScene(WTG_ASSET.fts.targetScene);
         //this.gameObject.SetActive(false);

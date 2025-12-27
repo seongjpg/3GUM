@@ -1,14 +1,16 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GlobalAmt : MonoBehaviour
 {
 
     public string sceneName01;
+    public bool isInitFile01 = true;
 
     void Start()
     {
         SetSceneName01(SceneManager.GetActiveScene().name);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Update()

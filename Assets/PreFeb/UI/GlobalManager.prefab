@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName01: 
+  isInitFile01: 1
 --- !u!114 &4199697519611697424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,3 +135,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SSN: {fileID: 5694590774489002663}
+  SP: {fileID: 0}

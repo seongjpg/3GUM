@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class ItemPickUp : MonoBehaviour
 {
@@ -34,19 +34,19 @@ public class ItemPickUp : MonoBehaviour
 		GameObject collided = collision.gameObject;
 		if (collided.CompareTag("Player"))
 		{
-			if (this.CompareTag("Active")) // ¾×Æ¼ºê ¾ÆÀÌÅÛ
+			if (this.CompareTag("Active")) // ì•¡í‹°ë¸Œ ì•„ì´í…œ
 			{
 				SA(collided, this.gameObject);
 			}
-			if (this.CompareTag("Passive")) // ÆĞ½Ãºê ¾ÆÀÌÅÛ
+			if (this.CompareTag("Passive")) // íŒ¨ì‹œë¸Œ ì•„ì´í…œ
 			{
 				SP(collided, this.gameObject);
 			}
-			if (this.CompareTag("Weapon")) // ¹«±â
+			if (this.CompareTag("Weapon")) // ë¬´ê¸°
 			{
 				SW(collided, this.gameObject);
             }
-			if (this.CompareTag("OneTime")) // ÀÏÈ¸¿ë ¾ÆÀÌÅÛ
+			if (this.CompareTag("OneTime")) // ì¼íšŒìš© ì•„ì´í…œ
 			{
 				SS(collided, this.gameObject);
 			}
@@ -57,28 +57,28 @@ public class ItemPickUp : MonoBehaviour
 
 	public void SA(GameObject player, GameObject activeItem)
 	{
-        Debug.Log("¾×Æ¼ºê ¾ÆÀÌÅÛ!");
+        //Debug.Log("ì•¡í‹°ë¸Œ ì•„ì´í…œ!");
         active.SaveActive(player, activeItem);
 		GM.SetActivePath(activeItem);
 		Destroy(this.gameObject);
     }
 	public void SP(GameObject player, GameObject passiveItem)
 	{
-		Debug.Log("ÆĞ½Ãºê ¾ÆÀÌÅÛ!"); // ÇöÀç ¹æ¾î±¸¿Í µ¿ÀÏÇÑ ±¸Á¶
-        passive.SavePassive(player, passiveItem); // ÃÖÃÊ ½ÇÇàºÎ
+		//Debug.Log("íŒ¨ì‹œë¸Œ ì•„ì´í…œ!"); // í˜„ì¬ ë°©ì–´êµ¬ì™€ ë™ì¼í•œ êµ¬ì¡°
+        passive.SavePassive(player, passiveItem); // ìµœì´ˆ ì‹¤í–‰ë¶€
 		GM.SetPassivePath(passiveItem);
         Destroy(this.gameObject);
     }
 	public void SW(GameObject player, GameObject weaponItem)
     {
-        Debug.Log("¹«±â!"); // ÇöÀç ¹æ¾î±¸¿Í µ¿ÀÏÇÑ ±¸Á¶
-        weapon.SaveWeapon(player, weaponItem); // ÃÖÃÊ ½ÇÇàºÎ
+        //Debug.Log("ë¬´ê¸°!"); // í˜„ì¬ ë°©ì–´êµ¬ì™€ ë™ì¼í•œ êµ¬ì¡°
+        weapon.SaveWeapon(player, weaponItem); // ìµœì´ˆ ì‹¤í–‰ë¶€
 		GM.SetWeaponPath(weaponItem);
         Destroy(this.gameObject);
     }
 	public void SS(GameObject player, GameObject spellItem)
 	{
-		Debug.Log("1È¸¿ë ¾ÆÀÌÅÛ");
+		//Debug.Log("1íšŒìš© ì•„ì´í…œ");
         spell.SaveSpell(player, spellItem);
 		GM.SetoneTimePath(spellItem);
         Destroy(this.gameObject);
