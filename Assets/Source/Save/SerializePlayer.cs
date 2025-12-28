@@ -10,7 +10,7 @@ public class SerializePlayer : MonoBehaviour
 {
 	private GameObject gameManager;
 	private GameManager GM;
-	//플레이어블 캐릭터. AddressableKey를 사용하여 경로를 저장하는 것.
+	//플레이어블 캐릭터. AddressableKey를 사용하여 경로를 저장하는 것. 
 
 	//캐릭터의 현재 진행 상황. curHealth와 pos만을 저장하면 된다., 아이템을 재적용하는 시기에 복구할 수 있다.
 	private int curHealth; // 현재 체력
