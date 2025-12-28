@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private GameObject SceneManager;
+    private GameObject GlobalManager;
+    private GameObject sceneManager;
+    private GlobalAmt GA;
 
     [SerializeField] private SerializePlayer SP;
     [SerializeField] private SerializeObject SO;
     [SerializeField] private SerializeMap SM;
-    [SerializeField] private GlobalSceneControl SCTRL;
+    [SerializeField] private GlobalSceneControl GSC;
     [SerializeField] private SerializeSceneName SSN;
 
     public string playablePath;
@@ -22,15 +24,25 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        SceneManager = GameObject.Find("SceneManager");
-        SCTRL = SceneManager.GetComponent<GlobalSceneControl>();
-        SSN = SceneManager.GetComponent<SerializeSceneName>();
+        GlobalManager = GameObject.Find("GlobalManager");
+        sceneManager = GameObject.Find("SceneManager");
+        GA = GlobalManager.GetComponent<GlobalAmt>();
+        GSC = sceneManager.GetComponent<GlobalSceneControl>();
+        SSN = sceneManager.GetComponent<SerializeSceneName>();
     }
 
     private void Start()
     {
         //오브젝트 제작 시에는 꺼주고 해야 함.
-        LoadFromSaveFile();
+        if (GA.isInitFile01)
+        {
+            LoadFromInitSaveFile();
+            GA.isInitFile01 = false;
+        }
+        else
+        {
+            LoadFromSaveFile();
+        }
     }
 
     private void Update()
@@ -92,21 +104,28 @@ public class GameManager : MonoBehaviour
 
 
 
-    public void LoadFromInitSaveFile() // 초기 세이브 파일 사용. 이걸 사용 후 SaveInGame으로 저장을 해주어야 한다. 이거는 인게임 내에서 초기화를 하고 싶을 때에도 사용 가능.
+    public void LoadFromInitSaveFile() // 초기화 후 로드. 이거는 인게임 내에서 초기화를 하고 싶을 때에도 사용 가능.
     {
-        SM.ClearMapData();
-        SO.ClearObjectData();
-        SP.ClearPlayerData();
-        SCTRL.SaveScene();
+        Debug.Log("초기화");
+        SM.ClearMapData(); // 맵 데이터 초기화
+        SO.ClearObjectData(); // 오브젝트 데이터 초기화
+        SP.ClearPlayerData(); // 플레이어 데이터 초기화
+       
         SaveInGame();
     }
     public void LoadFromSaveFile() // 세이브 파일을 로드할 때 사용.
     {
-        //SCTRL.LoadScene();
+        Debug.Log("세이브 파일 불러오기");
         //씬 이름 불러오기, 씬 로드
         SM.LoadMapData();
-        SO.LoadObjectData();
+        SO.LoadObjectData(); // 여기서 기존 장애물 파괴도 동시에 진행해주어야 한다.
         SP.LoadFromSaveData();
+
+        SaveInGame();
+    }
+    public void LoadNextScene() // 다음 씬으로 넘어갈 때 사용. 여기선 플레이어의 위치는 필요없고, 씬의 이름도 바뀌어야 한다. 그 뒤에 SaveInGame적용.
+    {
+        SP.LoadNextScene();
 
         SaveInGame();
     }
@@ -115,12 +134,14 @@ public class GameManager : MonoBehaviour
         SM.SaveMapData();
         SO.SaveObjectData();
         SP.SavePlayerData();
-        SSN.SaveSceneName();
+        GSC.SaveScene(SceneManager.GetActiveScene().name);
     }
-    public void LoadNextScene() // 다음 씬으로 넘어갈 때 사용. 여기선 플레이어의 위치는 필요없고, 씬의 이름도 바뀌어야 한다. 그 뒤에 SaveInGame적용.
+
+    public void SaveForNextScene() // 다음 씬으로 넘어갈 때 호출되는 함수
     {
-        SP.LoadNextScene();
-        SM.ClearMapData();
+        SP.SavePlayerData(); // 어차피 로드할 때 pos를 제외하고 로드하기에 따로 세이브를 할 필요는 없음.
         SO.ClearObjectData();
+        SM.ClearMapData();
     }
+    
 }

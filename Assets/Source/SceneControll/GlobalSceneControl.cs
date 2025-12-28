@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class GlobalSceneControl : MonoBehaviour
 {
@@ -7,29 +7,14 @@ public class GlobalSceneControl : MonoBehaviour
     [SerializeField] GlobalAmt GA;
     void Start()
     {
+        Debug.Log("json ì§ë ¬í™” íŒŒì¼ í•´ì œ");
+        SSN.LoadSceneName();
+        //SMM.MoveToScene(GA.GetSceneName01());
     }
 
-    /*
-    private void Update()
+    public void SaveScene(string sceneName)
     {
-        if (Input.GetKeyDown("p"))
-        {
-            Debug.Log("json Á÷·ÄÈ­");
-            GA.SetCurSceneName();
-            SSN.SaveSceneName();
-        }
-        if (Input.GetKeyDown("o"))
-        {
-            Debug.Log("json Á÷·ÄÈ­ ÆÄÀÏ ÇØÁ¦");
-            SSN.LoadSceneName();
-            SMM.MoveToScene(GA.GetSceneName01());
-        }
-    }
-    */
-
-    public void SaveScene()
-    {
-        GA.SetCurSceneName();
+        GA.SetSceneName01(sceneName);
         SSN.SaveSceneName();
     }
 

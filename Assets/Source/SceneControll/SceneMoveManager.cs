@@ -1,20 +1,20 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//½ÇÁúÀûÀ¸·Î ¾À ÀÌµ¿¿¡ °ü¿©ÇÏ´Â ½ºÅ©¸³Æ®. WTG_ASSET¿¡¼­ ÀûÀº(±»ÀÌ ÇÊ¿äÇÑ°¡ ¸ğ¸£°Ú±ä ÇÔ) ÇöÀç ¾À ÀÌ¸§°ú ÀÌµ¿ÇÒ ¾À ÀÌ¸§À» ÀÌ¿ëÇØ¼­ ÀÛµ¿.
+//ì‹¤ì§ˆì ìœ¼ë¡œ ì”¬ ì´ë™ì— ê´€ì—¬í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸. WTG_ASSETì—ì„œ ì ì€(êµ³ì´ í•„ìš”í•œê°€ ëª¨ë¥´ê² ê¸´ í•¨) í˜„ì¬ ì”¬ ì´ë¦„ê³¼ ì´ë™í•  ì”¬ ì´ë¦„ì„ ì´ìš©í•´ì„œ ì‘ë™.
 public class SceneMoveManager : MonoBehaviour {
 
 	void Awake()
 	{
 	
-		//DontDestroyOnLoad(gameObject); // ¾À ÀüÈ¯ ½Ã¿¡µµ À¯Áö
+		//DontDestroyOnLoad(gameObject); // ì”¬ ì „í™˜ ì‹œì—ë„ ìœ ì§€
 	}
 
 	public void MoveToScene(string sceneName)
 	{
 		if (string.IsNullOrEmpty(sceneName))
 		{
-			Debug.LogWarning("ÀÌµ¿ÇÒ ¾À ÀÌ¸§ÀÌ ºñ¾î ÀÖ½À´Ï´Ù.");
+			Debug.LogWarning("ì´ë™í•  ì”¬ ì´ë¦„ì´ ë¹„ì–´ ìˆìŠµë‹ˆë‹¤.");
 			return;
 		}
 		SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);

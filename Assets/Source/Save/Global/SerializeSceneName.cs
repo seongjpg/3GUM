@@ -1,9 +1,10 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.SceneManagement;
 
 public class SerializeSceneName : MonoBehaviour
 {
@@ -25,10 +26,10 @@ public class SerializeSceneName : MonoBehaviour
             LoadSceneName();
     }
 
-    public void SaveSceneName() // ¿ÜºÎ¿¡¼­ json ÆÄÀÏ º¯È¯À» ÇÊ¿ä·Î ÇÒ ¶§ È£Ãâ
+    public void SaveSceneName() // ì™¸ë¶€ì—ì„œ json íŒŒì¼ ë³€í™˜ì„ í•„ìš”ë¡œ í•  ë•Œ í˜¸ì¶œ
     {
         sceneName01 = GA.GetSceneName01();
-        Debug.Log($"¾À ÀÌ¸§ ÀúÀå - {sceneName01}");
+        Debug.Log($"ì”¬ ì´ë¦„ ì €ì¥ - {sceneName01}");
         SerializeS sceneNameJsonData = new SerializeS(sceneName01);
         string sceneNameJson = ObjectToJson(sceneNameJsonData);
         CreateJsonFile($"{Application.persistentDataPath}/", "SceneName01", sceneNameJson);
@@ -45,9 +46,9 @@ public class SerializeSceneName : MonoBehaviour
     {
         var sceneNameJson = LoadJsonFile<SerializeS>($"{Application.persistentDataPath}/", "SceneName01");
 
-        sceneNameJson.LoadCurSceneName(GA);
+        sceneNameJson.LoadSceneName(GA);
 
-        Debug.Log($"{sceneName01} ºÒ·¯¿À±â!");
+        Debug.Log($"{sceneName01} ë¶ˆëŸ¬ì˜¤ê¸°!");
     }
 
     string ObjectToJson(object obj)
@@ -97,6 +98,10 @@ public class SerializeS
     }
 
     public void LoadCurSceneName(GlobalAmt GA)
+    {
+        GA.SetSceneName01("GenMap");
+    }
+    public void LoadSceneName(GlobalAmt GA)
     {
         GA.SetSceneName01(sceneName01);
     }

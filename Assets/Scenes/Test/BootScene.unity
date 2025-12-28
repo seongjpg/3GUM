@@ -264,6 +264,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 86087738053372744, guid: 53c18060c48f2674eb63d7118172702f, type: 3}
+      propertyPath: isInitFile01
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2913696373475865900, guid: 53c18060c48f2674eb63d7118172702f, type: 3}
       propertyPath: m_Name
       value: GlobalManager
