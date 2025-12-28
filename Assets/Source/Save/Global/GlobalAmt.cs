@@ -9,6 +9,7 @@ public class GlobalAmt : MonoBehaviour
 
     void Start()
     {
+        SetSceneName01(SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -32,4 +33,11 @@ public class GlobalAmt : MonoBehaviour
     {
         return sceneName01;
     }
+
+    public void SetSceneFlow01(string _sceneName01, bool _isInitFile01)
+    {
+        sceneName01 = _sceneName01;
+        isInitFile01 = _isInitFile01;
+    }
+
 }

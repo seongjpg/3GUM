@@ -55,6 +55,7 @@ public class SaveFileUI : MonoBehaviour
     }
     void Save02Clicked()  // 현재 처음부터 시작으로 임시 사용중
     {
+        GA.isInitFile01 = true;
         smm.MoveToScene(WTG_ASSET.fts.targetScene);
         //this.gameObject.SetActive(false);
         //GameObject.Destroy(gameObject);
