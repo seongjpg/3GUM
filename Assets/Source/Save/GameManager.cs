@@ -4,9 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private GameObject mapGenerator;
     private GameObject GlobalManager;
     private GameObject sceneManager;
     private GlobalAmt GA;
+    private MapGenerator MG;
+
 
     [SerializeField] private SerializePlayer SP;
     [SerializeField] private SerializeObject SO;
@@ -24,8 +27,10 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        mapGenerator = GameObject.FindWithTag("MapGen");
         GlobalManager = GameObject.Find("GlobalManager");
         sceneManager = GameObject.Find("SceneManager");
+        MG = mapGenerator.GetComponent<MapGenerator>();
         GA = GlobalManager.GetComponent<GlobalAmt>();
         GSC = sceneManager.GetComponent<GlobalSceneControl>();
         SSN = sceneManager.GetComponent<SerializeSceneName>();

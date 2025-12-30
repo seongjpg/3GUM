@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6702dc48c1d48b42a1a7ea9c148fd92
+    m_Address: Assets/PreFeb/Item/UserItem/Weapon/Wand/Wand.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc030a0b25205c5439a5c32a6d262e26
     m_Address: Assets/PreFeb/Item/UserItem/Weapon/sword/Sword.prefab
     m_ReadOnly: 0

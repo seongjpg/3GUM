@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fd7df54050018f47b21032ed47d9d82, type: 3}
-  m_Name: BulletStatus
+  m_Script: {fileID: 11500000, guid: a8f5e962a7595974b98918a9a0bd9f05, type: 3}
+  m_Name: Skill_WandShield
   m_EditorClassIdentifier: 
-  speed: 5
-  damage: 10
-  lifeTime: 10
-  swingSpeed: 0
-  isBullet: 1
-  originalyPenetrate: 0
+  KenkiObj: {fileID: 0}

@@ -1,33 +1,33 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
 {	
-	[SerializeField] public MapCenter mc; // °¢ ¹æÀÇ Á¤º¸¸¦ °ü¸®ÇÏ´Â ½ºÅ©¸³Æ®.½ºÆ÷³Ê°¡ ¸Ê¿¡¼­ ¸ó½ºÅÍ¸¦ ½ºÆùÇÏ´Â À§Ä¡¸¦ Á¤ÇÒ ¼ö ÀÖµµ·Ï ÇÏ°í, È°¼ºÈ­ÇÏ´Â ¿ªÇÒ ´ã´ç.
+	[SerializeField] public MapCenter mc; // ê° ë°©ì˜ ì •ë³´ë¥¼ ê´€ë¦¬í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸.ìŠ¤í¬ë„ˆê°€ ë§µì—ì„œ ëª¬ìŠ¤í„°ë¥¼ ìŠ¤í°í•˜ëŠ” ìœ„ì¹˜ë¥¼ ì •í•  ìˆ˜ ìˆë„ë¡ í•˜ê³ , í™œì„±í™”í•˜ëŠ” ì—­í•  ë‹´ë‹¹.
 	
 	[SerializeField] public Vector2Int mapSize;
-	[SerializeField] float minimumDevideRate; //°ø°£ÀÌ ³ª´²Áö´Â ÃÖ¼Ò ºñÀ²
-	[SerializeField] float maximumDivideRate; //°ø°£ÀÌ ³ª´²Áö´Â ÃÖ´ë ºñÀ²
-	[SerializeField] private GameObject line; //lineRenderer¸¦ »ç¿ëÇØ¼­ °ø°£ÀÌ ³ª´²Áø°É ½ÃÀÛÀûÀ¸·Î º¸¿©ÁÖ±â À§ÇÔ
-	[SerializeField] private GameObject map; //lineRenderer¸¦ »ç¿ëÇØ¼­ Ã¹ ¸ÊÀÇ »çÀÌÁî¸¦ º¸¿©ÁÖ±â À§ÇÔ
-	[SerializeField] private GameObject roomLine; //lineRenderer¸¦ »ç¿ëÇØ¼­ ¹æÀÇ »çÀÌÁî¸¦ º¸¿©ÁÖ±â À§ÇÔ
-	[SerializeField] private int maximumDepth; //Æ®¸®ÀÇ ±íÀÌ, ±íÀ»¼ö·Ï ¹æÀ» ´õ ÀÚ¼¼È÷ ³ª´©°Ô µÊ
+	[SerializeField] float minimumDevideRate; //ê³µê°„ì´ ë‚˜ëˆ ì§€ëŠ” ìµœì†Œ ë¹„ìœ¨
+	[SerializeField] float maximumDivideRate; //ê³µê°„ì´ ë‚˜ëˆ ì§€ëŠ” ìµœëŒ€ ë¹„ìœ¨
+	[SerializeField] private GameObject line; //lineRendererë¥¼ ì‚¬ìš©í•´ì„œ ê³µê°„ì´ ë‚˜ëˆ ì§„ê±¸ ì‹œì‘ì ìœ¼ë¡œ ë³´ì—¬ì£¼ê¸° ìœ„í•¨
+	[SerializeField] private GameObject map; //lineRendererë¥¼ ì‚¬ìš©í•´ì„œ ì²« ë§µì˜ ì‚¬ì´ì¦ˆë¥¼ ë³´ì—¬ì£¼ê¸° ìœ„í•¨
+	[SerializeField] private GameObject roomLine; //lineRendererë¥¼ ì‚¬ìš©í•´ì„œ ë°©ì˜ ì‚¬ì´ì¦ˆë¥¼ ë³´ì—¬ì£¼ê¸° ìœ„í•¨
+	[SerializeField] private int maximumDepth; //íŠ¸ë¦¬ì˜ ê¹Šì´, ê¹Šì„ìˆ˜ë¡ ë°©ì„ ë” ìì„¸íˆ ë‚˜ëˆ„ê²Œ ë¨
 	[SerializeField] public Tilemap tileMap;
-	[SerializeField] public Tile roomTile; //¹æÀ» ±¸¼ºÇÏ´Â Å¸ÀÏ
-	[SerializeField] public Tile wallTile; //¹æ°ú ¿ÜºÎ¸¦ ±¸ºĞÁö¾îÁÙ º® Å¸ÀÏ
-	[SerializeField] public Tile outTile; //¹æ ¿ÜºÎÀÇ Å¸ÀÏ
+	[SerializeField] public Tile roomTile; //ë°©ì„ êµ¬ì„±í•˜ëŠ” íƒ€ì¼
+	[SerializeField] public Tile wallTile; //ë°©ê³¼ ì™¸ë¶€ë¥¼ êµ¬ë¶„ì§€ì–´ì¤„ ë²½ íƒ€ì¼
+	[SerializeField] public Tile outTile; //ë°© ì™¸ë¶€ì˜ íƒ€ì¼
 	
-	[SerializeField] GameObject bossGate; // ÃßÈÄ Ãß°¡µÉ º¸½º °ÔÀÌÆ® °ÔÀÓ¿ÀºêÁ§Æ®
+	[SerializeField] GameObject bossGate; // ì¶”í›„ ì¶”ê°€ë  ë³´ìŠ¤ ê²Œì´íŠ¸ ê²Œì„ì˜¤ë¸Œì íŠ¸
 	
-	[SerializeField] GameObject ms; // ¸ó½ºÅÍ ½ºÆ÷³Ê¸¦ ºÎÂøÇÏ´Â ºÎºĞ. ÃßÈÄ¿¡ ¿©·¯ ¸ó½ºÅÍ ½ºÆ÷³Ê¸¦ Àû¿ëÇÏ¿©, °¢ ¹æ¸¶´Ù ´Ù¸¥ ¸ó½ºÅÍ Ç®À» Àû¿ëÇÒ ¼ö ÀÖµµ·Ï ÇÏ´Â °ÍÀÌ ÃßÈÄ ¸ñÇ¥.
-	[SerializeField] GameObject itemSpawn; // ¾ÆÀÌÅÛ ½ºÆ÷³Ê ºÎÂøÇÏ´Â ºÎºĞ. ¿©±âµµ ¸ó½ºÅÍ ½ºÆ÷³ÊÃ³·³ ¿©·¯ ¸ó½ºÅÍ Ç® Áß ÀÓÀÇ·Î °ñ¶ó¼­ ³ÖÀ»Áö´Â ¸ğ¸£°ÚÀ½
-	[SerializeField] GameObject objSpawn; // ¿ÀºêÁ§Æ® ½ºÆ÷³Ê ºÎÂøÇÏ´Â ºÎºĞ. ±âº»ÀûÀÎ ¼ÒÈ¯ ½Ã±â´Â ¾ÆÀÌÅÛ½ºÆ÷³Ê¿Í µ¿ÀÏÇÏ³ª, ¾ÆÀÌÅÛ ½ºÆ÷³Ê¿Í ´Ş¸® ±ÔÄ¢ÀÌ ÇÊ¿äÇÏ¿© ¼ÒÈ¯ ·ÎÁ÷À» °í¹ÎÇØºÁ¾ß ÇÔ.
+	[SerializeField] GameObject ms; // ëª¬ìŠ¤í„° ìŠ¤í¬ë„ˆë¥¼ ë¶€ì°©í•˜ëŠ” ë¶€ë¶„. ì¶”í›„ì— ì—¬ëŸ¬ ëª¬ìŠ¤í„° ìŠ¤í¬ë„ˆë¥¼ ì ìš©í•˜ì—¬, ê° ë°©ë§ˆë‹¤ ë‹¤ë¥¸ ëª¬ìŠ¤í„° í’€ì„ ì ìš©í•  ìˆ˜ ìˆë„ë¡ í•˜ëŠ” ê²ƒì´ ì¶”í›„ ëª©í‘œ.
+	[SerializeField] GameObject itemSpawn; // ì•„ì´í…œ ìŠ¤í¬ë„ˆ ë¶€ì°©í•˜ëŠ” ë¶€ë¶„. ì—¬ê¸°ë„ ëª¬ìŠ¤í„° ìŠ¤í¬ë„ˆì²˜ëŸ¼ ì—¬ëŸ¬ ëª¬ìŠ¤í„° í’€ ì¤‘ ì„ì˜ë¡œ ê³¨ë¼ì„œ ë„£ì„ì§€ëŠ” ëª¨ë¥´ê² ìŒ
+	[SerializeField] GameObject objSpawn; // ì˜¤ë¸Œì íŠ¸ ìŠ¤í¬ë„ˆ ë¶€ì°©í•˜ëŠ” ë¶€ë¶„. ê¸°ë³¸ì ì¸ ì†Œí™˜ ì‹œê¸°ëŠ” ì•„ì´í…œìŠ¤í¬ë„ˆì™€ ë™ì¼í•˜ë‚˜, ì•„ì´í…œ ìŠ¤í¬ë„ˆì™€ ë‹¬ë¦¬ ê·œì¹™ì´ í•„ìš”í•˜ì—¬ ì†Œí™˜ ë¡œì§ì„ ê³ ë¯¼í•´ë´ì•¼ í•¨.
 
 	private GameObject player;
 	public Vector3 playerLoc = new Vector3(0, 0);
-	public int seed; // ½Ãµå Àû¿ëÀ» À§ÇØ ÀÏ´Ü ÀÛ¼º
+	public int seed; // ì‹œë“œ ì ìš©ì„ ìœ„í•´ ì¼ë‹¨ ì‘ì„±
 
 
 	private List<Node> nodes = new List<Node>();
@@ -43,23 +43,23 @@ public class MapGenerator : MonoBehaviour
 		SpawnPrefab();
 	}
 
-    void SpawnPrefab()
+    public void SpawnPrefab()
     {
 		player = GameObject.FindWithTag("Player");
-		FillBackground();//¾À ·Îµå ½Ã ÀüºÎ´Ù ¹Ù±ùÅ¸ÀÏ·Î µ¤À½
+		FillBackground();//ì”¬ ë¡œë“œ ì‹œ ì „ë¶€ë‹¤ ë°”ê¹¥íƒ€ì¼ë¡œ ë®ìŒ
 		Node root = new Node(new RectInt(0, 0, mapSize.x, mapSize.y));
 		Divide(root, 0);
-		GenerateRoom(root, 0); Debug.Log($"roomdata °³¼ö : {mc.roomData.Count}");
+		GenerateRoom(root, 0); Debug.Log($"roomdata ê°œìˆ˜ : {mc.roomData.Count}");
 		GenerateLoad(root, 0);
-		FillWall(); //¹Ù±ù°ú ¹æÀÌ ¸¸³ª´Â ÁöÁ¡À» º®À¸·Î Ä¥ÇØÁÖ´Â ÇÔ¼ö
+		FillWall(); //ë°”ê¹¥ê³¼ ë°©ì´ ë§Œë‚˜ëŠ” ì§€ì ì„ ë²½ìœ¼ë¡œ ì¹ í•´ì£¼ëŠ” í•¨ìˆ˜
 
 		int id = Random.Range(0, rooms.Count);
 		Debug.Log(id);
 		playerLoc = tileMap.GetCellCenterWorld(new Vector3Int(rooms[id].x + rooms[id].width/2,  rooms[id].y + rooms[id].height/2, 0));
 		player.GetComponent<PlayerMovement>().transform.position = playerLoc;
-		//ÇÃ·¹ÀÌ¾î À§Ä¡¸¦ ±â¹İÀ¸·Î º¸½º·ë ¼³Á¤
+		//í”Œë ˆì´ì–´ ìœ„ì¹˜ë¥¼ ê¸°ë°˜ìœ¼ë¡œ ë³´ìŠ¤ë£¸ ì„¤ì •
 		MakeBossRoom();
-		//º¸½º·ëÀ» Á¦¿ÜÇÑ ¹æÀ» Æ¯¼ö ¹æÀ¸·Î ¸¸µé ¿©Áö ³²°Ü³õ±â
+		//ë³´ìŠ¤ë£¸ì„ ì œì™¸í•œ ë°©ì„ íŠ¹ìˆ˜ ë°©ìœ¼ë¡œ ë§Œë“¤ ì—¬ì§€ ë‚¨ê²¨ë†“ê¸°
 		this.gameObject.transform.position = Vector3.zero;
 	}
 
@@ -67,53 +67,53 @@ public class MapGenerator : MonoBehaviour
 	{
 		if (n == maximumDepth)
 		{
-			nodes.Add(tree); // ¿øÇÏ´Â ±íÀÌ¿¡ µµ´ŞÇßÀ» °æ¿ì ÇöÀç ³ëµå¸¦ ³ëµå ¸®½ºÆ®¿¡ ÀúÀå(ÀÌ´Â º¸½º·ë ÁöÁ¤ÇÒ ¶§ »ç¿ë)
+			nodes.Add(tree); // ì›í•˜ëŠ” ê¹Šì´ì— ë„ë‹¬í–ˆì„ ê²½ìš° í˜„ì¬ ë…¸ë“œë¥¼ ë…¸ë“œ ë¦¬ìŠ¤íŠ¸ì— ì €ì¥(ì´ëŠ” ë³´ìŠ¤ë£¸ ì§€ì •í•  ë•Œ ì‚¬ìš©)
 			//playerLoc = new Vector3((tree.nodeRect.x) / 2, (tree.nodeRect.y) / 2);
 
-			return; //³»°¡ ¿øÇÏ´Â ±íÀÌ¿¡ µµ´ŞÇÏ¸é ´õ ³ª´²ÁÖÁö ¾Ê´Â´Ù.
+			return; //ë‚´ê°€ ì›í•˜ëŠ” ê¹Šì´ì— ë„ë‹¬í•˜ë©´ ë” ë‚˜ëˆ ì£¼ì§€ ì•ŠëŠ”ë‹¤.
 		}
 
 
-		//±× ¿ÜÀÇ °æ¿ì¿¡´Â
+		//ê·¸ ì™¸ì˜ ê²½ìš°ì—ëŠ”
 		int maxLength = Mathf.Max(tree.nodeRect.width, tree.nodeRect.height);
-		//°¡·Î¿Í ¼¼·ÎÁß ´õ ±ä°ÍÀ» ±¸ÇÑÈÄ, °¡·Î°¡ ±æ´Ù¸é À§ ÁÂ, ¿ì·Î ¼¼·Î°¡ ´õ ±æ´Ù¸é À§, ¾Æ·¡·Î ³ª´²ÁÖ°Ô µÉ °ÍÀÌ´Ù.
+		//ê°€ë¡œì™€ ì„¸ë¡œì¤‘ ë” ê¸´ê²ƒì„ êµ¬í•œí›„, ê°€ë¡œê°€ ê¸¸ë‹¤ë©´ ìœ„ ì¢Œ, ìš°ë¡œ ì„¸ë¡œê°€ ë” ê¸¸ë‹¤ë©´ ìœ„, ì•„ë˜ë¡œ ë‚˜ëˆ ì£¼ê²Œ ë  ê²ƒì´ë‹¤.
 		int split = Mathf.RoundToInt(Random.Range(maxLength * minimumDevideRate, maxLength * maximumDivideRate));
-		//³ª¿Ã ¼ö ÀÖ´Â ÃÖ´ë ±æÀÌ¿Í ÃÖ¼Ò ±æÀÌÁß¿¡¼­ ·£´ıÀ¸·Î ÇÑ °ªÀ» ¼±ÅÃ
-		if (tree.nodeRect.width >= tree.nodeRect.height) //°¡·Î°¡ ´õ ±æ¾ú´ø °æ¿ì¿¡´Â ÁÂ ¿ì·Î ³ª´©°Ô µÉ °ÍÀÌ¸ç, ÀÌ °æ¿ì¿¡´Â ¼¼·Î ±æÀÌ´Â º¯ÇÏÁö ¾Ê´Â´Ù.
+		//ë‚˜ì˜¬ ìˆ˜ ìˆëŠ” ìµœëŒ€ ê¸¸ì´ì™€ ìµœì†Œ ê¸¸ì´ì¤‘ì—ì„œ ëœë¤ìœ¼ë¡œ í•œ ê°’ì„ ì„ íƒ
+		if (tree.nodeRect.width >= tree.nodeRect.height) //ê°€ë¡œê°€ ë” ê¸¸ì—ˆë˜ ê²½ìš°ì—ëŠ” ì¢Œ ìš°ë¡œ ë‚˜ëˆ„ê²Œ ë  ê²ƒì´ë©°, ì´ ê²½ìš°ì—ëŠ” ì„¸ë¡œ ê¸¸ì´ëŠ” ë³€í•˜ì§€ ì•ŠëŠ”ë‹¤.
 		{
 
 			tree.leftNode = new Node(new RectInt(tree.nodeRect.x, tree.nodeRect.y, split, tree.nodeRect.height));
-			//¿ŞÂÊ ³ëµå¿¡ ´ëÇÑ Á¤º¸´Ù 
-			//À§Ä¡´Â ÁÂÃø ÇÏ´Ü ±âÁØÀÌ¹Ç·Î º¯ÇÏÁö ¾ÊÀ¸¸ç, °¡·Î ±æÀÌ´Â À§¿¡¼­ ±¸ÇÑ ·£´ı°ªÀ» ³Ö¾îÁØ´Ù.
+			//ì™¼ìª½ ë…¸ë“œì— ëŒ€í•œ ì •ë³´ë‹¤ 
+			//ìœ„ì¹˜ëŠ” ì¢Œì¸¡ í•˜ë‹¨ ê¸°ì¤€ì´ë¯€ë¡œ ë³€í•˜ì§€ ì•Šìœ¼ë©°, ê°€ë¡œ ê¸¸ì´ëŠ” ìœ„ì—ì„œ êµ¬í•œ ëœë¤ê°’ì„ ë„£ì–´ì¤€ë‹¤.
 			tree.rightNode = new Node(new RectInt(tree.nodeRect.x + split, tree.nodeRect.y, tree.nodeRect.width - split, tree.nodeRect.height));
-			//¿ìÃø ³ëµå¿¡ ´ëÇÑ Á¤º¸´Ù 
-			//À§Ä¡´Â ÁÂÃø ÇÏ´Ü¿¡¼­ ¿À¸¥ÂÊÀ¸·Î °¡·Î ±æÀÌ¸¸Å­ ÀÌµ¿ÇÑ À§Ä¡ÀÌ¸ç, °¡·Î ±æÀÌ´Â ±âÁ¸ °¡·Î±æÀÌ¿¡¼­ »õ·Î ±¸ÇÑ °¡·Î°ªÀ» »« ³ª¸ÓÁö ºÎºĞÀÌ µÈ´Ù. 
+			//ìš°ì¸¡ ë…¸ë“œì— ëŒ€í•œ ì •ë³´ë‹¤ 
+			//ìœ„ì¹˜ëŠ” ì¢Œì¸¡ í•˜ë‹¨ì—ì„œ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê°€ë¡œ ê¸¸ì´ë§Œí¼ ì´ë™í•œ ìœ„ì¹˜ì´ë©°, ê°€ë¡œ ê¸¸ì´ëŠ” ê¸°ì¡´ ê°€ë¡œê¸¸ì´ì—ì„œ ìƒˆë¡œ êµ¬í•œ ê°€ë¡œê°’ì„ ëº€ ë‚˜ë¨¸ì§€ ë¶€ë¶„ì´ ëœë‹¤. 
 		}
 		else
 		{
 			tree.leftNode = new Node(new RectInt(tree.nodeRect.x, tree.nodeRect.y, tree.nodeRect.width, split));
 			tree.rightNode = new Node(new RectInt(tree.nodeRect.x, tree.nodeRect.y + split, tree.nodeRect.width, tree.nodeRect.height - split));
 		}
-		tree.leftNode.parNode = tree; //ÀÚ½Ä³ëµåµéÀÇ ºÎ¸ğ³ëµå¸¦ ³ª´©±âÀü ³ëµå·Î ¼³Á¤
+		tree.leftNode.parNode = tree; //ìì‹ë…¸ë“œë“¤ì˜ ë¶€ëª¨ë…¸ë“œë¥¼ ë‚˜ëˆ„ê¸°ì „ ë…¸ë“œë¡œ ì„¤ì •
 		tree.rightNode.parNode = tree;
-		Divide(tree.leftNode, n + 1); //¿ŞÂÊ, ¿À¸¥ÂÊ ÀÚ½Ä ³ëµåµéµµ ³ª´²ÁØ´Ù.
-		Divide(tree.rightNode, n + 1);//¿ŞÂÊ, ¿À¸¥ÂÊ ÀÚ½Ä ³ëµåµéµµ ³ª´²ÁØ´Ù.
+		Divide(tree.leftNode, n + 1); //ì™¼ìª½, ì˜¤ë¥¸ìª½ ìì‹ ë…¸ë“œë“¤ë„ ë‚˜ëˆ ì¤€ë‹¤.
+		Divide(tree.rightNode, n + 1);//ì™¼ìª½, ì˜¤ë¥¸ìª½ ìì‹ ë…¸ë“œë“¤ë„ ë‚˜ëˆ ì¤€ë‹¤.
 	}
 	private RectInt GenerateRoom(Node tree, int n)
 	{
 		RectInt rect;
-		if (n == maximumDepth) //ÇØ´ç ³ëµå°¡ ¸®ÇÁ³ëµå¶ó¸é ¹æÀ» ¸¸µé¾î ÁÙ °ÍÀÌ´Ù.
+		if (n == maximumDepth) //í•´ë‹¹ ë…¸ë“œê°€ ë¦¬í”„ë…¸ë“œë¼ë©´ ë°©ì„ ë§Œë“¤ì–´ ì¤„ ê²ƒì´ë‹¤.
 		{
 			
 			rect = tree.nodeRect;
 			int width = Random.Range(rect.width / 2, rect.width - 1);
-			//¹æÀÇ °¡·Î ÃÖ¼Ò Å©±â´Â ³ëµåÀÇ °¡·Î±æÀÌÀÇ Àı¹İ, ÃÖ´ë Å©±â´Â °¡·Î±æÀÌº¸´Ù 1 ÀÛ°Ô ¼³Á¤ÇÑ ÈÄ ±× »çÀÌ °ªÁß ·£´ıÇÑ °ªÀ» ±¸ÇØÁØ´Ù.
+			//ë°©ì˜ ê°€ë¡œ ìµœì†Œ í¬ê¸°ëŠ” ë…¸ë“œì˜ ê°€ë¡œê¸¸ì´ì˜ ì ˆë°˜, ìµœëŒ€ í¬ê¸°ëŠ” ê°€ë¡œê¸¸ì´ë³´ë‹¤ 1 ì‘ê²Œ ì„¤ì •í•œ í›„ ê·¸ ì‚¬ì´ ê°’ì¤‘ ëœë¤í•œ ê°’ì„ êµ¬í•´ì¤€ë‹¤.
 			int height = Random.Range(rect.height / 2, rect.height - 1);
-			//³ôÀÌµµ À§¿Í °°´Ù.
+			//ë†’ì´ë„ ìœ„ì™€ ê°™ë‹¤.
 			int x = rect.x + Random.Range(1, rect.width - width);
-			//¹æÀÇ xÁÂÇ¥ÀÌ´Ù. ¸¸¾à 0ÀÌ µÈ´Ù¸é ºÙ¾î ÀÖ´Â ¹æ°ú ÇÕÃÄÁö±â ¶§¹®¿¡,ÃÖ¼Ú°ªÀº 1·Î ÇØÁÖ°í, ÃÖ´ñ°ªÀº ±âÁ¸ ³ëµåÀÇ °¡·Î¿¡¼­ ¹æÀÇ °¡·Î±æÀÌ¸¦ »© ÁØ °ªÀÌ´Ù.
+			//ë°©ì˜ xì¢Œí‘œì´ë‹¤. ë§Œì•½ 0ì´ ëœë‹¤ë©´ ë¶™ì–´ ìˆëŠ” ë°©ê³¼ í•©ì³ì§€ê¸° ë•Œë¬¸ì—,ìµœì†Ÿê°’ì€ 1ë¡œ í•´ì£¼ê³ , ìµœëŒ“ê°’ì€ ê¸°ì¡´ ë…¸ë“œì˜ ê°€ë¡œì—ì„œ ë°©ì˜ ê°€ë¡œê¸¸ì´ë¥¼ ë¹¼ ì¤€ ê°’ì´ë‹¤.
 			int y = rect.y + Random.Range(1, rect.height - height);
-			//yÁÂÇ¥µµ À§¿Í °°´Ù.
+			//yì¢Œí‘œë„ ìœ„ì™€ ê°™ë‹¤.
 			rect = new RectInt(x, y, width, height);
 			rooms.Add(rect);
 			FillRoom(rect);
@@ -129,7 +129,7 @@ public class MapGenerator : MonoBehaviour
 	private void GenerateLoad(Node tree, int n)
 	{
 		if (n == maximumDepth) { 
-			return; //¸®ÇÁ ³ëµå¶ó¸é ÀÌÀ» ÀÚ½ÄÀÌ ¾ø´Ù.
+			return; //ë¦¬í”„ ë…¸ë“œë¼ë©´ ì´ì„ ìì‹ì´ ì—†ë‹¤.
 		}
 			
 		Vector2Int leftNodeCenter = tree.leftNode.center;
@@ -145,15 +145,15 @@ public class MapGenerator : MonoBehaviour
 		{
 			tileMap.SetTile(new Vector3Int(rightNodeCenter.x, j), roomTile);
 		}
-		//room tile·Î Ã¤¿ì´Â °úÁ¤
-		GenerateLoad(tree.leftNode, n + 1); //ÀÚ½Ä ³ëµåµéµµ Å½»ö
+		//room tileë¡œ ì±„ìš°ëŠ” ê³¼ì •
+		GenerateLoad(tree.leftNode, n + 1); //ìì‹ ë…¸ë“œë“¤ë„ íƒìƒ‰
 		GenerateLoad(tree.rightNode, n + 1);
 	}
 
-	void FillBackground() //¹è°æÀ» Ã¤¿ì´Â ÇÔ¼ö, ¾À load½Ã °¡Àå ¸ÕÀú ÇØÁØ´Ù.
+	void FillBackground() //ë°°ê²½ì„ ì±„ìš°ëŠ” í•¨ìˆ˜, ì”¬ loadì‹œ ê°€ì¥ ë¨¼ì € í•´ì¤€ë‹¤.
 	{
-		for (int i = -10; i < mapSize.x + 10; i++) //¹Ù±ùÅ¸ÀÏÀº ¸Ê °¡ÀåÀÚ¸®¿¡ °¡µµ ¾î»öÇÏÁö ¾Ê°Ô
-												   //¸Ê Å©±âº¸´Ù ³Ğ°Ô Ã¤¿öÁØ´Ù.
+		for (int i = -10; i < mapSize.x + 10; i++) //ë°”ê¹¥íƒ€ì¼ì€ ë§µ ê°€ì¥ìë¦¬ì— ê°€ë„ ì–´ìƒ‰í•˜ì§€ ì•Šê²Œ
+												   //ë§µ í¬ê¸°ë³´ë‹¤ ë„“ê²Œ ì±„ì›Œì¤€ë‹¤.
 		{
 			for (int j = -10; j < mapSize.y + 10; j++)
 			{
@@ -161,20 +161,20 @@ public class MapGenerator : MonoBehaviour
 			}
 		}
 	}
-	void FillWall() //·ë Å¸ÀÏ°ú ¹Ù±ù Å¸ÀÏÀÌ ¸¸³ª´Â ºÎºĞ
+	void FillWall() //ë£¸ íƒ€ì¼ê³¼ ë°”ê¹¥ íƒ€ì¼ì´ ë§Œë‚˜ëŠ” ë¶€ë¶„
 	{
-		for (int i = 0; i < mapSize.x; i++) //Å¸ÀÏ ÀüÃ¼¸¦ ¼øÈ¸
+		for (int i = 0; i < mapSize.x; i++) //íƒ€ì¼ ì „ì²´ë¥¼ ìˆœíšŒ
 		{
 			for (int j = 0; j < mapSize.y; j++)
 			{
 				if (tileMap.GetTile(new Vector3Int(i, j)) == outTile)
 				{
-					//¹Ù±ùÅ¸ÀÏ ÀÏ °æ¿ì
+					//ë°”ê¹¥íƒ€ì¼ ì¼ ê²½ìš°
 					for (int x = -1; x <= 1; x++)
 					{
 						for (int y = -1; y <= 1; y++)
 						{
-							if (x == 0 && y == 0) continue;//¹Ù±ù Å¸ÀÏ ±âÁØ 8¹æÇâÀ» Å½»öÇØ¼­ room tileÀÌ ÀÖ´Ù¸é wall tile·Î ¹Ù²ãÁØ´Ù.
+							if (x == 0 && y == 0) continue;//ë°”ê¹¥ íƒ€ì¼ ê¸°ì¤€ 8ë°©í–¥ì„ íƒìƒ‰í•´ì„œ room tileì´ ìˆë‹¤ë©´ wall tileë¡œ ë°”ê¿”ì¤€ë‹¤.
 							if (tileMap.GetTile(new Vector3Int(i + x, j + y)) == roomTile)
 							{
 								tileMap.SetTile(new Vector3Int(i, j), wallTile);
@@ -187,7 +187,7 @@ public class MapGenerator : MonoBehaviour
 		}
 	}
 	private void FillRoom(RectInt rect)
-	{ //roomÀÇ rectÁ¤º¸¸¦ ¹Ş¾Æ¼­ tileÀ» setÇØÁÖ´Â ÇÔ¼ö
+	{ //roomì˜ rectì •ë³´ë¥¼ ë°›ì•„ì„œ tileì„ setí•´ì£¼ëŠ” í•¨ìˆ˜
 		for (int i = rect.x; i < rect.x + rect.width; i++)
 		{
 			for (int j = rect.y; j < rect.y + rect.height; j++)
@@ -196,9 +196,9 @@ public class MapGenerator : MonoBehaviour
 			}
 		}
 
-		//FillRoom ÇÔ¼ö¿¡¼­ ¹æÀ» ¸¸µé¸é¼­, µ¿½Ã¿¡ ÇÃ·¹ÀÌ¾îÀÇ ¹æ ÀÔÀå ¿©ºÎ¸¦ ÆÇº°ÇÒ ¼ö ÀÖ´Â ¹Ú½ºÄİ¶óÀÌ´õ¸¦ ¼³Ä¡ÇÑ´Ù.
-		//¿©±â¼­ collider¸¦ ¹æ Å©±â¿¡ ¸Â°Ô µ¿ÀûÀ¸·Î »ı¼ºÇÏ¿© MapCenter¿¡ ÀúÀåÇÑ´Ù.
-		Vector3 offset = tileMap.GetCellCenterWorld(new Vector3Int(rect.x + rect.width/2, rect.y + rect.height/2)); // Å¸ÀÏ¸Ê »ı¼ºÀº ¿ŞÂÊ ¾Æ·§ÂÊ ÁÂÇ¥¸¦ ±âÁØÀ¸·Î »ı¼ºµÇÁö¸¸, Äİ¶óÀÌ´õ´Â ±×·¸Áö ¾ÊÀ¸¹Ç·Î °í·ÁÇÏ¿©¾ß ÇÑ´Ù.
+		//FillRoom í•¨ìˆ˜ì—ì„œ ë°©ì„ ë§Œë“¤ë©´ì„œ, ë™ì‹œì— í”Œë ˆì´ì–´ì˜ ë°© ì…ì¥ ì—¬ë¶€ë¥¼ íŒë³„í•  ìˆ˜ ìˆëŠ” ë°•ìŠ¤ì½œë¼ì´ë”ë¥¼ ì„¤ì¹˜í•œë‹¤.
+		//ì—¬ê¸°ì„œ colliderë¥¼ ë°© í¬ê¸°ì— ë§ê²Œ ë™ì ìœ¼ë¡œ ìƒì„±í•˜ì—¬ MapCenterì— ì €ì¥í•œë‹¤.
+		Vector3 offset = tileMap.GetCellCenterWorld(new Vector3Int(rect.x + rect.width/2, rect.y + rect.height/2)); // íƒ€ì¼ë§µ ìƒì„±ì€ ì™¼ìª½ ì•„ë«ìª½ ì¢Œí‘œë¥¼ ê¸°ì¤€ìœ¼ë¡œ ìƒì„±ë˜ì§€ë§Œ, ì½œë¼ì´ë”ëŠ” ê·¸ë ‡ì§€ ì•Šìœ¼ë¯€ë¡œ ê³ ë ¤í•˜ì—¬ì•¼ í•œë‹¤.
 		Vector2 size = new Vector2(rect.width, rect.height);
 		BoxCollider2D bx = this.AddComponent<BoxCollider2D>();
 		bx.offset = new Vector2(offset.x, offset.y);
@@ -208,22 +208,22 @@ public class MapGenerator : MonoBehaviour
 		
 		Transform tr = bx.transform;
 		tr.position = offset;
-		//Debug.Log($"¹Ú½º Äİ¶óÀÌ´õÀÇ ¿ÀÇÁ¼Â : {tr.position}");
-		//FillRoom ÇÔ¼ö¿¡¼­ ¹æÀ» ¸¸µé¸ç, µ¿½Ã¿¡ ¸ó½ºÅÍ°¡ ½ºÆùµÇ´Â ½ºÆ÷³Ê¿Í, ¾ÆÀÌÅÛ ½ºÆ÷³Ê¸¦ »ı¼ºÇÑ´Ù.
+		//Debug.Log($"ë°•ìŠ¤ ì½œë¼ì´ë”ì˜ ì˜¤í”„ì…‹ : {tr.position}");
+		//FillRoom í•¨ìˆ˜ì—ì„œ ë°©ì„ ë§Œë“¤ë©°, ë™ì‹œì— ëª¬ìŠ¤í„°ê°€ ìŠ¤í°ë˜ëŠ” ìŠ¤í¬ë„ˆì™€, ì•„ì´í…œ ìŠ¤í¬ë„ˆë¥¼ ìƒì„±í•œë‹¤.
 		GameObject spawn = GameObject.Instantiate(ms, tr.position, Quaternion.identity);
 		GameObject iSpawn = GameObject.Instantiate(itemSpawn, tr.position, Quaternion.identity);
 		GameObject oSpawn = GameObject.Instantiate(objSpawn, tr.position, Quaternion.identity);
 
-		MobSpawner spawner = spawn.GetComponent<MobSpawner>(); // ½ºÆ÷³Ê¿¡ ºÎÂøµÈ MobSpawner ÇÔ¼ö¸¦ GetComponent¸¦ È°¿ëÇÏ¿© °¡Á®¿Â´Ù.
+		MobSpawner spawner = spawn.GetComponent<MobSpawner>(); // ìŠ¤í¬ë„ˆì— ë¶€ì°©ëœ MobSpawner í•¨ìˆ˜ë¥¼ GetComponentë¥¼ í™œìš©í•˜ì—¬ ê°€ì ¸ì˜¨ë‹¤.
 		ItemSpawner iSpawner = iSpawn.GetComponent<ItemSpawner>();
 		ObjectSpawner oSpawner = oSpawn.GetComponent<ObjectSpawner>();
 
-		spawner.SetRoom(rect); // MobSpawner¿¡ ÀÖ´Â SetRoom ÇÔ¼ö¸¦ ½ÇÇàÇÏ¿© room °ªÀ» ³Ö¾îÁØ´Ù.
+		spawner.SetRoom(rect); // MobSpawnerì— ìˆëŠ” SetRoom í•¨ìˆ˜ë¥¼ ì‹¤í–‰í•˜ì—¬ room ê°’ì„ ë„£ì–´ì¤€ë‹¤.
 		iSpawner.SetRoom(rect);
 		oSpawner.SetRoom(rect);
 		
 
-		mc.roomData.Add(new RoomData(rect, bx, spawn)); // È°¼ºÈ­ ÇÒ ¸ó½ºÅÍ ½ºÆ÷³Ê¸¦ ÆÇº°ÇÏ±â À§ÇÑ roomData¸¦ ¸ğ¾ÆµĞ List(mc)¿¡ rect¿Í, box collider2d, spawnÀ» ¿«Àº struct¸¦ add.
+		mc.roomData.Add(new RoomData(rect, bx, spawn)); // í™œì„±í™” í•  ëª¬ìŠ¤í„° ìŠ¤í¬ë„ˆë¥¼ íŒë³„í•˜ê¸° ìœ„í•œ roomDataë¥¼ ëª¨ì•„ë‘” List(mc)ì— rectì™€, box collider2d, spawnì„ ì—®ì€ structë¥¼ add.
 	}
 
 	private void MakeBossRoom()
@@ -240,7 +240,7 @@ public class MapGenerator : MonoBehaviour
 			}
 		}
 		Vector3 bossRoomPos = tileMap.GetCellCenterWorld(new Vector3Int(farRoom.x + farRoom.width/2, farRoom.y + farRoom.height/2, 0));
-		Debug.Log($"°¡Àå ¸Õ ³ëµåÀÇ ¼¾ÅÍ : {bossRoomPos.x}, {bossRoomPos.y}");
+		Debug.Log($"ê°€ì¥ ë¨¼ ë…¸ë“œì˜ ì„¼í„° : {bossRoomPos.x}, {bossRoomPos.y}");
 		GameObject.Instantiate(bossGate, bossRoomPos, Quaternion.identity);
 	}
 

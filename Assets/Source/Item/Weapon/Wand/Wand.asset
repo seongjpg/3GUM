@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc82a1ecf24f5c745b458cfad4254420, type: 3}
+  m_Name: Wand
+  m_EditorClassIdentifier: 
+  weaponObj: {fileID: 1761397539366259421, guid: 037f3a4a7abb75d418c6fff86a787153, type: 3}
+  skill_01: {fileID: 11400000, guid: 0f9f0699128f86e4b991c70361278e00, type: 2}
