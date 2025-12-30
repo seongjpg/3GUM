@@ -9,13 +9,7 @@ public class GlobalAmt : MonoBehaviour
 
     void Start()
     {
-        SetSceneName01(SceneManager.GetActiveScene().name);
         DontDestroyOnLoad(this.gameObject);
-    }
-
-    void Update()
-    {
-        
     }
 
     public void SetCurSceneName()

@@ -49,21 +49,16 @@ public class SaveFileUI : MonoBehaviour
     //그래서 차후 json을 제대로 구축하고 나면 targetScene을 동적으로 정할 수 있도록 json에 반영해야 한다.
     void Save01Clicked()
     {
-        //smm.MoveToScene(WTG_ASSET.fts.targetScene);
         smm.MoveToScene(GA.GetSceneName01());
-        //this.gameObject.SetActive(false);
     }
     void Save02Clicked()  // 현재 처음부터 시작으로 임시 사용중
     {
         GA.isInitFile01 = true;
         smm.MoveToScene(WTG_ASSET.fts.targetScene);
-        //this.gameObject.SetActive(false);
-        //GameObject.Destroy(gameObject);
     }
     void Save03Clicked()
     {
         smm.MoveToScene(WTG_ASSET.fts.targetScene);
-        //this.gameObject.SetActive(false);
     }
     void QuitClicked()
     {

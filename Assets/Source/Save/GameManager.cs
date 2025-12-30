@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
         //오브젝트 제작 시에는 꺼주고 해야 함.
         if (GA.isInitFile01)
         {
-            LoadFromInitSaveFile();
             GA.isInitFile01 = false;
+            LoadFromInitSaveFile();
         }
         else
         {
