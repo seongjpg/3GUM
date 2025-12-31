@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3375380533277882128}
   - component: {fileID: 4330814210121323527}
   - component: {fileID: 480871464004969150}
+  - component: {fileID: 6718949407250698}
   m_Layer: 0
   m_Name: Wand_Shiled_0
   m_TagString: PlayerAttack
@@ -124,3 +125,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 5.12
+--- !u!114 &6718949407250698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3640519715459686713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ad348a8504c75468a71898ff091900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldStat: {fileID: 11400000, guid: 51e4149b3aba7a14f857448f3fe63c60, type: 2}

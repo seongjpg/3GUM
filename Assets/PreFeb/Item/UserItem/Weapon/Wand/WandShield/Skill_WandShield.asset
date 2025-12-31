@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f5e962a7595974b98918a9a0bd9f05, type: 3}
   m_Name: Skill_WandShield
   m_EditorClassIdentifier: 
-  KenkiObj: {fileID: 0}
+  ShieldObj: {fileID: 3640519715459686713, guid: 73200c6d928b6784695f8265028e1084, type: 3}

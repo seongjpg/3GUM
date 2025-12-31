@@ -45,7 +45,7 @@ public class ShotFireBall : MonoBehaviour, IWeaponBody // 화염구의 이동 �
     {
         if (weapon != null && weapon.isBullet)
         {
-            Debug.Log($"검기 피해량 : {weapon.damage}");
+            Debug.Log($"화염구 피해량 : {weapon.damage}");
             return weapon.damage;
         }
 

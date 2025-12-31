@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5542937888817098815}
   - component: {fileID: 8608293926978984742}
+  - component: {fileID: 651847916537325566}
+  - component: {fileID: 266558640577017538}
   m_Layer: 0
   m_Name: WandObj
   m_TagString: Untagged
@@ -87,3 +89,30 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &651847916537325566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761397539366259421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec046d3bc7d2cc04ea6d4bb55d92b31b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 8fbaaf0ae8b41894396be8ad82ab1efe, type: 2}
+  FireBall: {fileID: 1068234528835420929, guid: d4c1fd9127725cf4a89b214dbccb4a79, type: 3}
+--- !u!114 &266558640577017538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761397539366259421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0836d9a0cc64db4aab0b03244602030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: a5442a0801c77c5468b095d119767001, type: 2}

@@ -4,6 +4,7 @@ public class WandSwing : MonoBehaviour, IWeaponBody // 평타 눌렀을 때 완�
 {
 	private float timer = 0f;
 	public WeaponStatus weapon;
+	[SerializeField] GameObject FireBall;
 	private GameObject player;
 	private float startAngle;
 
@@ -16,6 +17,7 @@ public class WandSwing : MonoBehaviour, IWeaponBody // 평타 눌렀을 때 완�
         float startAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg+45;
 
         transform.Rotate(0, 0, startAngle);
+		GameObject.Instantiate(FireBall, this.transform.position, Quaternion.identity);
 	}
 
 	void Update()
