@@ -30,12 +30,13 @@ public class WandShield : MonoBehaviour, IWeaponBody // 스킬1을 눌렀을 때
         //적 피격(일단 이건 범위공격이라 굳이 처리할 건 없다.)
         if (collision.CompareTag("Enemy"))
         {
-            GameObject.Destroy(this);
+            GameObject.Destroy(gameObject);
+            // 플레이어에게 무적 판정 부여
         }
         if (collision.CompareTag("EnemyBullet"))
         {
             GameObject.Destroy(collision);
-            GameObject.Destroy(this);
+            GameObject.Destroy(gameObject);
         }
     }
     public float DMG()
