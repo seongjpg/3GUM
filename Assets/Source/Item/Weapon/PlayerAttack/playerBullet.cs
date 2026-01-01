@@ -1,20 +1,20 @@
-using Unity.VisualScripting;
+ï»¿using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem; // ¸ğ¹ÙÀÏ ÀÌ½Ä ½Ã InputSystem È°¿ëÇØ¾ß ÇÔ
+using UnityEngine.InputSystem; // ëª¨ë°”ì¼ ì´ì‹ ì‹œ InputSystem í™œìš©í•´ì•¼ í•¨
 
 public class PlayerBullet : MonoBehaviour, IWeaponBody
 {
 	private float timer;
-	private Vector3 wayToGO;                  // ¹ß»ç ¹æÇâ
+	private Vector3 wayToGO;                  // ë°œì‚¬ ë°©í–¥
 	public WeaponStatus weapon;
-	public bool destroyByCollision = true; // ¾ÆÀÌÅÛÀ» ¸Ô¾î¼­ °üÅë È¿°ú¸¦ ¾ò´Â °æ¿ì ¿©±â¼­ °ü¸®ÇÑ´Ù.
+	public bool destroyByCollision = true; // ì•„ì´í…œì„ ë¨¹ì–´ì„œ ê´€í†µ íš¨ê³¼ë¥¼ ì–»ëŠ” ê²½ìš° ì—¬ê¸°ì„œ ê´€ë¦¬í•œë‹¤.
 
 	void Start()
     {
 		Vector3 mouseScreenPos = Input.mousePosition;
 		Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
-		//getkey¸¦ ÀÌ¿ëÇÑ ¹æÇâ Á¶Á¤Àº Â÷ÈÄ ¸ğ¹ÙÀÏ·Î ÀÌ½ÄÇÒ ¶§ ¼öÁ¤µÇ¾î¾ß ÇÑ´Ù.
-        if (Input.GetMouseButton(0))
+		//getkeyë¥¼ ì´ìš©í•œ ë°©í–¥ ì¡°ì •ì€ ì°¨í›„ ëª¨ë°”ì¼ë¡œ ì´ì‹í•  ë•Œ ìˆ˜ì •ë˜ì–´ì•¼ í•œë‹¤.
+        if (Input.GetMouseButton(1))
 		{
 			wayToGO = Vector3.Normalize(mouseWorldPos-gameObject.transform.position);	
 		}
@@ -35,10 +35,10 @@ public class PlayerBullet : MonoBehaviour, IWeaponBody
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		//Àû ÇÇ°İ
+		//ì  í”¼ê²©
 		if (collision.CompareTag("Enemy"))
 		{
-			Debug.Log("Àû ÇÇ°İ!");
+			Debug.Log("ì  í”¼ê²©!");
 			if (destroyByCollision || weapon.originalyPenetrate)
 			{
 				Destroy(gameObject);
@@ -48,7 +48,7 @@ public class PlayerBullet : MonoBehaviour, IWeaponBody
 		}
 		if (collision.CompareTag("Wall"))
 		{
-			Debug.Log("º® Ãæµ¹!");
+			Debug.Log("ë²½ ì¶©ëŒ!");
 			if (destroyByCollision)
 			{
 				Destroy(gameObject);
@@ -66,7 +66,7 @@ public class PlayerBullet : MonoBehaviour, IWeaponBody
 
 		else
 		{
-			Debug.Log("ÀÌ°Ç Åõ»çÃ¼°¡ ¾Æ´Ï´Ù.");
+			Debug.Log("ì´ê±´ íˆ¬ì‚¬ì²´ê°€ ì•„ë‹ˆë‹¤.");
 			return 0;
 		}
 	}

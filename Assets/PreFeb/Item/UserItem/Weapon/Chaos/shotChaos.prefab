@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2467087927452191467}
   - component: {fileID: 1060763054327746173}
-  - component: {fileID: 8084898608480415373}
   - component: {fileID: -2695056580673977232}
   - component: {fileID: -7397087799689574983}
+  - component: {fileID: 4300176098371547006}
   m_Layer: 7
-  m_Name: shotGalaxy
+  m_Name: shotChaos
   m_TagString: PlayerAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1103284529
-  m_SortingLayer: 3
+  m_SortingLayerID: -1098699807
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 8056854360383486973, guid: cecfb3efa30bcb14785be4e71fe53ec4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -90,20 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8084898608480415373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068234528835420929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94b7db0942b14dc4e8fdd8bbaad607db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: c1503664c47a62345acc2ad13bd1b2bb, type: 2}
-  destroyByCollision: 1
 --- !u!58 &-2695056580673977232
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -162,3 +148,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4300176098371547006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068234528835420929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0cda19834e38304b8b4e7e757872239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: c1503664c47a62345acc2ad13bd1b2bb, type: 2}
+  destroyByCollision: 1

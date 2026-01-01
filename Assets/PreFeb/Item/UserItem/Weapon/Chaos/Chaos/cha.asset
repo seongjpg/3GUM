@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7fd7df54050018f47b21032ed47d9d82, type: 3}
-  m_Name: GalaxyStat
+  m_Name: cha
   m_EditorClassIdentifier: 
-  atkSpeed: 1
-  damage: 1
-  lifeTime: 1
-  swingSpeed: 1
+  atkSpeed: 8
+  damage: 10
+  lifeTime: 5
+  swingSpeed: 0
   isBullet: 1
-  shotSpeed: 5
-  originalyPenetrate: 1
+  shotSpeed: 10
+  originalyPenetrate: 0
