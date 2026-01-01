@@ -15,7 +15,7 @@ MonoBehaviour:
   atkSpeed: 1
   damage: 0
   lifeTime: 1
-  swingSpeed: 0.4
+  swingSpeed: 1
   isBullet: 0
   shotSpeed: 5
   originalyPenetrate: 0

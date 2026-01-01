@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd7df54050018f47b21032ed47d9d82, type: 3}
   m_Name: WandShieldStat
   m_EditorClassIdentifier: 
-  atkSpeed: 1
+  atkSpeed: 8
   damage: 10
   lifeTime: 5
   swingSpeed: 0
-  isBullet: 0
+  isBullet: 1
   shotSpeed: 10
   originalyPenetrate: 0
