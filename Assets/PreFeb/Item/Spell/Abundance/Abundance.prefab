@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: -1103284529
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -3778946217154433444, guid: 4a5c48ddaff027941a125691b1b8a065, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -142,6 +142,7 @@ MonoBehaviour:
   WeaponAsset: {fileID: 0}
   spellAsset: {fileID: 11400000, guid: af4c223d209c2574a9175ed395e2ee79, type: 2}
   passiveAsset: {fileID: 0}
+  activeAsset: {fileID: 0}
 --- !u!114 &-2281457557400192284
 MonoBehaviour:
   m_ObjectHideFlags: 0
