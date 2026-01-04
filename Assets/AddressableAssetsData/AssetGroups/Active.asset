@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Active
   m_GUID: 07cba7481095d964bbe33e204fd2dd2f
   m_SerializeEntries:
+  - m_GUID: 34c6d68ef6d8fae419dbf8737d41c4c0
+    m_Address: Assets/PreFeb/Item/FieldItem/Active/BubbleShield/BubbleShield.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d859ad2100a10f439cc148adc1a86d6
     m_Address: Assets/PreFeb/Item/FieldItem/Active/FireField/FireField.prefab
     m_ReadOnly: 0

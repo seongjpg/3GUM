@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f14f18e684324b4ab52cb7f81d6c70a, type: 3}
+  m_Name: BubbleShield
+  m_EditorClassIdentifier: 
+  skill_02: {fileID: 11400000, guid: e61958f21738ced4aa81ba444aa14da7, type: 2}
