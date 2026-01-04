@@ -522,7 +522,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -532,8 +532,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 7
 --- !u!19719996 &372329735
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -939,7 +939,7 @@ MonoBehaviour:
   roomTile: {fileID: 11400000, guid: 6e86c47e27650724c81ae34cbf2d2379, type: 2}
   wallTile: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
   outTile: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
-  bossGate: {fileID: 353140523465370070, guid: 065fc00ea4811424e9790cac5ecaf3ae, type: 3}
+  bossGate: {fileID: 0}
   ms: {fileID: 5062827423104355646, guid: 693b1b47364eed848a45362c3d489612, type: 3}
   itemSpawn: {fileID: 3953239487626917070, guid: ff1b1ce0868c99440a56616927d06d2a, type: 3}
   objSpawn: {fileID: 2711951616736988869, guid: d0ad4205dd4faea4ab2425764372dc4f, type: 3}
