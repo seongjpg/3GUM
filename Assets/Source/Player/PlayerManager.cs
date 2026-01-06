@@ -1,19 +1,19 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 
 public class PlayerManager : MonoBehaviour
 {
-    //ÇÃ·¹ÀÌ¾î ¶óÀÌÇÁ »çÀÌÅ¬ °ü¸®(Åº»ı, »ç¸Á), ÇÃ·¹ÀÌ¾î ½ºÅ×ÀÌÅÍ½º
-    [SerializeField] public int maxHealth; // ÃÖ´ë Ã¼·Â
-    [SerializeField] public int curHealth; // ÇöÀç Ã¼·Â
+    //í”Œë ˆì´ì–´ ë¼ì´í”„ ì‚¬ì´í´ ê´€ë¦¬(íƒ„ìƒ, ì‚¬ë§), í”Œë ˆì´ì–´ ìŠ¤í…Œì´í„°ìŠ¤
+    [SerializeField] public int maxHealth; // ìµœëŒ€ ì²´ë ¥
+    [SerializeField] public int curHealth; // í˜„ì¬ ì²´ë ¥
     [SerializeField] public float maxSpeed;
-    [SerializeField] public float speed; // ÀÌµ¿ ¼Óµµ
-    [SerializeField] public float hitRate; // ÇÇ°İ È®·ü(0-1¹üÀ§)
-    [SerializeField] public float damage; // °ø°İ·Â
-    [SerializeField] public float fireRate; // ¿¬»ç ¼Óµµ
-    [SerializeField] public float CoolTime_01; // ½ºÅ³1 ÄğÅ¸ÀÓ
-    [SerializeField] public float CoolTime_02; // ½ºÅ³2 ÄğÅ¸ÀÓ
+    [SerializeField] public float speed; // ì´ë™ ì†ë„
+    [SerializeField] public float hitRate; // í”¼ê²© í™•ë¥ (0-1ë²”ìœ„)
+    [SerializeField] public float damage; // ê³µê²©ë ¥
+    [SerializeField] public float fireRate; // ì—°ì‚¬ ì†ë„
+    [SerializeField] public float CoolTime_01; // ìŠ¤í‚¬1 ì¿¨íƒ€ì„
+    [SerializeField] public float CoolTime_02; // ìŠ¤í‚¬2 ì¿¨íƒ€ì„
 
     public bool isUsingBullet = false;
 
@@ -34,19 +34,19 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        //»ç¸Á
+        //ì‚¬ë§
         if (curHealth <= 0)
         {
-            Debug.Log("ÇÃ·¹ÀÌ¾î »ç¸Á!");
+            Debug.Log("í”Œë ˆì´ì–´ ì‚¬ë§!");
             Destroy(gameObject);
         }
 
-        //ÆĞ½ÃºêÀÇ µ¿ÀÛ
+        //íŒ¨ì‹œë¸Œì˜ ë™ì‘
         if (applyPassives != null)
         {
 			foreach (IApplyEffect pass in applyPassives)
 			{
-				pass.ApplyEffect(gameObject);
+				//pass.ApplyEffect(gameObject);
 			}
 		}
         

@@ -12,6 +12,7 @@ public class BubbleShield_Effect : MonoBehaviour, IWeaponBody, IPerWeapon
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        this.transform.position = player.transform.position;
         // 보호막을 플레이어의 자식으로 둔다
         transform.SetParent(player.transform);
 

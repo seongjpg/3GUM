@@ -25,6 +25,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 636258a3cfc65e74e991f4adaf1bbcbc
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/BrokenCross.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e618acec82c9c73448e226c718b3a65c
     m_Address: Assets/PreFeb/Item/FieldItem/Passive/RunningShoes.prefab
     m_ReadOnly: 0
