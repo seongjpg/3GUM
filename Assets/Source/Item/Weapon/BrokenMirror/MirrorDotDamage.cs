@@ -7,17 +7,25 @@ public class MirrorDotDamage : MonoBehaviour
     public float timer;
 
     private GameObject parent;
-    private MobManager mM;
+    public MobManager mM;
     void Start()
     {
-        parent = transform.parent.gameObject;
+        parent = transform.parent.root.gameObject;
         mM = parent.GetComponent<MobManager>();
+        if (mM == null)
+        {
+            Debug.Log("mM있는.");
+        }
+        if (MDDStat == null)
+        {
+            Debug.Log("MDD없는.");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        lifeTimer = Time.deltaTime;
+        lifeTimer += Time.deltaTime;
         timer += Time.deltaTime;
         if (lifeTimer > MDDStat.lifeTime)
         {
@@ -26,6 +34,7 @@ public class MirrorDotDamage : MonoBehaviour
         }
         if (timer > MDDStat.atkSpeed)
         {
+
             mM.curHealth -= MDDStat.damage;
             timer = 0;
         }
