@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94dec250fa9fbd8459a0f6a586836d89, type: 3}
+  m_Name: MirrorForce
+  m_EditorClassIdentifier: 
+  mirrorForceObj: {fileID: 3405448794574901034, guid: 5cb79fb9edf49bc499c09dfea93af37a, type: 3}

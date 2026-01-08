@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
-public class ShotGax : MonoBehaviour, IWeaponBody // 화염구의 이동 로직
+public class MirrorAttack : MonoBehaviour, IWeaponBody // 화염구의 이동 로직
 {
     private float timer = 0f;
     public WeaponStatus weapon;
     private GameObject player;
     private float angle;
     private Vector3 wayToGo;
+    [SerializeField] GameObject MDD; // 적에게 디버프를 거는 효과 부여해줄 게임오브젝트
 
     void Start()
     {
@@ -15,7 +16,7 @@ public class ShotGax : MonoBehaviour, IWeaponBody // 화염구의 이동 로직
         wayToGo = mouseWorldPos - player.transform.position;
         wayToGo.Normalize();
 
-        angle = Mathf.Atan2(wayToGo.y, wayToGo.x) * Mathf.Rad2Deg-90;
+        angle = Mathf.Atan2(wayToGo.y, wayToGo.x) * Mathf.Rad2Deg - 90;
 
         transform.Rotate(0, 0, angle);
     }
@@ -39,13 +40,15 @@ public class ShotGax : MonoBehaviour, IWeaponBody // 화염구의 이동 로직
         if (collision.CompareTag("Enemy"))
         {
             Debug.Log("적 피격!");
+            GameObject mdd = GameObject.Instantiate(MDD, collision.transform.position, Quaternion.identity);
+            mdd.transform.SetParent(collision.transform);
         }
     }
     public float DMG()
     {
         if (weapon != null && weapon.isBullet)
         {
-            Debug.Log($"화염구 피해량 : {weapon.damage}");
+            Debug.Log($"거울 피해량 : {weapon.damage}");
             return weapon.damage;
         }
 
