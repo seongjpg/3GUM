@@ -459,7 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mc: {fileID: 507884690}
   mapSize: {x: 128, y: 80}
-  minimumDevideRate: 0.4
+  minimumDevideRate: 0.5
   maximumDivideRate: 0.6
   line: {fileID: 7258204935433783430, guid: 93ff4d10d9cfba14a910f5ab1a7ede90, type: 3}
   map: {fileID: 3590569273475221565, guid: 821c71e20ecfb4c47a8cf396ebf53628, type: 3}
@@ -467,7 +467,20 @@ MonoBehaviour:
   maximumDepth: 4
   tileMap: {fileID: 238854857}
   roomTile: {fileID: 11400000, guid: 6e86c47e27650724c81ae34cbf2d2379, type: 2}
-  wallTile: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  roadTile: {fileID: 11400000, guid: 6e86c47e27650724c81ae34cbf2d2379, type: 2}
+  wallTile: {fileID: 11400000, guid: 57686f2a4c29cda4db155deb9bdaac6b, type: 2}
+  upWall: {fileID: 11400000, guid: 57686f2a4c29cda4db155deb9bdaac6b, type: 2}
+  downWall: {fileID: 11400000, guid: 41566cb153b863547ae6155b0b5a0326, type: 2}
+  rightWall: {fileID: 11400000, guid: a5786fadd224fa9469d29a6bb4ae66dc, type: 2}
+  leftWall: {fileID: 11400000, guid: 29f33eafc1c2b814598e860766e79661, type: 2}
+  edgeUR: {fileID: 11400000, guid: 7500f54f4f57ea84da84869021f29619, type: 2}
+  edgeUL: {fileID: 11400000, guid: 4c9196103694e0e41b55b6bc6b1fc274, type: 2}
+  edgeDR: {fileID: 11400000, guid: 2b439a5690779b84396cae6c181d77b0, type: 2}
+  edgeDL: {fileID: 11400000, guid: 41224d7ce2224b442b2976dc527c26d4, type: 2}
+  innerEdgeUR: {fileID: 11400000, guid: f47ed89752ba91547b7e956ade6ce5db, type: 2}
+  innerEdgeUL: {fileID: 11400000, guid: dcdbe8152f8be4742a2e269874607132, type: 2}
+  innerEdgeDR: {fileID: 11400000, guid: 5519d4548ac2251468c707b8157a725b, type: 2}
+  innerEdgeDL: {fileID: 11400000, guid: 52ff9b424f0fcde4aaf4765250dad68e, type: 2}
   outTile: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
   bossGate: {fileID: 353140523465370070, guid: 065fc00ea4811424e9790cac5ecaf3ae, type: 3}
   ms: {fileID: 5062827423104355646, guid: 693b1b47364eed848a45362c3d489612, type: 3}
@@ -655,11 +668,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3265975808359685208, guid: 54d0c4e017ec3f2458dfc1c4ae0b5345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 3265975808359685208, guid: 54d0c4e017ec3f2458dfc1c4ae0b5345, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 3265975808359685208, guid: 54d0c4e017ec3f2458dfc1c4ae0b5345, type: 3}
       propertyPath: m_LocalPosition.z

@@ -14,12 +14,30 @@ public class MapGenerator : MonoBehaviour
 	[SerializeField] private GameObject map; //lineRenderer를 사용해서 첫 맵의 사이즈를 보여주기 위함
 	[SerializeField] private GameObject roomLine; //lineRenderer를 사용해서 방의 사이즈를 보여주기 위함
 	[SerializeField] private int maximumDepth; //트리의 깊이, 깊을수록 방을 더 자세히 나누게 됨
+
 	[SerializeField] public Tilemap tileMap;
 	[SerializeField] public Tile roomTile; //방을 구성하는 타일
+	[SerializeField] public Tile roadTile;
+
 	[SerializeField] public Tile wallTile; //방과 외부를 구분지어줄 벽 타일
-	[SerializeField] public Tile outTile; //방 외부의 타일
+	[SerializeField] public Tile upWall;
+	[SerializeField] public Tile downWall;
+	[SerializeField] public Tile rightWall;
+	[SerializeField] public Tile leftWall;
+
+	[SerializeField] public Tile edgeUR;
+	[SerializeField] public Tile edgeUL;
+	[SerializeField] public Tile edgeDR;
+	[SerializeField] public Tile edgeDL;
+
+    [SerializeField] public Tile innerEdgeUR;
+    [SerializeField] public Tile innerEdgeUL;
+    [SerializeField] public Tile innerEdgeDR;
+    [SerializeField] public Tile innerEdgeDL;
+
+    [SerializeField] public Tile outTile; //방 외부의 타일
 	
-	[SerializeField] GameObject bossGate; // 추후 추가될 보스 게이트 게임오브젝트
+	[SerializeField] GameObject bossGate;
 	
 	[SerializeField] GameObject ms; // 몬스터 스포너를 부착하는 부분. 추후에 여러 몬스터 스포너를 적용하여, 각 방마다 다른 몬스터 풀을 적용할 수 있도록 하는 것이 추후 목표.
 	[SerializeField] GameObject itemSpawn; // 아이템 스포너 부착하는 부분. 여기도 몬스터 스포너처럼 여러 몬스터 풀 중 임의로 골라서 넣을지는 모르겠음
@@ -32,6 +50,8 @@ public class MapGenerator : MonoBehaviour
 
 	private List<Node> nodes = new List<Node>();
 	private List<RectInt> rooms = new List<RectInt>();
+
+	private List<Vector2Int[]> centers = new List<Vector2Int[]>() { };
 
 	
 
@@ -50,8 +70,9 @@ public class MapGenerator : MonoBehaviour
 		Node root = new Node(new RectInt(0, 0, mapSize.x, mapSize.y));
 		Divide(root, 0);
 		GenerateRoom(root, 0); Debug.Log($"roomdata 개수 : {mc.roomData.Count}");
-		GenerateLoad(root, 0);
-		FillWall(); //바깥과 방이 만나는 지점을 벽으로 칠해주는 함수
+		DestroyRoad();
+		//GenerateLoad(root, 0);
+		//FillWall(); //바깥과 방이 만나는 지점을 벽으로 칠해주는 함수
 
 		int id = Random.Range(0, rooms.Count);
 		Debug.Log(id);
@@ -120,37 +141,109 @@ public class MapGenerator : MonoBehaviour
 		}
 		else
 		{
-			tree.leftNode.roomRect = GenerateRoom(tree.leftNode, n + 1);
+            tree.leftNode.roomRect = GenerateRoom(tree.leftNode, n + 1);
 			tree.rightNode.roomRect = GenerateRoom(tree.rightNode, n + 1);
-			rect = tree.leftNode.roomRect;
+            Vector2Int[] arr = { tree.leftNode.center, tree.rightNode.center };
+            centers.Add(arr);
+            GenRoad(tree.leftNode.center, tree.rightNode.center); // maxDepth 전에는 GenLoad로 길을 이어준다.
+            rect = tree.leftNode.roomRect;
 		}
 		return rect;
 	}
-	private void GenerateLoad(Node tree, int n)
+
+	private void GenRoad(Vector2Int left, Vector2Int right) // 새로 제작하는 길 내는 스크립트
 	{
-		if (n == maximumDepth) { 
-			return; //리프 노드라면 이을 자식이 없다.
-		}
-			
-		Vector2Int leftNodeCenter = tree.leftNode.center;
-		Vector2Int rightNodeCenter = tree.rightNode.center;
-
-		for (int i = Mathf.Min(leftNodeCenter.x, rightNodeCenter.x); i <= Mathf.Max(leftNodeCenter.x, rightNodeCenter.x); i++)
+		for (int i = Mathf.Min(left.x, right.x); i <= Mathf.Max(left.x, right.x); i++)
 		{
-			tileMap.SetTile(new Vector3Int(i, leftNodeCenter.y), roomTile);
-			
+			if (tileMap.GetTile(new Vector3Int(i, left.y)) != roomTile)
+			{
+                tileMap.SetTile(new Vector3Int(i, left.y), roadTile);
+				TileBase downSide = tileMap.GetTile(new Vector3Int(i, left.y - 1));
+				TileBase upSide = tileMap.GetTile(new Vector3Int(i, left.y + 1));
+				if (downSide == outTile)
+				{
+
+                    tileMap.SetTile(new Vector3Int(i, left.y - 1), downWall);
+                }
+				else if(downSide == rightWall) {
+					tileMap.SetTile(new Vector3Int(i, left.y - 1), innerEdgeDR);
+				}
+				else if (downSide == leftWall)
+				{
+					tileMap.SetTile(new Vector3Int(i, left.y - 1), innerEdgeDL);
+				}
+                if (upSide == outTile)
+                {
+
+                    tileMap.SetTile(new Vector3Int(i, left.y + 1), upWall);
+                }
+                else if (upSide == rightWall)
+                {
+                    tileMap.SetTile(new Vector3Int(i, left.y + 1), innerEdgeUR);
+                }
+                else if (upSide == leftWall)
+                {
+                    tileMap.SetTile(new Vector3Int(i, left.y + 1), innerEdgeUL);
+                }
+            }
 		}
 
-		for (int j = Mathf.Min(leftNodeCenter.y, rightNodeCenter.y); j <= Mathf.Max(leftNodeCenter.y, rightNodeCenter.y); j++)
+		for (int j = Mathf.Min(left.y, right.y); j <= Mathf.Max(left.y, right.y); j++)
 		{
-			tileMap.SetTile(new Vector3Int(rightNodeCenter.x, j), roomTile);
+            if (tileMap.GetTile(new Vector3Int(right.x, j)) != roomTile)
+            {
+                tileMap.SetTile(new Vector3Int(right.x, j), roadTile);
+				TileBase leftSide = tileMap.GetTile(new Vector3Int(right.x - 1, j));
+				TileBase rightSide = tileMap.GetTile(new Vector3Int(right.x + 1, j));
+                if (leftSide == outTile)
+                {
+
+                    tileMap.SetTile(new Vector3Int(right.x-1, j), leftWall);
+                }
+                else if (leftSide == downWall)
+                {
+                    tileMap.SetTile(new Vector3Int(right.x - 1, j), innerEdgeDL);
+                }
+                else if (leftSide == upWall)
+                {
+                    tileMap.SetTile(new Vector3Int(right.x - 1, j), innerEdgeUL);
+                }
+                if (rightSide == outTile)
+                {
+
+                    tileMap.SetTile(new Vector3Int(right.x + 1, j), rightWall);
+                }
+                else if (rightSide == downWall)
+                {
+                    tileMap.SetTile(new Vector3Int(right.x + 1, j), innerEdgeDR);
+                }
+                else if (rightSide == upWall)
+                {
+                    tileMap.SetTile(new Vector3Int(right.x + 1, j), innerEdgeUR);
+                }
+            }
 		}
-		//room tile로 채우는 과정
-		GenerateLoad(tree.leftNode, n + 1); //자식 노드들도 탐색
-		GenerateLoad(tree.rightNode, n + 1);
 	}
+    
+    private void DestroyRoad() // 새로 제작하는 길 내는 스크립트
+    {
+        for (int k = 0; k < centers.Count; k++)
+        {
+            Vector2Int left = centers[k][0]; Vector2Int right = centers[k][1];
 
-	void FillBackground() //배경을 채우는 함수, 씬 load시 가장 먼저 해준다.
+            for (int i = Mathf.Min(left.x, right.x); i <= Mathf.Max(left.x, right.x); i++)
+            {
+                MinPath(new Vector2Int(i, left.y));
+            }
+
+            for (int j = Mathf.Min(left.y, right.y); j <= Mathf.Max(left.y, right.y); j++)
+            {
+                MinPath(new Vector2Int(right.x, j));
+            }
+        }
+    }
+
+    void FillBackground() //배경을 채우는 함수, 씬 load시 가장 먼저 해준다.
 	{
 		for (int i = -10; i < mapSize.x + 10; i++) //바깥타일은 맵 가장자리에 가도 어색하지 않게
 												   //맵 크기보다 넓게 채워준다.
@@ -158,31 +251,6 @@ public class MapGenerator : MonoBehaviour
 			for (int j = -10; j < mapSize.y + 10; j++)
 			{
 				tileMap.SetTile(new Vector3Int(i, j), outTile);
-			}
-		}
-	}
-	void FillWall() //룸 타일과 바깥 타일이 만나는 부분
-	{
-		for (int i = 0; i < mapSize.x; i++) //타일 전체를 순회
-		{
-			for (int j = 0; j < mapSize.y; j++)
-			{
-				if (tileMap.GetTile(new Vector3Int(i, j)) == outTile)
-				{
-					//바깥타일 일 경우
-					for (int x = -1; x <= 1; x++)
-					{
-						for (int y = -1; y <= 1; y++)
-						{
-							if (x == 0 && y == 0) continue;//바깥 타일 기준 8방향을 탐색해서 room tile이 있다면 wall tile로 바꿔준다.
-							if (tileMap.GetTile(new Vector3Int(i + x, j + y)) == roomTile)
-							{
-								tileMap.SetTile(new Vector3Int(i, j), wallTile);
-								break;
-							}
-						}
-					}
-				}
 			}
 		}
 	}
@@ -195,6 +263,22 @@ public class MapGenerator : MonoBehaviour
 				tileMap.SetTile(new Vector3Int(i, j), roomTile);
 			}
 		}
+		//벽 설정 스크립트(룸 생성과 동시에 생성되게끔 변경. 각 rect의 정보를 이용해 벽을 설치해주는 것으로 변경.)
+		for (int i = rect.x-1; i <= rect.x + rect.width; i++)
+		{
+            tileMap.SetTile(new Vector3Int(i, rect.y + rect.height), upWall);
+            tileMap.SetTile(new Vector3Int(i, rect.y - 1), downWall);
+		}
+		for (int j = rect.y-1; j <= rect.y + rect.height; j++)
+		{
+			tileMap.SetTile(new Vector3Int(rect.x + rect.width, j), rightWall);
+            tileMap.SetTile(new Vector3Int(rect.x - 1, j), leftWall);
+        }
+		tileMap.SetTile(new Vector3Int(rect.x - 1, rect.y - 1), edgeDL);
+		tileMap.SetTile(new Vector3Int(rect.x - 1, rect.y + rect.height), edgeUL);
+		tileMap.SetTile(new Vector3Int(rect.x + rect.width, rect.y - 1), edgeDR);
+		tileMap.SetTile(new Vector3Int(rect.x + rect.width, rect.y + rect.height), edgeUR);
+
 
 		//FillRoom 함수에서 방을 만들면서, 동시에 플레이어의 방 입장 여부를 판별할 수 있는 박스콜라이더를 설치한다.
 		//여기서 collider를 방 크기에 맞게 동적으로 생성하여 MapCenter에 저장한다.
@@ -228,20 +312,39 @@ public class MapGenerator : MonoBehaviour
 
 	private void MakeBossRoom()
 	{
-		RectInt farRoom = rooms[0];
-		float lengthToBoss = new Vector3(Mathf.Abs(farRoom.center.x  - playerLoc.x), Mathf.Abs(farRoom.center.y - playerLoc.y)).magnitude;
-		foreach (RectInt rm in rooms)
+		if (bossGate != null) // 보스게이트가 설정되지 않은 경우가 있음(보스룸은 그렇다)
 		{
-			float pToRm = new Vector3(Mathf.Abs(rm.center.x - playerLoc.x), Mathf.Abs(rm.center.y - playerLoc.y)).magnitude;
-			if (lengthToBoss < pToRm)
-			{
-				lengthToBoss = pToRm;
-				farRoom = rm;
-			}
-		}
-		Vector3 bossRoomPos = tileMap.GetCellCenterWorld(new Vector3Int(farRoom.x + farRoom.width/2, farRoom.y + farRoom.height/2, 0));
-		Debug.Log($"가장 먼 노드의 센터 : {bossRoomPos.x}, {bossRoomPos.y}");
-		GameObject.Instantiate(bossGate, bossRoomPos, Quaternion.identity);
+
+            RectInt farRoom = rooms[0];
+            float lengthToBoss = new Vector3(Mathf.Abs(farRoom.center.x - playerLoc.x), Mathf.Abs(farRoom.center.y - playerLoc.y)).magnitude;
+            foreach (RectInt rm in rooms)
+            {
+                float pToRm = new Vector3(Mathf.Abs(rm.center.x - playerLoc.x), Mathf.Abs(rm.center.y - playerLoc.y)).magnitude;
+                if (lengthToBoss < pToRm)
+                {
+                    lengthToBoss = pToRm;
+                    farRoom = rm;
+                }
+            }
+            Vector3 bossRoomPos = tileMap.GetCellCenterWorld(new Vector3Int(farRoom.x + farRoom.width / 2, farRoom.y + farRoom.height / 2, 0));
+            Debug.Log($"가장 먼 노드의 센터 : {bossRoomPos.x}, {bossRoomPos.y}");
+            GameObject.Instantiate(bossGate, bossRoomPos, Quaternion.identity);
+        }
 	}
+
+
+
+	private void MinPath(Vector2Int pos) // 경로의 장애물을 제거해주는 기능. 혹시 길을 좀 더 재밌게 꾸며보고 싶다면 여기를 건들면 된다.
+	{
+
+        Collider2D col = Physics2D.OverlapPoint(new Vector3(pos.x, pos.y));
+        if (col != null && col.CompareTag("Obstacle"))
+        {
+			Debug.Log("Tlqkf");
+			Debug.Log(col.name);
+            Destroy(col.gameObject);
+        }
+
+    }
 
 }

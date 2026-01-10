@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -6,30 +6,32 @@ public struct RoomData {
     public RectInt room;
     public BoxCollider2D cd;
 	public GameObject spawner;
+	public bool hasRoad;
     public RoomData(RectInt _room, BoxCollider2D _cd, GameObject _spawner)
     {
         room = _room;
         cd = _cd;
 		spawner = _spawner;
+		hasRoad = false;
     }
 }
 
 public class MapCenter : MonoBehaviour
 {
-	public List<RoomData> roomData = new List<RoomData>(); //MapGenerator¿¡¼­ RoomData¸¦ ³ÖÀº ¸®½ºÆ®°¡ ¿©±â¿¡ ÀÖ´Ù.
+	public List<RoomData> roomData = new List<RoomData>(); //MapGeneratorì—ì„œ RoomDataë¥¼ ë„£ì€ ë¦¬ìŠ¤íŠ¸ê°€ ì—¬ê¸°ì— ìˆë‹¤.
 
 	public void OnTriggerEnter2D(Collider2D obj)
 	{
-		Debug.Log("°¨Áö!");
+		Debug.Log("ê°ì§€!");
 		GameObject player = obj.gameObject;
 		if (player.CompareTag("Player"))
 		{
-			// roomDataÀÇ RoomData °ªµéÀ» Ã£¾Æ¼­, ÇÃ·¹ÀÌ¾î¿Í Á¢ÃËÁßÀÎ RoomData¸¦ Ã£¾Æ ±× ¾ÈÀÇ spawner¸¦ È°¼ºÈ­ÇÑ´Ù.
-			foreach (RoomData rd in roomData) // ¿©±â¼­ ½ºÆ÷³Ê°¡ »ç¶óÁ®¼­, ¹®Á¦°¡ ¹ß»ıÇÏ°í ÀÖÀ½(°ÔÀÓÀÌ ¸ØÃßÁø ¾Ê´Âµ¥ ¼öÁ¤ÇØ¾ßÇÔ)
+			// roomDataì˜ RoomData ê°’ë“¤ì„ ì°¾ì•„ì„œ, í”Œë ˆì´ì–´ì™€ ì ‘ì´‰ì¤‘ì¸ RoomDataë¥¼ ì°¾ì•„ ê·¸ ì•ˆì˜ spawnerë¥¼ í™œì„±í™”í•œë‹¤.
+			foreach (RoomData rd in roomData)
 			{
 				if (rd.cd.IsTouching(obj))
 				{
-					Debug.Log($"½ºÆ÷³Ê È°¼ºÈ­");
+					Debug.Log($"ìŠ¤í¬ë„ˆ í™œì„±í™”");
 					rd.spawner.SetActive(true);
 				}
 			}
@@ -41,7 +43,7 @@ public class MapCenter : MonoBehaviour
 		GameObject player = obj.gameObject;
 		if (player.CompareTag("Player"))
 		{
-			Debug.Log("¹æÀ» ³ª°¨");
+			Debug.Log("ë°©ì„ ë‚˜ê°");
 		}
 		
 	}
