@@ -6,7 +6,8 @@ using UnityEngine.Tilemaps;
 public class MapGenerator : MonoBehaviour
 {	
 	[SerializeField] public MapCenter mc; // 각 방의 정보를 관리하는 스크립트.스포너가 맵에서 몬스터를 스폰하는 위치를 정할 수 있도록 하고, 활성화하는 역할 담당.
-	
+	public LayerMask obstacle;
+
 	[SerializeField] public Vector2Int mapSize;
 	[SerializeField] float minimumDevideRate; //공간이 나눠지는 최소 비율
 	[SerializeField] float maximumDivideRate; //공간이 나눠지는 최대 비율
@@ -19,7 +20,8 @@ public class MapGenerator : MonoBehaviour
 	[SerializeField] public Tile roomTile; //방을 구성하는 타일
 	[SerializeField] public Tile roadTile;
 
-	[SerializeField] public Tile wallTile; //방과 외부를 구분지어줄 벽 타일
+    [SerializeField] public Tilemap wallTileMap;
+    [SerializeField] public Tile wallTile; //방과 외부를 구분지어줄 벽 타일
 	[SerializeField] public Tile upWall;
 	[SerializeField] public Tile downWall;
 	[SerializeField] public Tile rightWall;
@@ -157,33 +159,35 @@ public class MapGenerator : MonoBehaviour
 		{
 			if (tileMap.GetTile(new Vector3Int(i, left.y)) != roomTile)
 			{
-                tileMap.SetTile(new Vector3Int(i, left.y), roadTile);
-				TileBase downSide = tileMap.GetTile(new Vector3Int(i, left.y - 1));
-				TileBase upSide = tileMap.GetTile(new Vector3Int(i, left.y + 1));
+                //tileMap.SetTile(new Vector3Int(i, left.y), roadTile);
+				wallTileMap.SetTile(new Vector3Int(i, left.y), null);
+
+                TileBase downSide = wallTileMap.GetTile(new Vector3Int(i, left.y - 1));
+				TileBase upSide = wallTileMap.GetTile(new Vector3Int(i, left.y + 1));
 				if (downSide == outTile)
 				{
 
-                    tileMap.SetTile(new Vector3Int(i, left.y - 1), downWall);
+                    wallTileMap.SetTile(new Vector3Int(i, left.y - 1), downWall);
                 }
 				else if(downSide == rightWall) {
-					tileMap.SetTile(new Vector3Int(i, left.y - 1), innerEdgeDR);
+                    wallTileMap.SetTile(new Vector3Int(i, left.y - 1), innerEdgeDR);
 				}
 				else if (downSide == leftWall)
 				{
-					tileMap.SetTile(new Vector3Int(i, left.y - 1), innerEdgeDL);
+                    wallTileMap.SetTile(new Vector3Int(i, left.y - 1), innerEdgeDL);
 				}
                 if (upSide == outTile)
                 {
 
-                    tileMap.SetTile(new Vector3Int(i, left.y + 1), upWall);
+                    wallTileMap.SetTile(new Vector3Int(i, left.y + 1), upWall);
                 }
                 else if (upSide == rightWall)
                 {
-                    tileMap.SetTile(new Vector3Int(i, left.y + 1), innerEdgeUR);
+                    wallTileMap.SetTile(new Vector3Int(i, left.y + 1), innerEdgeUR);
                 }
                 else if (upSide == leftWall)
                 {
-                    tileMap.SetTile(new Vector3Int(i, left.y + 1), innerEdgeUL);
+                    wallTileMap.SetTile(new Vector3Int(i, left.y + 1), innerEdgeUL);
                 }
             }
 		}
@@ -192,34 +196,35 @@ public class MapGenerator : MonoBehaviour
 		{
             if (tileMap.GetTile(new Vector3Int(right.x, j)) != roomTile)
             {
-                tileMap.SetTile(new Vector3Int(right.x, j), roadTile);
-				TileBase leftSide = tileMap.GetTile(new Vector3Int(right.x - 1, j));
-				TileBase rightSide = tileMap.GetTile(new Vector3Int(right.x + 1, j));
+                //tileMap.SetTile(new Vector3Int(right.x, j), roadTile);
+                wallTileMap.SetTile(new Vector3Int(right.x, j), null);
+                TileBase leftSide = wallTileMap.GetTile(new Vector3Int(right.x - 1, j));
+				TileBase rightSide = wallTileMap.GetTile(new Vector3Int(right.x + 1, j));
                 if (leftSide == outTile)
                 {
 
-                    tileMap.SetTile(new Vector3Int(right.x-1, j), leftWall);
+                    wallTileMap.SetTile(new Vector3Int(right.x-1, j), leftWall);
                 }
                 else if (leftSide == downWall)
                 {
-                    tileMap.SetTile(new Vector3Int(right.x - 1, j), innerEdgeDL);
+                    wallTileMap.SetTile(new Vector3Int(right.x - 1, j), innerEdgeDL);
                 }
                 else if (leftSide == upWall)
                 {
-                    tileMap.SetTile(new Vector3Int(right.x - 1, j), innerEdgeUL);
+                    wallTileMap.SetTile(new Vector3Int(right.x - 1, j), innerEdgeUL);
                 }
                 if (rightSide == outTile)
                 {
 
-                    tileMap.SetTile(new Vector3Int(right.x + 1, j), rightWall);
+                    wallTileMap.SetTile(new Vector3Int(right.x + 1, j), rightWall);
                 }
                 else if (rightSide == downWall)
                 {
-                    tileMap.SetTile(new Vector3Int(right.x + 1, j), innerEdgeDR);
+                    wallTileMap.SetTile(new Vector3Int(right.x + 1, j), innerEdgeDR);
                 }
                 else if (rightSide == upWall)
                 {
-                    tileMap.SetTile(new Vector3Int(right.x + 1, j), innerEdgeUR);
+                    wallTileMap.SetTile(new Vector3Int(right.x + 1, j), innerEdgeUR);
                 }
             }
 		}
@@ -250,7 +255,7 @@ public class MapGenerator : MonoBehaviour
 		{
 			for (int j = -10; j < mapSize.y + 10; j++)
 			{
-				tileMap.SetTile(new Vector3Int(i, j), outTile);
+                wallTileMap.SetTile(new Vector3Int(i, j), outTile);
 			}
 		}
 	}
@@ -260,24 +265,25 @@ public class MapGenerator : MonoBehaviour
 		{
 			for (int j = rect.y; j < rect.y + rect.height; j++)
 			{
-				tileMap.SetTile(new Vector3Int(i, j), roomTile);
-			}
+				//tileMap.SetTile(new Vector3Int(i, j), roomTile);
+                wallTileMap.SetTile(new Vector3Int(i, j), null);
+            }
 		}
 		//벽 설정 스크립트(룸 생성과 동시에 생성되게끔 변경. 각 rect의 정보를 이용해 벽을 설치해주는 것으로 변경.)
 		for (int i = rect.x-1; i <= rect.x + rect.width; i++)
 		{
-            tileMap.SetTile(new Vector3Int(i, rect.y + rect.height), upWall);
-            tileMap.SetTile(new Vector3Int(i, rect.y - 1), downWall);
+            wallTileMap.SetTile(new Vector3Int(i, rect.y + rect.height), upWall);
+            wallTileMap.SetTile(new Vector3Int(i, rect.y - 1), downWall);
 		}
 		for (int j = rect.y-1; j <= rect.y + rect.height; j++)
 		{
-			tileMap.SetTile(new Vector3Int(rect.x + rect.width, j), rightWall);
-            tileMap.SetTile(new Vector3Int(rect.x - 1, j), leftWall);
+            wallTileMap.SetTile(new Vector3Int(rect.x + rect.width, j), rightWall);
+            wallTileMap.SetTile(new Vector3Int(rect.x - 1, j), leftWall);
         }
-		tileMap.SetTile(new Vector3Int(rect.x - 1, rect.y - 1), edgeDL);
-		tileMap.SetTile(new Vector3Int(rect.x - 1, rect.y + rect.height), edgeUL);
-		tileMap.SetTile(new Vector3Int(rect.x + rect.width, rect.y - 1), edgeDR);
-		tileMap.SetTile(new Vector3Int(rect.x + rect.width, rect.y + rect.height), edgeUR);
+        wallTileMap.SetTile(new Vector3Int(rect.x - 1, rect.y - 1), edgeDL);
+        wallTileMap.SetTile(new Vector3Int(rect.x - 1, rect.y + rect.height), edgeUL);
+        wallTileMap.SetTile(new Vector3Int(rect.x + rect.width, rect.y - 1), edgeDR);
+        wallTileMap.SetTile(new Vector3Int(rect.x + rect.width, rect.y + rect.height), edgeUR);
 
 
 		//FillRoom 함수에서 방을 만들면서, 동시에 플레이어의 방 입장 여부를 판별할 수 있는 박스콜라이더를 설치한다.
@@ -334,17 +340,26 @@ public class MapGenerator : MonoBehaviour
 
 
 
-	private void MinPath(Vector2Int pos) // 경로의 장애물을 제거해주는 기능. 혹시 길을 좀 더 재밌게 꾸며보고 싶다면 여기를 건들면 된다.
+    private void MinPath(Vector2Int pos) // 경로의 장애물을 제거해주는 기능. 혹시 길을 좀 더 재밌게 꾸며보고 싶다면 여기를 건들면 된다.
 	{
+        
 
-        Collider2D col = Physics2D.OverlapPoint(new Vector3(pos.x, pos.y));
-        if (col != null && col.CompareTag("Obstacle"))
+        Vector3Int cellPos = new Vector3Int(pos.x, pos.y, 0); 
+		Vector3 worldPos = tileMap.GetCellCenterWorld(cellPos); 
+		Collider2D col = Physics2D.OverlapBox( worldPos, tileMap.cellSize, 0f, obstacle);
+        var hits = Physics2D.OverlapBoxAll(worldPos, tileMap.cellSize, 0f);
+        foreach (var h in hits)
         {
-			Debug.Log("Tlqkf");
-			Debug.Log(col.name);
-            Destroy(col.gameObject);
+            Debug.Log("HIT: " + h.name + " / layer:" + LayerMask.LayerToName(h.gameObject.layer));
         }
+        if (col != null && col.CompareTag("Obstacle")) { 
+			Debug.Log(col.name); 
+			Destroy(col.gameObject); 
+		}
+		else {
+			//Debug.Log(col.tag); 
+		}
+}
 
-    }
 
 }

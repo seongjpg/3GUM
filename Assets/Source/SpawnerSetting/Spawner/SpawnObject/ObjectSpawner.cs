@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using System.Collections.Generic;
 using System;
 
@@ -13,10 +13,10 @@ public class ObjectSpawner : MonoBehaviour
 
     void Start()
     {
-        // ¾ÆÀÌÅÛÀÌ ³Ê¹« ¹Ù´Ú¿¡ ¸¹ÀÌ ¶³¾îÁ®ÀÖ´Ù¸é °ï¶õ. ÀûÀº ¾ç¸¸ÀÌ ¸Ê¿¡ Æ÷ÁøÇÏ°Ô²û ÇÑ´Ù - 128x80 »çÀÌÁîÀÇ ¸ÊÀÌ¶ó¸é 2-3°³ Á¤µµ°¡ ±â´ñ°ªÀÌ µÇ°Ú´Ù.                             
+        // ì•„ì´í…œì´ ë„ˆë¬´ ë°”ë‹¥ì— ë§ì´ ë–¨ì–´ì ¸ìˆë‹¤ë©´ ê³¤ë€. ì ì€ ì–‘ë§Œì´ ë§µì— í¬ì§„í•˜ê²Œë” í•œë‹¤ - 128x80 ì‚¬ì´ì¦ˆì˜ ë§µì´ë¼ë©´ 2-3ê°œ ì •ë„ê°€ ê¸°ëŒ“ê°’ì´ ë˜ê² ë‹¤.                             
         summonObject = UnityEngine.Random.Range(0, Convert.ToInt32(room.height * room.width)/2);
         //Debug.Log($"summonObject : {summonObject}, logscale : {Convert.ToInt32(Mathf.Log(room.height * room.width, 2))}, multiple : {room.height * room.width}");
-        objPool = poolAssets.pool; // ¿ÀºêÁ§Æ® Ç® ¹İ¿µ
+        objPool = poolAssets.pool; // ì˜¤ë¸Œì íŠ¸ í’€ ë°˜ì˜
 
     }
 
@@ -24,8 +24,8 @@ public class ObjectSpawner : MonoBehaviour
     {
         if (room != null)
         {
-            gi.SpawnObj(limit: summonObject, room, objPool); // limit´Â »çÈÄ ÀûÀıÇÏ°Ô ¹Ù²ã °ü¸®ÇÏ¿©¾ß ÇÑ´Ù.
-            Destroy(this.gameObject); // ±âº»ÀûÀÎ ¼¼ÆÃÀÌ ³¡³­ ÀÌÈÄ¿¡´Â ¹Ù·Î ÆÄ±«ÇÏ¸é µÊ. 
+            gi.SpawnObj(limit: summonObject, room, objPool); // limitëŠ” ì‚¬í›„ ì ì ˆí•˜ê²Œ ë°”ê¿” ê´€ë¦¬í•˜ì—¬ì•¼ í•œë‹¤.
+            Destroy(this.gameObject); // ê¸°ë³¸ì ì¸ ì„¸íŒ…ì´ ëë‚œ ì´í›„ì—ëŠ” ë°”ë¡œ íŒŒê´´í•˜ë©´ ë¨. 
         }
     }
 

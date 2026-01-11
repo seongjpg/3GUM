@@ -8,9 +8,10 @@ public class PlayerMovement : MonoBehaviour
 {
     //플레이어의 이동 방식 / 플레이어 체력 가감 
 
-
+    public LayerMask wallLayer;      // 벽 레이어
 
     private GameObject player;
+    Rigidbody2D rb;
     [SerializeField] GameObject UI;
     private MainUI mainUI;
     public PlayerManager pm;
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //플레이어 게임 오브젝트 내에 존재하는 PlayerManager를 뽑아온다.
         player = GameObject.FindWithTag("Player");
+        rb = player.GetComponent<Rigidbody2D>();
         pm = player.GetComponent<PlayerManager>();
 		playerTr = player.GetComponent<Transform>();
         mainUI = UI.GetComponent<MainUI>();
@@ -58,13 +60,18 @@ public class PlayerMovement : MonoBehaviour
 
 	private void PlayerMove() // 방향키를 이용한 조작은 모바일로 이식하는 과정에서 대체된다.
 	{
-		float speed = pm.speed;
-        if (Input.GetKey(KeyCode.LeftShift)) speed = pm.speed * 2;
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
-        Vector3 move = new Vector3(x * speed, y * speed, 0);
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        playerTr.position += move * Time.deltaTime;
+        Vector2 dir = input.normalized;
+        RaycastHit2D hit = Physics2D.CapsuleCast(rb.position, gameObject.transform.localScale, CapsuleDirection2D.Vertical, 0f, dir, pm.speed, wallLayer);
+
+        if (hit.collider == null)
+        {
+            rb.MovePosition(rb.position + dir * pm.speed);
+        }
+        else
+        {
+        }
 
 	}
     public void PlayerUp()

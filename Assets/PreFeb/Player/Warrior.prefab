@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 24041274506081270}
@@ -108,7 +108,7 @@ MonoBehaviour:
   maxHealth: 100
   curHealth: 10
   maxSpeed: 0
-  speed: 10
+  speed: 0.25
   hitRate: 0.000001
   damage: 3
   fireRate: 0.3
@@ -131,6 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674635d4f44334842b499edce659b79f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallLayer:
+    serializedVersion: 2
+    m_Bits: 0
   UI: {fileID: 0}
   pm: {fileID: 3415279566408897491}
   playerTr: {fileID: 3265975808359685208}
@@ -182,7 +185,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 0.6}
+  m_Size: {x: 0.61, y: 0.6}
   m_EdgeRadius: 0
 --- !u!50 &6835908661949885839
 Rigidbody2D:
@@ -362,7 +365,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.79, y: 1.58}
   m_EdgeRadius: 0
 --- !u!114 &5368511645457543919
 MonoBehaviour:

@@ -1,27 +1,27 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 
-// Interface¿Í ScriptableObject¸¦ È°¿ëÇÏ¿© ¸¸µç °ÍÀº °á±¹ CreateAssetMenu¸¦ »ç¿ëÇÏ¿©, ÀÎ½ºÆåÅÍ¿¡¼­ ¿¡¼ÂÈ­ÇÏ¿© »ç¿ëÇÒ ¼ö ÀÖ°Ô ¸¸µé¾î¾ß ÇÑ´Ù.
+// Interfaceì™€ ScriptableObjectë¥¼ í™œìš©í•˜ì—¬ ë§Œë“  ê²ƒì€ ê²°êµ­ CreateAssetMenuë¥¼ ì‚¬ìš©í•˜ì—¬, ì¸ìŠ¤í™í„°ì—ì„œ ì—ì…‹í™”í•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ìˆê²Œ ë§Œë“¤ì–´ì•¼ í•œë‹¤.
 [CreateAssetMenu(menuName = "Spawner/GenImmediate")]
 
-//genMobÀ» ´Ş°íÀÖ´Â ½ºÆ÷³Ê´Â, ÇÃ·¹ÀÌ¾î°¡ Æ®¸®°Å¿¡ °¨ÁöµÇ´Â ¼ø°£ ½ºÆ÷³Ê¸¦ ¼ÒÈ¯ÇÑ´Ù.
+//genMobì„ ë‹¬ê³ ìˆëŠ” ìŠ¤í¬ë„ˆëŠ”, í”Œë ˆì´ì–´ê°€ íŠ¸ë¦¬ê±°ì— ê°ì§€ë˜ëŠ” ìˆœê°„ ìŠ¤í¬ë„ˆë¥¼ ì†Œí™˜í•œë‹¤.
 public class GenImmediate : ScriptableObject, IGetArea, ISpawnRealTime
 {
 
 
-    public RoomData GetRoomSize() // ¾È¾¸
+    public RoomData GetRoomSize() // ì•ˆì”€
     {
         RoomData rd = new RoomData();
         return rd;
     }
 
-    public RectInt SetRoom(RectInt rect) // ¹æÀÇ Å©±â¸¦ Á¤ÇÏ¿© SetLoc¿¡¼­ È°¿ë
+    public RectInt SetRoom(RectInt rect) // ë°©ì˜ í¬ê¸°ë¥¼ ì •í•˜ì—¬ SetLocì—ì„œ í™œìš©
     {
         return rect;
     }
 
-    //¾ÆÀÌÅÛÀ» ¼ÒÈ¯ÇÏ´Â ºÎºĞ. ÇöÀç´Â ¿©·¯ ¸ó½ºÅÍ°¡ ÇÑ²¨¹ø¿¡ ¼ÒÈ¯µÈ´Ù. ÀÌ´Â ¼öÁ¤ÇÏ¿© ¼øÂ÷ÀûÀ¸·Î ¼ÒÈ¯µÇµµ·Ï ¼³Á¤ ÇÏ¸é µÈ´Ù.
+    //ì•„ì´í…œì„ ì†Œí™˜í•˜ëŠ” ë¶€ë¶„. í˜„ì¬ëŠ” ì—¬ëŸ¬ ëª¬ìŠ¤í„°ê°€ í•œêº¼ë²ˆì— ì†Œí™˜ëœë‹¤. ì´ëŠ” ìˆ˜ì •í•˜ì—¬ ìˆœì°¨ì ìœ¼ë¡œ ì†Œí™˜ë˜ë„ë¡ ì„¤ì • í•˜ë©´ ëœë‹¤.
     public void SpawnObj(int limit, RectInt room, List<SpanwerPoolAssets.Elem_And_Prop> objPool)
     {
         int amt = Random.Range(limit / 2, limit);
@@ -31,20 +31,20 @@ public class GenImmediate : ScriptableObject, IGetArea, ISpawnRealTime
             int mom = 0; List<int> sector = new List<int>();
             foreach (SpanwerPoolAssets.Elem_And_Prop eap in objPool)
             {
-                mom += eap.prop; // momÀº ¸ğµç °¡ÁßÄ¡¸¦ ´õÇÑ °ªÀÌ µÈ´Ù.
-                sector.Add(mom); // sectorÀÇ °¢ À©¼Ò´Â objPool¿¡ µé¾îÀÖ´Â °ªÀ» ¹İ¿µÇÏ¿© ¼³Á¤µÇ¾ú´Ù.
+                mom += eap.prop; // momì€ ëª¨ë“  ê°€ì¤‘ì¹˜ë¥¼ ë”í•œ ê°’ì´ ëœë‹¤.
+                sector.Add(mom); // sectorì˜ ê° ìœˆì†ŒëŠ” objPoolì— ë“¤ì–´ìˆëŠ” ê°’ì„ ë°˜ì˜í•˜ì—¬ ì„¤ì •ë˜ì—ˆë‹¤.
                 /*
-				 °¡·É m1, m2, m3°¡ °¢°¢ 19, 20, 30ÀÇ °¡ÁßÄ¡¸¦ °¡Áö¸é, sectorÀÇ °¢ ¿ø¼Ò´Â 19, 39, 69°¡ µÈ´Ù.
+				 ê°€ë ¹ m1, m2, m3ê°€ ê°ê° 19, 20, 30ì˜ ê°€ì¤‘ì¹˜ë¥¼ ê°€ì§€ë©´, sectorì˜ ê° ì›ì†ŒëŠ” 19, 39, 69ê°€ ëœë‹¤.
 				 */
             }
-            int output = Random.Range(0, mom); // outputÀº 0~69±îÁöÀÇ °ª Áß ÀÓÀÇÀÇ °ªÀ» °®°Ô µÈ´Ù.
+            int output = Random.Range(0, mom); // outputì€ 0~69ê¹Œì§€ì˜ ê°’ ì¤‘ ì„ì˜ì˜ ê°’ì„ ê°–ê²Œ ëœë‹¤.
             for (int i = 0; i < sector.Count; i++)
             {
                 /*
-				 ½Ã°£Áö¿¬ ¹æ½ÄÀÌ Àû¿ë ¾ÈµÈ ¹æ½ÄÀÌ±ä ÇÑµ¥, ¾ÆÀÌÅÛÀÇ °æ¿ì ¸ÊÀÌ »ı¼ºµÇ´Â ½Ã±â¿¡ ¿ÀºêÁ§Æ®¸¦ ¼ÒÈ¯ÇÏ´Â °ÍÀÌ¹Ç·Î ±¦Âú´Ù.
+				 ì‹œê°„ì§€ì—° ë°©ì‹ì´ ì ìš© ì•ˆëœ ë°©ì‹ì´ê¸´ í•œë°, ì•„ì´í…œì˜ ê²½ìš° ë§µì´ ìƒì„±ë˜ëŠ” ì‹œê¸°ì— ì˜¤ë¸Œì íŠ¸ë¥¼ ì†Œí™˜í•˜ëŠ” ê²ƒì´ë¯€ë¡œ ê´œì°®ë‹¤.
 				 */
 
-                if (output <= sector[i]) // outputÀÌ ¸¸ÀÏ 30ÀÌ¿´´Ù¸é, 19º¸´Ù´Â Å©°í, 39º¸´Ù´Â ÀÛ°Å³ª °°±â¿¡, m2°¡ ¼ÒÈ¯µÈ´Ù.
+                if (output <= sector[i]) // outputì´ ë§Œì¼ 30ì´ì˜€ë‹¤ë©´, 19ë³´ë‹¤ëŠ” í¬ê³ , 39ë³´ë‹¤ëŠ” ì‘ê±°ë‚˜ ê°™ê¸°ì—, m2ê°€ ì†Œí™˜ëœë‹¤.
                 {
                     float time = 0f;
                     float spawnCycle = 1;
@@ -54,13 +54,13 @@ public class GenImmediate : ScriptableObject, IGetArea, ISpawnRealTime
                     }
                     time = 0f;
                     Instantiate(objPool[i].elem, SetLoc(room, player.transform.position), Quaternion.identity);
-                    //¸Ê¿¡ Á¸ÀçÇÏ´Â ¸ó½ºÅÍ Ä«¿îÅÍ¿¡ ¹İ¿µÇØ¾ß ÇÑ´Ù
+                    //ë§µì— ì¡´ì¬í•˜ëŠ” ëª¬ìŠ¤í„° ì¹´ìš´í„°ì— ë°˜ì˜í•´ì•¼ í•œë‹¤
                 }
             }
         }
     }
 
-    //SetLoc¿¡¼­´Â roomÀÇ °ªÀ» ÀÌ¿ëÇÏ¿©, playerÀÇ À§Ä¡¿¡¼­ ÀÏÁ¤ °Å¸® ¶³¾îÁø À§Ä¡¿¡¼­¸¸ ¸ó½ºÅÍ°¡ ¼ÒÈ¯µÉ ¼ö ÀÖµµ·Ï À§Ä¡¸¦ ·£´ıÀ¸·Î ÁöÁ¤ÇÑ´Ù.
+    //SetLocì—ì„œëŠ” roomì˜ ê°’ì„ ì´ìš©í•˜ì—¬, playerì˜ ìœ„ì¹˜ì—ì„œ ì¼ì • ê±°ë¦¬ ë–¨ì–´ì§„ ìœ„ì¹˜ì—ì„œë§Œ ëª¬ìŠ¤í„°ê°€ ì†Œí™˜ë  ìˆ˜ ìˆë„ë¡ ìœ„ì¹˜ë¥¼ ëœë¤ìœ¼ë¡œ ì§€ì •í•œë‹¤.
     public Vector3 SetLoc(RectInt room, Vector3 playerPos)
     {
         Vector3 loc = new Vector3(Random.Range(room.x, room.x + room.width) + 0.5f, Random.Range(room.y, room.y + room.height) + 0.5f);
@@ -68,7 +68,7 @@ public class GenImmediate : ScriptableObject, IGetArea, ISpawnRealTime
         {
             loc = new Vector3(Random.Range(room.x, room.x + room.width)+0.5f, Random.Range(room.y, room.y + room.height)+0.5f);
         }
-        //Debug.Log($"¼ÒÈ¯ À§Ä¡ : {room.x}, {room.y}, {room.width}, {room.height}");
+        //Debug.Log($"ì†Œí™˜ ìœ„ì¹˜ : {room.x}, {room.y}, {room.width}, {room.height}");
         return loc;
     }
 }
