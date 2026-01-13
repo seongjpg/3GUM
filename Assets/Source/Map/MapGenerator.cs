@@ -55,7 +55,10 @@ public class MapGenerator : MonoBehaviour
 
 	private List<Vector2Int[]> centers = new List<Vector2Int[]>() { };
 
-	
+	public Dictionary<Vector3, GameObject> obstacleDic = new Dictionary<Vector3, GameObject>() { };
+
+	private ObjectSpawner oSpawner;
+	private bool destroyRoadExecuted = false;
 
 
 	public int cnt = 1;
@@ -65,6 +68,23 @@ public class MapGenerator : MonoBehaviour
 		SpawnPrefab();
 	}
 
+    private void Update()
+    {
+        if (oSpawner == null && !destroyRoadExecuted)
+		{
+			Debug.Log($"DestroyRoad실행, {centers.Count}, {obstacleDic.Count}");
+			DestroyRoad();
+			foreach (Vector3 key in obstacleDic.Keys)
+			{
+				Destroy(obstacleDic[key]);
+			}
+			centers = null;
+			obstacleDic = null;
+			destroyRoadExecuted = true;
+		}
+    }
+
+
     public void SpawnPrefab()
     {
 		player = GameObject.FindWithTag("Player");
@@ -72,7 +92,6 @@ public class MapGenerator : MonoBehaviour
 		Node root = new Node(new RectInt(0, 0, mapSize.x, mapSize.y));
 		Divide(root, 0);
 		GenerateRoom(root, 0); Debug.Log($"roomdata 개수 : {mc.roomData.Count}");
-		DestroyRoad();
 		//GenerateLoad(root, 0);
 		//FillWall(); //바깥과 방이 만나는 지점을 벽으로 칠해주는 함수
 
@@ -238,12 +257,20 @@ public class MapGenerator : MonoBehaviour
 
             for (int i = Mathf.Min(left.x, right.x); i <= Mathf.Max(left.x, right.x); i++)
             {
-                MinPath(new Vector2Int(i, left.y));
+				if (obstacleDic.ContainsKey(new Vector3(i, left.y)))
+				{
+					Destroy(obstacleDic[new Vector3(i, left.y)]);
+					Debug.Log($"{new Vector3(i, left.y)}의 구조물 파괴");
+				}
             }
 
             for (int j = Mathf.Min(left.y, right.y); j <= Mathf.Max(left.y, right.y); j++)
             {
-                MinPath(new Vector2Int(right.x, j));
+                if (obstacleDic.ContainsKey(new Vector3(right.x, j)))
+                {
+                    Destroy(obstacleDic[new Vector3(right.x, j)]);
+                    Debug.Log($"{new Vector3(right.x, j)}의 구조물 파괴");
+                }
             }
         }
     }
@@ -306,14 +333,17 @@ public class MapGenerator : MonoBehaviour
 
 		MobSpawner spawner = spawn.GetComponent<MobSpawner>(); // 스포너에 부착된 MobSpawner 함수를 GetComponent를 활용하여 가져온다.
 		ItemSpawner iSpawner = iSpawn.GetComponent<ItemSpawner>();
-		ObjectSpawner oSpawner = oSpawn.GetComponent<ObjectSpawner>();
+		oSpawner = oSpawn.GetComponent<ObjectSpawner>();
+
 
 		spawner.SetRoom(rect); // MobSpawner에 있는 SetRoom 함수를 실행하여 room 값을 넣어준다.
 		iSpawner.SetRoom(rect);
 		oSpawner.SetRoom(rect);
-		
 
-		mc.roomData.Add(new RoomData(rect, bx, spawn)); // 활성화 할 몬스터 스포너를 판별하기 위한 roomData를 모아둔 List(mc)에 rect와, box collider2d, spawn을 엮은 struct를 add.
+		//오브젝트 스포너에서 소환한 장애물들의 위치와 정보를 받아야 한다.
+
+        mc.roomData.Add(new RoomData(rect, bx, spawn)); // 활성화 할 몬스터 스포너를 판별하기 위한 roomData를 모아둔 List(mc)에 rect와, box collider2d, spawn을 엮은 struct를 add.
+
 	}
 
 	private void MakeBossRoom()
@@ -337,29 +367,6 @@ public class MapGenerator : MonoBehaviour
             GameObject.Instantiate(bossGate, bossRoomPos, Quaternion.identity);
         }
 	}
-
-
-
-    private void MinPath(Vector2Int pos) // 경로의 장애물을 제거해주는 기능. 혹시 길을 좀 더 재밌게 꾸며보고 싶다면 여기를 건들면 된다.
-	{
-        
-
-        Vector3Int cellPos = new Vector3Int(pos.x, pos.y, 0); 
-		Vector3 worldPos = tileMap.GetCellCenterWorld(cellPos); 
-		Collider2D col = Physics2D.OverlapBox( worldPos, tileMap.cellSize, 0f, obstacle);
-        var hits = Physics2D.OverlapBoxAll(worldPos, tileMap.cellSize, 0f);
-        foreach (var h in hits)
-        {
-            Debug.Log("HIT: " + h.name + " / layer:" + LayerMask.LayerToName(h.gameObject.layer));
-        }
-        if (col != null && col.CompareTag("Obstacle")) { 
-			Debug.Log(col.name); 
-			Destroy(col.gameObject); 
-		}
-		else {
-			//Debug.Log(col.tag); 
-		}
-}
 
 
 }

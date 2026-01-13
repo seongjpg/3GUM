@@ -8,6 +8,7 @@ using UnityEngine;
 //genMob을 달고있는 스포너는, 플레이어가 트리거에 감지되는 순간 스포너를 소환한다.
 public class GenImmediate : ScriptableObject, IGetArea, ISpawnRealTime
 {
+    Dictionary<Vector3, GameObject> objDic = new();
 
 
     public RoomData GetRoomSize() // 안씀
@@ -22,7 +23,7 @@ public class GenImmediate : ScriptableObject, IGetArea, ISpawnRealTime
     }
 
     //아이템을 소환하는 부분. 현재는 여러 몬스터가 한꺼번에 소환된다. 이는 수정하여 순차적으로 소환되도록 설정 하면 된다.
-    public void SpawnObj(int limit, RectInt room, List<SpanwerPoolAssets.Elem_And_Prop> objPool)
+    public Dictionary<Vector3, GameObject> SpawnObj(int limit, RectInt room, List<SpanwerPoolAssets.Elem_And_Prop> objPool)
     {
         int amt = Random.Range(limit / 2, limit);
         GameObject player = GameObject.FindWithTag("Player");
@@ -53,12 +54,22 @@ public class GenImmediate : ScriptableObject, IGetArea, ISpawnRealTime
                         time += Time.deltaTime;
                     }
                     time = 0f;
-                    Instantiate(objPool[i].elem, SetLoc(room, player.transform.position), Quaternion.identity);
+                    Vector3 summonPos = SetLoc(room, player.transform.position);
+                    if (!objDic.ContainsKey(summonPos))
+                    {
+                        GameObject obj = Instantiate(objPool[i].elem, summonPos, Quaternion.identity);
+                        objDic[summonPos] = obj;
+                        //Debug.Log(objDic[summonPos], objDic[summonPos]);
+                    }
                     //맵에 존재하는 몬스터 카운터에 반영해야 한다
                 }
             }
+            
         }
+        return objDic;
     }
+
+
 
     //SetLoc에서는 room의 값을 이용하여, player의 위치에서 일정 거리 떨어진 위치에서만 몬스터가 소환될 수 있도록 위치를 랜덤으로 지정한다.
     public Vector3 SetLoc(RectInt room, Vector3 playerPos)

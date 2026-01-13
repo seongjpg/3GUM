@@ -1,27 +1,28 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 
-// Interface¿Í ScriptableObject¸¦ È°¿ëÇÏ¿© ¸¸µç °ÍÀº °á±¹ CreateAssetMenu¸¦ »ç¿ëÇÏ¿©, ÀÎ½ºÆåÅÍ¿¡¼­ ¿¡¼ÂÈ­ÇÏ¿© »ç¿ëÇÒ ¼ö ÀÖ°Ô ¸¸µé¾î¾ß ÇÑ´Ù.
+// Interfaceì™€ ScriptableObjectë¥¼ í™œìš©í•˜ì—¬ ë§Œë“  ê²ƒì€ ê²°êµ­ CreateAssetMenuë¥¼ ì‚¬ìš©í•˜ì—¬, ì¸ìŠ¤í™í„°ì—ì„œ ì—ì…‹í™”í•˜ì—¬ ì‚¬ìš©í•  ìˆ˜ ìˆê²Œ ë§Œë“¤ì–´ì•¼ í•œë‹¤.
 [CreateAssetMenu(menuName ="Spawner/GenSequential")] 
 
-//genMobÀ» ´Ş°íÀÖ´Â ½ºÆ÷³Ê´Â, ÇÃ·¹ÀÌ¾î°¡ Æ®¸®°Å¿¡ °¨ÁöµÇ´Â ¼ø°£ ½ºÆ÷³Ê¸¦ ¼ÒÈ¯ÇÑ´Ù.
+//genMobì„ ë‹¬ê³ ìˆëŠ” ìŠ¤í¬ë„ˆëŠ”, í”Œë ˆì´ì–´ê°€ íŠ¸ë¦¬ê±°ì— ê°ì§€ë˜ëŠ” ìˆœê°„ ìŠ¤í¬ë„ˆë¥¼ ì†Œí™˜í•œë‹¤.
 public class GenSequential: ScriptableObject, IGetArea, ISpawnRealTime {
 
-	
-	public RoomData GetRoomSize() // ¾È¾¸
+	Dictionary<Vector3, GameObject> objDic = new Dictionary<Vector3, GameObject>();
+
+    public RoomData GetRoomSize() // ì•ˆì”€
 	{
 		RoomData rd = new RoomData();
 		return rd;
 	}
 
-	public RectInt SetRoom(RectInt rect) // ¹æÀÇ Å©±â¸¦ Á¤ÇÏ¿© SetLoc¿¡¼­ È°¿ë
+	public RectInt SetRoom(RectInt rect) // ë°©ì˜ í¬ê¸°ë¥¼ ì •í•˜ì—¬ SetLocì—ì„œ í™œìš©
 	{
 		return rect;
 	}
 
-	//¸ó½ºÅÍ¸¦ ¼ÒÈ¯ÇÏ´Â ºÎºĞ. ÇöÀç´Â ¿©·¯ ¸ó½ºÅÍ°¡ ÇÑ²¨¹ø¿¡ ¼ÒÈ¯µÈ´Ù. ÀÌ´Â ¼öÁ¤ÇÏ¿© ¼øÂ÷ÀûÀ¸·Î ¼ÒÈ¯µÇµµ·Ï ¼³Á¤ ÇÏ¸é µÈ´Ù.
-	public void SpawnObj(int limit, RectInt room, List<SpanwerPoolAssets.Elem_And_Prop> objPool)
+	//ëª¬ìŠ¤í„°ë¥¼ ì†Œí™˜í•˜ëŠ” ë¶€ë¶„. í˜„ì¬ëŠ” ì—¬ëŸ¬ ëª¬ìŠ¤í„°ê°€ í•œêº¼ë²ˆì— ì†Œí™˜ëœë‹¤. ì´ëŠ” ìˆ˜ì •í•˜ì—¬ ìˆœì°¨ì ìœ¼ë¡œ ì†Œí™˜ë˜ë„ë¡ ì„¤ì • í•˜ë©´ ëœë‹¤.
+	public Dictionary<Vector3, GameObject> SpawnObj(int limit, RectInt room, List<SpanwerPoolAssets.Elem_And_Prop> objPool)
 	{
 		int amt = Random.Range(limit / 2, limit);
 		GameObject player = GameObject.FindWithTag("Player");
@@ -30,26 +31,26 @@ public class GenSequential: ScriptableObject, IGetArea, ISpawnRealTime {
 			int mom = 0; List<int> sector = new List<int>();
 			foreach (SpanwerPoolAssets.Elem_And_Prop eap in objPool)
 			{
-				mom += eap.prop; // momÀº ¸ğµç °¡ÁßÄ¡¸¦ ´õÇÑ °ªÀÌ µÈ´Ù.
-				sector.Add(mom); // sectorÀÇ °¢ À©¼Ò´Â objPool¿¡ µé¾îÀÖ´Â °ªÀ» ¹İ¿µÇÏ¿© ¼³Á¤µÇ¾ú´Ù.
+				mom += eap.prop; // momì€ ëª¨ë“  ê°€ì¤‘ì¹˜ë¥¼ ë”í•œ ê°’ì´ ëœë‹¤.
+				sector.Add(mom); // sectorì˜ ê° ìœˆì†ŒëŠ” objPoolì— ë“¤ì–´ìˆëŠ” ê°’ì„ ë°˜ì˜í•˜ì—¬ ì„¤ì •ë˜ì—ˆë‹¤.
 				/*
-				 °¡·É m1, m2, m3°¡ °¢°¢ 19, 20, 30ÀÇ °¡ÁßÄ¡¸¦ °¡Áö¸é, sectorÀÇ °¢ ¿ø¼Ò´Â 19, 39, 69°¡ µÈ´Ù.
+				 ê°€ë ¹ m1, m2, m3ê°€ ê°ê° 19, 20, 30ì˜ ê°€ì¤‘ì¹˜ë¥¼ ê°€ì§€ë©´, sectorì˜ ê° ì›ì†ŒëŠ” 19, 39, 69ê°€ ëœë‹¤.
 				 */
 			}
-			int output = Random.Range(0, mom); // outputÀº 0~69±îÁöÀÇ °ª Áß ÀÓÀÇÀÇ °ªÀ» °®°Ô µÈ´Ù.
+			int output = Random.Range(0, mom); // outputì€ 0~69ê¹Œì§€ì˜ ê°’ ì¤‘ ì„ì˜ì˜ ê°’ì„ ê°–ê²Œ ëœë‹¤.
 			for (int i = 0; i < sector.Count; i++)
 			{
 				/*
-				 ¾Æ·¡ÀÇ ½Ã°£ Áö¿¬ ¹æ½ÄÀº »ç¿ëÇÒ ¼ö ¾ø´Ù. 
-				ÇöÀç while ·çÇÁ´Â ¸ŞÀÎ ½º·¹µå¿¡¼­ ¹Ù»Û ´ë±â(busy-wait)¸¦ ÇØ¼­ ÇÁ·¹ÀÓ °æ°ú¸¦ ±â´Ù¸®Áö ¸øÇÑ´Ù. 
-				ÇÑ ÇÁ·¹ÀÓ ³»¿¡¼­ ·çÇÁ¸¦ °è¼Ó µ¹±â ¶§¹®¿¡ Unity°¡ ÇÁ·¹ÀÓÀ» ÁøÇà½ÃÅ°Áö ¾Ê°í,
-				Time.deltaTime °ªÀº °°Àº ÇÁ·¹ÀÓÀÇ °íÁ¤°ª(ÇÁ·¹ÀÓ µ¨Å¸)À¸·Î ¹İº¹ ´©ÀûµÇ¾î,
-				·çÇÁ´Â Áï½Ã Á¾·áµÇ°Å³ª(Á¶°ÇÀ» ¸¸Á·ÇÏ¸é ¹Ù·Î ºüÁ®³ª°¨) ÇÁ·¹ÀÓÀ» ¸·¾Æ¹ö·Á ¾Æ¹«·± 'Áö¿¬µÈ µ¿ÀÛ'Ã³·³ º¸ÀÌÁö ¾Ê´Â´Ù. 
-				Unity¿¡¼­´Â Time.deltaTimeÀ» ³»ºÎ ·çÇÁ·Î ±â´Ù¸®¸é ¾È µÇ°í, ÇÁ·¹ÀÓÀ» ³Ñ±â´Â ¹æ½Ä(ÄÚ·çÆ¾ ¶Ç´Â ½Ã°£ ºñ±³)À» »ç¿ëÇØ¾ß ÇÑ´Ù.
-				µû¶ó¼­ ÇöÀç ½ºÅ©¸³Æ®´Â µ¿½Ã´Ù¹ßÀûÀ¸·Î ¼ÒÈ¯µÇ°Ô µÇ¾î ÀÖÀ½
+				 ì•„ë˜ì˜ ì‹œê°„ ì§€ì—° ë°©ì‹ì€ ì‚¬ìš©í•  ìˆ˜ ì—†ë‹¤. 
+				í˜„ì¬ while ë£¨í”„ëŠ” ë©”ì¸ ìŠ¤ë ˆë“œì—ì„œ ë°”ìœ ëŒ€ê¸°(busy-wait)ë¥¼ í•´ì„œ í”„ë ˆì„ ê²½ê³¼ë¥¼ ê¸°ë‹¤ë¦¬ì§€ ëª»í•œë‹¤. 
+				í•œ í”„ë ˆì„ ë‚´ì—ì„œ ë£¨í”„ë¥¼ ê³„ì† ëŒê¸° ë•Œë¬¸ì— Unityê°€ í”„ë ˆì„ì„ ì§„í–‰ì‹œí‚¤ì§€ ì•Šê³ ,
+				Time.deltaTime ê°’ì€ ê°™ì€ í”„ë ˆì„ì˜ ê³ ì •ê°’(í”„ë ˆì„ ë¸íƒ€)ìœ¼ë¡œ ë°˜ë³µ ëˆ„ì ë˜ì–´,
+				ë£¨í”„ëŠ” ì¦‰ì‹œ ì¢…ë£Œë˜ê±°ë‚˜(ì¡°ê±´ì„ ë§Œì¡±í•˜ë©´ ë°”ë¡œ ë¹ ì ¸ë‚˜ê°) í”„ë ˆì„ì„ ë§‰ì•„ë²„ë ¤ ì•„ë¬´ëŸ° 'ì§€ì—°ëœ ë™ì‘'ì²˜ëŸ¼ ë³´ì´ì§€ ì•ŠëŠ”ë‹¤. 
+				Unityì—ì„œëŠ” Time.deltaTimeì„ ë‚´ë¶€ ë£¨í”„ë¡œ ê¸°ë‹¤ë¦¬ë©´ ì•ˆ ë˜ê³ , í”„ë ˆì„ì„ ë„˜ê¸°ëŠ” ë°©ì‹(ì½”ë£¨í‹´ ë˜ëŠ” ì‹œê°„ ë¹„êµ)ì„ ì‚¬ìš©í•´ì•¼ í•œë‹¤.
+				ë”°ë¼ì„œ í˜„ì¬ ìŠ¤í¬ë¦½íŠ¸ëŠ” ë™ì‹œë‹¤ë°œì ìœ¼ë¡œ ì†Œí™˜ë˜ê²Œ ë˜ì–´ ìˆìŒ
 				 */
 
-				if (output <= sector[i]) // outputÀÌ ¸¸ÀÏ 30ÀÌ¿´´Ù¸é, 19º¸´Ù´Â Å©°í, 39º¸´Ù´Â ÀÛ°Å³ª °°±â¿¡, m2°¡ ¼ÒÈ¯µÈ´Ù.
+				if (output <= sector[i]) // outputì´ ë§Œì¼ 30ì´ì˜€ë‹¤ë©´, 19ë³´ë‹¤ëŠ” í¬ê³ , 39ë³´ë‹¤ëŠ” ì‘ê±°ë‚˜ ê°™ê¸°ì—, m2ê°€ ì†Œí™˜ëœë‹¤.
 				{
 					float time = 0f;
 					float spawnCycle = 1;
@@ -59,13 +60,14 @@ public class GenSequential: ScriptableObject, IGetArea, ISpawnRealTime {
 					}
 					time = 0f;
 					Instantiate(objPool[i].elem, SetLoc(room, player.transform.position), Quaternion.identity);
-					//¸Ê¿¡ Á¸ÀçÇÏ´Â ¸ó½ºÅÍ Ä«¿îÅÍ¿¡ ¹İ¿µÇØ¾ß ÇÑ´Ù
+					//ë§µì— ì¡´ì¬í•˜ëŠ” ëª¬ìŠ¤í„° ì¹´ìš´í„°ì— ë°˜ì˜í•´ì•¼ í•œë‹¤
 				}
 			}
 		}
+		return objDic;
 	}
 	
-	//SetLoc¿¡¼­´Â roomÀÇ °ªÀ» ÀÌ¿ëÇÏ¿©, playerÀÇ À§Ä¡¿¡¼­ ÀÏÁ¤ °Å¸® ¶³¾îÁø À§Ä¡¿¡¼­¸¸ ¸ó½ºÅÍ°¡ ¼ÒÈ¯µÉ ¼ö ÀÖµµ·Ï À§Ä¡¸¦ ·£´ıÀ¸·Î ÁöÁ¤ÇÑ´Ù.
+	//SetLocì—ì„œëŠ” roomì˜ ê°’ì„ ì´ìš©í•˜ì—¬, playerì˜ ìœ„ì¹˜ì—ì„œ ì¼ì • ê±°ë¦¬ ë–¨ì–´ì§„ ìœ„ì¹˜ì—ì„œë§Œ ëª¬ìŠ¤í„°ê°€ ì†Œí™˜ë  ìˆ˜ ìˆë„ë¡ ìœ„ì¹˜ë¥¼ ëœë¤ìœ¼ë¡œ ì§€ì •í•œë‹¤.
 	public Vector3 SetLoc(RectInt room, Vector3 playerPos) 
 	{
 		Vector3 loc = new Vector3(Random.Range(room.x, room.x + room.width), Random.Range(room.y, room.y + room.height));
@@ -73,7 +75,7 @@ public class GenSequential: ScriptableObject, IGetArea, ISpawnRealTime {
 		{
 			loc = new Vector3(Random.Range(room.x, room.x + room.width), Random.Range(room.y, room.y + room.height));
 		}
-		Debug.Log($"¼ÒÈ¯ À§Ä¡ : {room.x}, {room.y}, {room.width}, {room.height}");
+		Debug.Log($"ì†Œí™˜ ìœ„ì¹˜ : {room.x}, {room.y}, {room.width}, {room.height}");
 		return loc;
 	}
 }

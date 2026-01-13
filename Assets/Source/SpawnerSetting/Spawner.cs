@@ -1,19 +1,19 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 
 
-// ¸ğµç ½ºÆ÷³Ê´Â ½ºÆùµÇ´Â ±¸¿ªÀ» ¾Ë°í ÀÖ¾î¾ß ÇÑ´Ù.
+// ëª¨ë“  ìŠ¤í¬ë„ˆëŠ” ìŠ¤í°ë˜ëŠ” êµ¬ì—­ì„ ì•Œê³  ìˆì–´ì•¼ í•œë‹¤.
 public interface IGetArea {
 	RoomData GetRoomSize(); 
 }
 
-//½ºÆ÷³Ê°¡ ½Ç½Ã°£ ½ºÆùÀ» ÇÏ¿©¾ß ÇÒ ¶§ »ç¿ëÇÑ´Ù.
+//ìŠ¤í¬ë„ˆê°€ ì‹¤ì‹œê°„ ìŠ¤í°ì„ í•˜ì—¬ì•¼ í•  ë•Œ ì‚¬ìš©í•œë‹¤.
 public interface ISpawnRealTime {
-	void SpawnObj(int limit, RectInt rd, List<SpanwerPoolAssets.Elem_And_Prop> objPool);
+    Dictionary<Vector3, GameObject> SpawnObj(int limit, RectInt rd, List<SpanwerPoolAssets.Elem_And_Prop> objPool);
 }
 
-//½ºÆ÷³Ê°¡ »çÀü¿¡ ½ºÆùÀ» ÁøÇàÇÒ °æ¿ì¿¡ »ç¿ëÇÑ´Ù.
+//ìŠ¤í¬ë„ˆê°€ ì‚¬ì „ì— ìŠ¤í°ì„ ì§„í–‰í•  ê²½ìš°ì— ì‚¬ìš©í•œë‹¤.
 public interface ISpawnInPractice {
 	void SpawnObj(int amt, RoomData rd, List<GameObject> objPool);
 }
