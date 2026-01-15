@@ -76,7 +76,7 @@ public class MapGenerator : MonoBehaviour
 			DestroyRoad();
 			foreach (Vector3 key in obstacleDic.Keys)
 			{
-				Destroy(obstacleDic[key]);
+				//Destroy(obstacleDic[key]);
 			}
 			centers = null;
 			obstacleDic = null;
@@ -254,22 +254,26 @@ public class MapGenerator : MonoBehaviour
         for (int k = 0; k < centers.Count; k++)
         {
             Vector2Int left = centers[k][0]; Vector2Int right = centers[k][1];
-
             for (int i = Mathf.Min(left.x, right.x); i <= Mathf.Max(left.x, right.x); i++)
             {
-				if (obstacleDic.ContainsKey(new Vector3(i, left.y)))
+				Vector3 objLoc = new Vector3(i + 0.5f, left.y + 0.5f);
+				Debug.Log($"{objLoc}");
+				if (obstacleDic.ContainsKey(objLoc))
 				{
-					Destroy(obstacleDic[new Vector3(i, left.y)]);
-					Debug.Log($"{new Vector3(i, left.y)}의 구조물 파괴");
+					Destroy(obstacleDic[objLoc]);
+					Debug.Log($"{objLoc}의 구조물 파괴");
 				}
             }
 
-            for (int j = Mathf.Min(left.y, right.y); j <= Mathf.Max(left.y, right.y); j++)
-            {
-                if (obstacleDic.ContainsKey(new Vector3(right.x, j)))
+			for (int j = Mathf.Min(left.y, right.y); j <= Mathf.Max(left.y, right.y); j++)
+			{
+				Vector3 objLoc = new Vector3(right.x + 0.5f, j + 0.5f);
+				Debug.Log($"{objLoc}");
+                if (obstacleDic.ContainsKey(objLoc))
                 {
-                    Destroy(obstacleDic[new Vector3(right.x, j)]);
-                    Debug.Log($"{new Vector3(right.x, j)}의 구조물 파괴");
+
+                    Destroy(obstacleDic[objLoc]);
+                    Debug.Log($"{objLoc}의 구조물 파괴");
                 }
             }
         }
