@@ -91,6 +91,7 @@ public class SerializeMap : MonoBehaviour {
 
 	void MakeArr(MapGenerator mg, int x, int y)
 	{
+		/*
 		Tilemap tileMap = mg.tileMap;
 		tileArr = new int[x, y];
 		for (int i = 0; i < x; i++)
@@ -114,6 +115,7 @@ public class SerializeMap : MonoBehaviour {
 				}
 			}
 		}
+		*/
 	}
 
 }

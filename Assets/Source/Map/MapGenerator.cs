@@ -74,10 +74,7 @@ public class MapGenerator : MonoBehaviour
 		{
 			Debug.Log($"DestroyRoad실행, {centers.Count}, {obstacleDic.Count}");
 			DestroyRoad();
-			foreach (Vector3 key in obstacleDic.Keys)
-			{
-				//Destroy(obstacleDic[key]);
-			}
+
 			centers = null;
 			obstacleDic = null;
 			destroyRoadExecuted = true;
@@ -92,8 +89,6 @@ public class MapGenerator : MonoBehaviour
 		Node root = new Node(new RectInt(0, 0, mapSize.x, mapSize.y));
 		Divide(root, 0);
 		GenerateRoom(root, 0); Debug.Log($"roomdata 개수 : {mc.roomData.Count}");
-		//GenerateLoad(root, 0);
-		//FillWall(); //바깥과 방이 만나는 지점을 벽으로 칠해주는 함수
 
 		int id = Random.Range(0, rooms.Count);
 		Debug.Log(id);
@@ -178,7 +173,7 @@ public class MapGenerator : MonoBehaviour
 		{
 			if (tileMap.GetTile(new Vector3Int(i, left.y)) != roomTile)
 			{
-                //tileMap.SetTile(new Vector3Int(i, left.y), roadTile);
+                tileMap.SetTile(new Vector3Int(i, left.y), roadTile);
 				wallTileMap.SetTile(new Vector3Int(i, left.y), null);
 
                 TileBase downSide = wallTileMap.GetTile(new Vector3Int(i, left.y - 1));
@@ -215,7 +210,7 @@ public class MapGenerator : MonoBehaviour
 		{
             if (tileMap.GetTile(new Vector3Int(right.x, j)) != roomTile)
             {
-                //tileMap.SetTile(new Vector3Int(right.x, j), roadTile);
+                tileMap.SetTile(new Vector3Int(right.x, j), roadTile);
                 wallTileMap.SetTile(new Vector3Int(right.x, j), null);
                 TileBase leftSide = wallTileMap.GetTile(new Vector3Int(right.x - 1, j));
 				TileBase rightSide = wallTileMap.GetTile(new Vector3Int(right.x + 1, j));
@@ -296,7 +291,7 @@ public class MapGenerator : MonoBehaviour
 		{
 			for (int j = rect.y; j < rect.y + rect.height; j++)
 			{
-				//tileMap.SetTile(new Vector3Int(i, j), roomTile);
+				tileMap.SetTile(new Vector3Int(i, j), roomTile);
                 wallTileMap.SetTile(new Vector3Int(i, j), null);
             }
 		}

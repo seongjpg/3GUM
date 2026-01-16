@@ -928,6 +928,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mc: {fileID: 1994754642}
+  obstacle:
+    serializedVersion: 2
+    m_Bits: 64
   mapSize: {x: 128, y: 80}
   minimumDevideRate: 0.4
   maximumDivideRate: 0.6
@@ -937,7 +940,21 @@ MonoBehaviour:
   maximumDepth: 4
   tileMap: {fileID: 372329737}
   roomTile: {fileID: 11400000, guid: 6e86c47e27650724c81ae34cbf2d2379, type: 2}
+  roadTile: {fileID: 11400000, guid: 6e86c47e27650724c81ae34cbf2d2379, type: 2}
+  wallTileMap: {fileID: 372329737}
   wallTile: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  upWall: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  downWall: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  rightWall: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  leftWall: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  edgeUR: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  edgeUL: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  edgeDR: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  edgeDL: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  innerEdgeUR: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  innerEdgeUL: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  innerEdgeDR: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  innerEdgeDL: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
   outTile: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
   bossGate: {fileID: 0}
   ms: {fileID: 5062827423104355646, guid: 693b1b47364eed848a45362c3d489612, type: 3}

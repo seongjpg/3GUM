@@ -486,7 +486,7 @@ MonoBehaviour:
   innerEdgeDR: {fileID: 11400000, guid: 5519d4548ac2251468c707b8157a725b, type: 2}
   innerEdgeDL: {fileID: 11400000, guid: 52ff9b424f0fcde4aaf4765250dad68e, type: 2}
   outTile: {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
-  bossGate: {fileID: 353140523465370070, guid: 065fc00ea4811424e9790cac5ecaf3ae, type: 3}
+  bossGate: {fileID: 353140523465370070, guid: 1ed41bbd97a35a841b4a613901f87ff3, type: 3}
   ms: {fileID: 5062827423104355646, guid: 693b1b47364eed848a45362c3d489612, type: 3}
   itemSpawn: {fileID: 3953239487626917070, guid: ff1b1ce0868c99440a56616927d06d2a, type: 3}
   objSpawn: {fileID: 2711951616736988869, guid: d0ad4205dd4faea4ab2425764372dc4f, type: 3}
@@ -745,6 +745,10 @@ PrefabInstance:
     - target: {fileID: 3415279566408897491, guid: 54d0c4e017ec3f2458dfc1c4ae0b5345, type: 3}
       propertyPath: speed
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415279566408897491, guid: 54d0c4e017ec3f2458dfc1c4ae0b5345, type: 3}
+      propertyPath: curHealth
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4674402328540468753, guid: 54d0c4e017ec3f2458dfc1c4ae0b5345, type: 3}
       propertyPath: wallLayer.m_Bits
