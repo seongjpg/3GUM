@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: AAA
   m_GUID: e9a11bcba8378e64bae030b9266a1ad7
   m_SerializeEntries:
+  - m_GUID: 015008d05b4aee244be3f8e1a419eafc
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/EnergyDrink.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 065fc00ea4811424e9790cac5ecaf3ae
     m_Address: Assets/PreFeb/Scene/GateFolder/TestConToGen.prefab
     m_ReadOnly: 0
@@ -22,6 +27,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ed41bbd97a35a841b4a613901f87ff3
     m_Address: Assets/PreFeb/Scene/GateFolder/TestGate.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 835d65892c1f48046bb325004d7847cc
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/Sushi.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
