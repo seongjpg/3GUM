@@ -15,8 +15,23 @@ MonoBehaviour:
   m_GroupName: Passive
   m_GUID: 8cb5af32cec6d8a4a97777c08faf454a
   m_SerializeEntries:
+  - m_GUID: 015008d05b4aee244be3f8e1a419eafc
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/EnergyDrink.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0518db6799b54a447a3769cef0950113
     m_Address: Assets/PreFeb/Item/FieldItem/Passive/GukBap.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0729f2cccde29174fa39b36ec729ba09
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/YellowMush.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e013e842f04da94b927ab230e54ccc4
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/BlueMush.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -25,8 +40,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 287fe4ff2b0eabb41a190de6b08451cd
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/SkyMush.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 340cc0588a854e34e83427c9f929d983
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/PinkMush.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 452a3905c2022a74c99c3a1981b38858
     m_Address: Assets/PreFeb/Item/FieldItem/Passive/Penetrate.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47c86eea213931447a125863597038b4
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/PurpleMush.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e1425b3efc91e840ac6d1462d2e94c1
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/GreenMush.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -40,8 +75,38 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 835d65892c1f48046bb325004d7847cc
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/Sushi.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8eaff3a9f9960554daf8103f60ca033d
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/OrangeMush.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c23cd491394750d44a2b0871eaa0224b
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/CobaltMush.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca067811b877786428872ad5c55bdbb1
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/RedMush.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cd1d5c45ff8d20648ba3a29da54b62a9
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/MintMush.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e618acec82c9c73448e226c718b3a65c
     m_Address: Assets/PreFeb/Item/FieldItem/Passive/RunningShoes.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdceb9ad18bef544591a359a0314776f
+    m_Address: Assets/PreFeb/Item/FieldItem/Passive/GrassMush.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

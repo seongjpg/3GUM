@@ -97,6 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2512722882587850241}
   - component: {fileID: 2628208800968587972}
+  - component: {fileID: 9053833552859226898}
   m_Layer: 0
   m_Name: DownHitRate
   m_TagString: Untagged
@@ -174,6 +175,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &9053833552859226898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796670086600560135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d445a044dc1014db7bf9a84d284403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
 --- !u!1 &4091098964533741496
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assetRef:
-    m_AssetGUID: 
+    m_AssetGUID: 47c86eea213931447a125863597038b4
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 

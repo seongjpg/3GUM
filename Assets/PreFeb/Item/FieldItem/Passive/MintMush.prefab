@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2197022425997313512}
   - component: {fileID: 7955879534319692097}
+  - component: {fileID: 993689975320110413}
   m_Layer: 0
   m_Name: DownSpeed
   m_TagString: Untagged
@@ -87,6 +88,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &993689975320110413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999338772432139874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d445a044dc1014db7bf9a84d284403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
 --- !u!1 &4271316464583282036
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assetRef:
-    m_AssetGUID: 
+    m_AssetGUID: cd1d5c45ff8d20648ba3a29da54b62a9
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 

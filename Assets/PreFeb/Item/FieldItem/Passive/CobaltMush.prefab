@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assetRef:
-    m_AssetGUID: 
+    m_AssetGUID: c23cd491394750d44a2b0871eaa0224b
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -126,6 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5062222898535386197}
   - component: {fileID: 1963744942233296245}
+  - component: {fileID: 1739973512454814297}
   m_Layer: 0
   m_Name: UpDamage
   m_TagString: Untagged
@@ -203,6 +204,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1739973512454814297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097652071176283231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3d445a044dc1014db7bf9a84d284403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
 --- !u!1 &2039525776114368603
 GameObject:
   m_ObjectHideFlags: 0
