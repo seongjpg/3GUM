@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5203caac9b7679849b64e8696ab6324f, type: 3}
+  m_Name: SilverBullet
+  m_EditorClassIdentifier: 
+  BulletObj: {fileID: 8759556699773176221, guid: 5bff4aa48442abb489918d4a99922c04, type: 3}
