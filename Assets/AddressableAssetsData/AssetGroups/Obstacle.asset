@@ -20,6 +20,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ed41bbd97a35a841b4a613901f87ff3
+    m_Address: Assets/PreFeb/Scene/GateFolder/TestGate.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 9a2d40cbdc32b68458eaea97909c368e, type: 2}
   m_SchemaSet:

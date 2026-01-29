@@ -20,11 +20,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1ed41bbd97a35a841b4a613901f87ff3
-    m_Address: Assets/PreFeb/Scene/GateFolder/TestGate.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9776b7be368bc3f4583b800c7a4f32bf
     m_Address: Assets/PreFeb/Scene/GateFolder/BossToCon.prefab
     m_ReadOnly: 0
