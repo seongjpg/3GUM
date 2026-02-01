@@ -7,6 +7,7 @@ public class WP_TLS : ScriptableObject, IWeaponEquip
 
     [SerializeField] GameObject tls;
     [SerializeField] ScriptableObject skill_dash;
+    [SerializeField] GameObject TimeLeftPassive;
 
     //PlayerMovement에서 여기있는 세 함수를 호출하여 사용하게끔 수정한다. Sword에서 구조 변경이 완료되었으면, 이를 KenKi에서도 수정해줄것.
 
@@ -20,6 +21,7 @@ public class WP_TLS : ScriptableObject, IWeaponEquip
             pMov.playerWeapon = tls;
             pMov.skill01 = skill_dash as ISkill;
             pm.CoolTime_01 = pMov.skill01.SkillTimer();
+            GameObject.Instantiate(TimeLeftPassive, pm.transform.position, Quaternion.identity);
         }
         else
         {
