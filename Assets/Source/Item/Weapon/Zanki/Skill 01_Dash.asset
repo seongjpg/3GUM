@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ccbcfeeb397aa469f38fbacc7fedd2, type: 3}
   m_Name: Skill 01_Dash
   m_EditorClassIdentifier: 
-  dashObj: {fileID: 0}
+  dashObj: {fileID: 5789330681242856664, guid: df513d4c4c6e24c48ac64b4af158f534, type: 3}

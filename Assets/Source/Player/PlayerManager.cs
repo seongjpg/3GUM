@@ -49,7 +49,7 @@ public class PlayerManager : MonoBehaviour
         if (curHealth <= 0)
         {
             Debug.Log("플레이어 사망!");
-            Destroy(gameObject); // 지금은 파괴하지만 이건 좋지 않은 구조. 플레이어가 죽었을 때에도 플레이어의 오브젝트가 남아있도록 해야 한다. 그래야 카메라나 ui 등이 안날아감.
+            //Destroy(gameObject); // 지금은 파괴하지만 이건 좋지 않은 구조. 플레이어가 죽었을 때에도 플레이어의 오브젝트가 남아있도록 해야 한다. 그래야 카메라나 ui 등이 안날아감.
         }
 
         //피격의 처리. 피격시에는 1.5초로 우선 고정시켜둠. 보고 적절하게 수정하길.

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc82a1ecf24f5c745b458cfad4254420, type: 3}
   m_Name: TimeLeft
   m_EditorClassIdentifier: 
-  weaponObj: {fileID: 0}
-  skill_01: {fileID: 0}
+  weaponObj: {fileID: 6497621821549601957, guid: e7e2d1e7f7e7fd348ae7bbf20b349188, type: 3}
+  skill_01: {fileID: 11400000, guid: 04c02e719e74a1f4ea791df8921afbfa, type: 2}

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6139b8bd65f50c4384efc10eb059da5, type: 3}
   m_Name: WP_TLS
   m_EditorClassIdentifier: 
-  tls: {fileID: 0}
-  skill_dash: {fileID: 0}
-  TimeLeftPassive: {fileID: 0}
+  tls: {fileID: 1601299248955853884, guid: cf57a7d91e760154d9e00e91d69c18c6, type: 3}
+  skill_dash: {fileID: 11400000, guid: 04c02e719e74a1f4ea791df8921afbfa, type: 2}
+  TimeLeftPassive: {fileID: 6628503614634574118, guid: f1ea6ec72087a4a48ae8aa874e9e7689, type: 3}

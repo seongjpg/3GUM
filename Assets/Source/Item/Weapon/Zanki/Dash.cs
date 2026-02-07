@@ -11,11 +11,14 @@ public class Dash : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        PlayerManager pm = player.GetComponent<PlayerManager>();
+        pm.BeInvicible(weapon.lifeTime);
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         wayToGo = mouseWorldPos - player.transform.position;
         wayToGo.Normalize();
 
         angle = Mathf.Atan2(wayToGo.y, wayToGo.x) * Mathf.Rad2Deg - 90;
+        
     }
 
 

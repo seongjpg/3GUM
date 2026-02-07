@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TLS_Stat
   m_EditorClassIdentifier: 
   atkSpeed: 1
-  damage: 0
-  lifeTime: 0
-  swingSpeed: 0
+  damage: 7
+  lifeTime: 0.5
+  swingSpeed: 360
   isBullet: 0
   shotSpeed: 5
-  originalyPenetrate: 0
+  originalyPenetrate: 1
