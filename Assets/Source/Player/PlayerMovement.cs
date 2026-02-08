@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         DebugingPassive();
     }
 
+    /*
 	private void PlayerMove() // 방향키를 이용한 조작은 모바일로 이식하는 과정에서 대체된다.
 	{
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -74,6 +75,41 @@ public class PlayerMovement : MonoBehaviour
         }
 
 	}
+    */
+
+    private void PlayerMove() {
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 dir = input.normalized;
+
+        Vector2 moveX = new Vector2(dir.x, 0);
+        Vector2 moveY = new Vector2(0, dir.y);
+
+        // X축 검사
+        if (moveX != Vector2.zero) {
+            RaycastHit2D hitX = Physics2D.CapsuleCast(
+                rb.position, transform.localScale, CapsuleDirection2D.Vertical,
+                0f, moveX, pm.speed, wallLayer
+            );
+
+            if (hitX.collider != null)
+                moveX = Vector2.zero; // X방향 벽 → X이동 차단
+        }
+
+        // Y축 검사
+        if (moveY != Vector2.zero) {
+            RaycastHit2D hitY = Physics2D.CapsuleCast(
+                rb.position, transform.localScale, CapsuleDirection2D.Vertical,
+                0f, moveY, pm.speed, wallLayer
+            );
+
+            if (hitY.collider != null)
+                moveY = Vector2.zero; // Y방향 벽 → Y이동 차단
+        }
+
+        Vector2 finalMove = moveX + moveY;
+        rb.MovePosition(rb.position + finalMove * pm.speed);
+    }
+
     public void PlayerUp()
     {
         float speed = pm.speed;
@@ -193,48 +229,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /*
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		GameObject collided = collision.gameObject;
-		//적과 충돌시
-		if (collided.CompareTag("Enemy"))
-		{
-            Debug.Log("적과 접촉!");
-            MobManager mm = collided.GetComponent<MobManager>();
-			// 피해 처리 (이펙트, 데미지 등)
-			if (Random.value > pm.hitRate)
-			{
-				Debug.Log("피해 방어!");
-			}
-			// 피해 처리 (이펙트, 데미지 등)
-			else
-			{
-				Debug.Log($"{mm.damage}만큼의 피해!");
-				pm.curHealth -= mm.damage;
-                if (pm.curHealth < 0) pm.curHealth = 0;
-                //ui에서의 작용도 해줘야 한다.
-                mainUI.HealthChange(pm.curHealth);
-			}
-		}
-
-		//아이템 드랍(여기서 안할듯?)
-		if (collided.CompareTag("Active") || collided.CompareTag("Passive") ||
-			collided.CompareTag("Weapon") || collided.CompareTag("Shield") ||
-			collided.CompareTag("OneTime"))
-		{	
-			string name = collision.gameObject.name;
-            pm.equipdItemName = name;
-			pm.equipdItemType = collided.tag;
-			Debug.Log($"아이템 탐지 : {name}");
-		}
-
-		//다음 스테이지 이동 차원문
-		if (collided.CompareTag("Gate"))
-		{
-		}
-	}
-    */
     public void EarnHeal()
     {
         mainUI.HealthChange(pm.curHealth);
