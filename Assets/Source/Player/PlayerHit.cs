@@ -1,38 +1,51 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class PlayerHit : MonoBehaviour
 {
     private PlayerManager PlayerEntity;
+    private PlayerVisualHandler PVH;
 
     void Awake()
     {
         PlayerEntity = GetComponentInParent<PlayerManager>();
         if (PlayerEntity == null)
             Debug.LogError("EntityParent not found in parents of " + gameObject.name);
+        PVH = GetComponent<PlayerVisualHandler>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         GameObject collided = collision.gameObject;
-        //Àû°ú Ãæµ¹½Ã
+        //ì ê³¼ ì¶©ëŒì‹œ
         if (collided.CompareTag("Enemy"))
         {
-            Debug.Log("Àû°ú Á¢ÃË!");
-            MobManager mm = collided.GetComponent<MobManager>();
-            // ÇÇÇØ Ã³¸® (ÀÌÆåÆ®, µ¥¹ÌÁö µî)
-            if (Random.value > PlayerEntity.hitRate)
+            if (PlayerEntity.isInvicible)
             {
-                Debug.Log("ÇÇÇØ ¹æ¾î!");
+                Debug.Log("ë¬´ì !");
+                return;
             }
-            // ÇÇÇØ Ã³¸® (ÀÌÆåÆ®, µ¥¹ÌÁö µî)
             else
             {
-                Debug.Log($"{mm.damage}¸¸Å­ÀÇ ÇÇÇØ!");
-                PlayerEntity.curHealth -= mm.damage;
+
+                Debug.Log("ì ê³¼ ì ‘ì´‰!");
+                MobManager mm = collided.GetComponent<MobManager>();
+                // í”¼í•´ ì²˜ë¦¬ (ì´í™íŠ¸, ë°ë¯¸ì§€ ë“±)
+                if (Random.value > PlayerEntity.hitRate)
+                {
+                    Debug.Log("í”¼í•´ ë°©ì–´!");
+                }
+                // í”¼í•´ ì²˜ë¦¬ (ì´í™íŠ¸, ë°ë¯¸ì§€ ë“±)
+                else
+                {
+                    Debug.Log($"{mm.damage}ë§Œí¼ì˜ í”¼í•´!");
+                    PlayerEntity.curHealth -= mm.damage;
+                    PVH.Blink(1f);
+                    PlayerEntity.BeInvicible(1f);
+                }
             }
         }
 
-        //¾ÆÀÌÅÛ µå¶ø(¿©±â¼­ ¾ÈÇÒµí?)
+        //ì•„ì´í…œ ë“œë(ì—¬ê¸°ì„œ ì•ˆí• ë“¯?)
         if (collided.CompareTag("Active") || collided.CompareTag("Passive") ||
             collided.CompareTag("Weapon") || collided.CompareTag("Shield") ||
             collided.CompareTag("OneTime"))
@@ -40,13 +53,13 @@ public class PlayerHit : MonoBehaviour
             string name = collision.gameObject.name;
             PlayerEntity.equipdItemName = name;
             PlayerEntity.equipdItemType = collided.tag;
-            Debug.Log($"¾ÆÀÌÅÛ Å½Áö : {name}");
+            Debug.Log($"ì•„ì´í…œ íƒì§€ : {name}");
         }
 
-        //´ÙÀ½ ½ºÅ×ÀÌÁö ÀÌµ¿ Â÷¿ø¹®
+        //ë‹¤ìŒ ìŠ¤í…Œì´ì§€ ì´ë™ ì°¨ì›ë¬¸
         if (collided.CompareTag("Gate"))
         {
-            Debug.Log("Â÷¿ø¹® ÀÌµ¿..");
+            Debug.Log("ì°¨ì›ë¬¸ ì´ë™..");
         }
     }
 }

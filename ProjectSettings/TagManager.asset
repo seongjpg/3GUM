@@ -20,6 +20,7 @@ TagManager:
   - PerAttack
   - GameManager
   - Obstacle
+  - PlayerBody
   layers:
   - Default
   - TransparentFX

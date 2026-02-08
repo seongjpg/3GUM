@@ -114,6 +114,10 @@ MonoBehaviour:
   fireRate: 0.3
   CoolTime_01: 0
   CoolTime_02: 0
+  isHit: 0
+  hitTime: 1.5
+  isInvicible: 0
+  invicibleTime: 0
   isUsingBullet: 0
   oneTime: {fileID: 0}
   passive: []
@@ -244,9 +248,10 @@ GameObject:
   - component: {fileID: 4310015843449674631}
   - component: {fileID: 2981201165888139457}
   - component: {fileID: 5368511645457543919}
+  - component: {fileID: 2569492160009913125}
   m_Layer: 0
   m_Name: PlayerBody
-  m_TagString: Untagged
+  m_TagString: PlayerBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -377,5 +382,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1700ef573ffaea4a9271d9a5345f513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2569492160009913125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5373760165925360938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4068048b135f6e48be5ca82973e1cc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

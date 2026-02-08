@@ -193,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    /*
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		GameObject collided = collision.gameObject;
@@ -231,12 +232,12 @@ public class PlayerMovement : MonoBehaviour
 		//다음 스테이지 이동 차원문
 		if (collided.CompareTag("Gate"))
 		{
-            Debug.Log("차원문 이동..");
 		}
 	}
-
+    */
     public void EarnHeal()
     {
         mainUI.HealthChange(pm.curHealth);
     }
+    
 }

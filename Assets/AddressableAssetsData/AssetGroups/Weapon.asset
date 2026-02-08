@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Weapon
   m_GUID: df1d8c89099fbc346bf0a62aa21c9a5b
   m_SerializeEntries:
+  - m_GUID: 26a42a29e557ca54497ff18f3e066280
+    m_Address: Assets/PreFeb/Item/UserItem/Weapon/TimeLeft/TimeLeft.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b7bb3ec9803c85449a1a5a0cea26470
     m_Address: Assets/PreFeb/Item/UserItem/Weapon/BrokenMirror/BrokenMirror.prefab
     m_ReadOnly: 0

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atkSpeed: 1
   damage: 15
-  lifeTime: 1
+  lifeTime: 0.3
   swingSpeed: 0
   isBullet: 1
-  shotSpeed: 5
+  shotSpeed: 15
   originalyPenetrate: 0

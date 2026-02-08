@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Dash : MonoBehaviour
+public class Dash : MonoBehaviour, IWeaponBody
 {
     private float timer = 0f;
     public WeaponStatus weapon;
@@ -12,7 +12,7 @@ public class Dash : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         PlayerManager pm = player.GetComponent<PlayerManager>();
-        pm.BeInvicible(weapon.lifeTime);
+        pm.BeInvicible(weapon.lifeTime+1);
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         wayToGo = mouseWorldPos - player.transform.position;
         wayToGo.Normalize();
@@ -32,6 +32,8 @@ public class Dash : MonoBehaviour
             return;
         }
         player.transform.position += Time.deltaTime * weapon.shotSpeed * wayToGo;
+        this.transform.position = player.transform.position;
+        //Debug.Log(this.transform.position);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -45,7 +47,7 @@ public class Dash : MonoBehaviour
     }
     public float DMG()
     {
-        if (weapon != null && weapon.isBullet)
+        if (weapon != null)
         {
             Debug.Log($"검기 피해량 : {weapon.damage}");
             return weapon.damage;

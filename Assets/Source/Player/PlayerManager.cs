@@ -20,7 +20,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float hitTime = 1.5f;
 
     //무적 처리 관련 변수
-    [SerializeField] private bool isInvicible = false;
+    [SerializeField] public bool isInvicible = false;
     [SerializeField] private  float invicibleTime = 0f;
 
     private float hitTimer;
@@ -78,8 +78,6 @@ public class PlayerManager : MonoBehaviour
         if (isInvicible)
         {
             ivTimer += Time.deltaTime;
-            //깜빡이는 효과 부여 가능.
-            Debug.Log("앙무적");
             if (ivTimer >= invicibleTime)
             {
                 isInvicible = false;

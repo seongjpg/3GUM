@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class HealthGauge : MonoBehaviour
 {
@@ -7,8 +7,8 @@ public class HealthGauge : MonoBehaviour
 
     private Color originalColor;
 
-    [SerializeField] private Color flashColor = Color.red; // µ¥¹ÌÁö ½Ã ±ôºıÀÏ »ö
-    [SerializeField] private float flashDuration = 0.25f;   // ±ôºıÀÌ´Â ½Ã°£
+    [SerializeField] private Color flashColor = Color.red; // ë°ë¯¸ì§€ ì‹œ ê¹œë¹¡ì¼ ìƒ‰
+    [SerializeField] private float flashDuration = 0.25f;   // ê¹œë¹¡ì´ëŠ” ì‹œê°„
 
     void Start()
     {
@@ -18,26 +18,26 @@ public class HealthGauge : MonoBehaviour
 
     public void TakeDamage()
     {
-        // µ¥¹ÌÁö¸¦ ÀÔ¾úÀ» ¶§ È£Ãâ
+        // ë°ë¯¸ì§€ë¥¼ ì…ì—ˆì„ ë•Œ í˜¸ì¶œ
         StartCoroutine(Flash());
     }
 
     private System.Collections.IEnumerator Flash()
     {
-        // »¡°²°Ô º¯°æ
+        // ë¹¨ê°›ê²Œ ë³€ê²½
         sr.color = flashColor;
 
-        // ÀÏÁ¤ ½Ã°£ ´ë±â
+        // ì¼ì • ì‹œê°„ ëŒ€ê¸°
         yield return new WaitForSeconds(flashDuration);
 
-        // ¿ø·¡ »öÀ¸·Î º¹±Í
+        // ì›ë˜ ìƒ‰ìœ¼ë¡œ ë³µê·€
         sr.color = originalColor;
     }
 
     public void ChangeBar(float per)
     {
         int hpRate = (int)per +1;
-        Debug.Log($"ÇöÀç Àû Ã¼·Â ºñÀ²: {hpRate}");
+        Debug.Log($"í˜„ì¬ ì  ì²´ë ¥ ë¹„ìœ¨: {hpRate/60*100}%");
         hpRate = 60 <= hpRate ? 59 : hpRate;
         hpRate = 0 >= hpRate ? 0 : hpRate;
         TakeDamage();
