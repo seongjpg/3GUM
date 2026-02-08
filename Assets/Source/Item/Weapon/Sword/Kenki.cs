@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class Kenki : MonoBehaviour, IWeaponBody
 {
@@ -12,7 +12,7 @@ public class Kenki : MonoBehaviour, IWeaponBody
     {
         player = GameObject.FindWithTag("Player");
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        wayToGo = mouseWorldPos - player.transform.position;
+        wayToGo = new Vector3(mouseWorldPos.x, mouseWorldPos.y) - player.transform.position;
         wayToGo.Normalize();
 
         angle = Mathf.Atan2(wayToGo.y, wayToGo.x) * Mathf.Rad2Deg-90;
@@ -35,23 +35,23 @@ public class Kenki : MonoBehaviour, IWeaponBody
     {
         GameObject collider = collision.gameObject;
 
-        //Àû ÇÇ°İ(ÀÏ´Ü ÀÌ°Ç ¹üÀ§°ø°İÀÌ¶ó ±»ÀÌ Ã³¸®ÇÒ °Ç ¾ø´Ù.)
+        //ì  í”¼ê²©(ì¼ë‹¨ ì´ê±´ ë²”ìœ„ê³µê²©ì´ë¼ êµ³ì´ ì²˜ë¦¬í•  ê±´ ì—†ë‹¤.)
         if (collision.CompareTag("Enemy"))
         {
-            Debug.Log("Àû ÇÇ°İ!");
+            Debug.Log("ì  í”¼ê²©!");
         }
     }
     public float DMG()
     {
         if (weapon != null && weapon.isBullet)
         {
-            Debug.Log($"°Ë±â ÇÇÇØ·® : {weapon.damage}");
+            Debug.Log($"ê²€ê¸° í”¼í•´ëŸ‰ : {weapon.damage}");
             return weapon.damage;
         }
 
         else
         {
-            Debug.Log("ÀÌ°Ç ±ÙÁ¢¹«±â ¾Æ´Ï´Ù.");
+            Debug.Log("ì´ê±´ ê·¼ì ‘ë¬´ê¸° ì•„ë‹ˆë‹¤.");
             return 0;
         }
     }
@@ -65,7 +65,7 @@ public class Kenki : MonoBehaviour, IWeaponBody
         }
         else
         {
-            Debug.Log("ÀÌ°Ç ±ÙÁ¢¹«±â ¾Æ´Ï´Ù.");
+            Debug.Log("ì´ê±´ ê·¼ì ‘ë¬´ê¸° ì•„ë‹ˆë‹¤.");
             return 1000;
         }
     }

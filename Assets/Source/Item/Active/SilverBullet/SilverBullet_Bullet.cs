@@ -12,7 +12,7 @@ public class SilverBullet_Bullet : MonoBehaviour, IWeaponBody
     {
         player = GameObject.FindWithTag("Player");
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        wayToGo = mouseWorldPos - player.transform.position;
+        wayToGo = new Vector3(mouseWorldPos.x, mouseWorldPos.y) - player.transform.position;
         wayToGo.Normalize();
 
         angle = Mathf.Atan2(wayToGo.y, wayToGo.x) * Mathf.Rad2Deg +135;

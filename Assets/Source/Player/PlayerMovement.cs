@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveX = new Vector2(dir.x, 0);
         Vector2 moveY = new Vector2(0, dir.y);
 
-        // X축 검사
+        // X축 검사 -> raycast를 이용한 x축 이동여부 검사. 만일 이를 y축과 동시에 진행할 경우 x축과 y축 둘 중 하나라도 벽에 닿아버리면 반대방향 이외에는 이동을 할 수 없게 되어버린다.
         if (moveX != Vector2.zero) {
             RaycastHit2D hitX = Physics2D.CapsuleCast(
                 rb.position, transform.localScale, CapsuleDirection2D.Vertical,
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
                 moveX = Vector2.zero; // X방향 벽 → X이동 차단
         }
 
-        // Y축 검사
+        // Y축 검사 -> x축과 마찬가지. 둘을 분리하여야 한다. 
         if (moveY != Vector2.zero) {
             RaycastHit2D hitY = Physics2D.CapsuleCast(
                 rb.position, transform.localScale, CapsuleDirection2D.Vertical,
