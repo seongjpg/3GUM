@@ -23,7 +23,8 @@ public class SceneGate : MonoBehaviour {
         if (other.CompareTag(playerTag))
 		{
 			Debug.Log("이동!!!!!!!");
-			GM.LoadNextScene();
+			//GM.LoadNextScene();
+			GM.SaveForNextScene();
 			moveManager.MoveToScene(WTG_ASSET.fts.targetScene);
 			GameObject.Destroy(gameObject);
 		}

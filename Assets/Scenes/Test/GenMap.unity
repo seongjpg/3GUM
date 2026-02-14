@@ -468,6 +468,22 @@ MonoBehaviour:
   map: {fileID: 3590569273475221565, guid: 821c71e20ecfb4c47a8cf396ebf53628, type: 3}
   roomLine: {fileID: 3590569273475221565, guid: 821c71e20ecfb4c47a8cf396ebf53628, type: 3}
   maximumDepth: 4
+  allTiles:
+  - {fileID: 11400000, guid: 57686f2a4c29cda4db155deb9bdaac6b, type: 2}
+  - {fileID: 11400000, guid: 52ff9b424f0fcde4aaf4765250dad68e, type: 2}
+  - {fileID: 11400000, guid: dcdbe8152f8be4742a2e269874607132, type: 2}
+  - {fileID: 11400000, guid: f47ed89752ba91547b7e956ade6ce5db, type: 2}
+  - {fileID: 11400000, guid: 5519d4548ac2251468c707b8157a725b, type: 2}
+  - {fileID: 11400000, guid: a5786fadd224fa9469d29a6bb4ae66dc, type: 2}
+  - {fileID: 11400000, guid: 29f33eafc1c2b814598e860766e79661, type: 2}
+  - {fileID: 11400000, guid: 2b439a5690779b84396cae6c181d77b0, type: 2}
+  - {fileID: 11400000, guid: 41566cb153b863547ae6155b0b5a0326, type: 2}
+  - {fileID: 11400000, guid: 41224d7ce2224b442b2976dc527c26d4, type: 2}
+  - {fileID: 11400000, guid: 4c9196103694e0e41b55b6bc6b1fc274, type: 2}
+  - {fileID: 11400000, guid: 7500f54f4f57ea84da84869021f29619, type: 2}
+  - {fileID: 11400000, guid: 705c541ed1aa42041bf3360914718d1b, type: 2}
+  - {fileID: 11400000, guid: 88c13af761784094393ff5f141b88b44, type: 2}
+  - {fileID: 11400000, guid: 6e86c47e27650724c81ae34cbf2d2379, type: 2}
   tileMap: {fileID: 238854857}
   roomTile: {fileID: 11400000, guid: 6e86c47e27650724c81ae34cbf2d2379, type: 2}
   roadTile: {fileID: 11400000, guid: 6e86c47e27650724c81ae34cbf2d2379, type: 2}

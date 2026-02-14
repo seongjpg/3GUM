@@ -6,6 +6,7 @@ public class GlobalAmt : MonoBehaviour
 
     public string sceneName01;
     public bool isInitFile01 = true;
+    public bool goToNextScene = false;
 
     void Start()
     {

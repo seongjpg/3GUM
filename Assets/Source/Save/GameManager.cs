@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private GlobalAmt GA;
     private MapGenerator MG;
 
+    private bool generateMap = true;
+
 
     [SerializeField] private SerializePlayer SP;
     [SerializeField] private SerializeObject SO;
@@ -39,14 +41,21 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //오브젝트 제작 시에는 꺼주고 해야 함.
-        if (GA.isInitFile01)
+        if (GA.isInitFile01) // 시작 파일 - GA.gotoNextScene == false; generateMap = true;
         {
             GA.isInitFile01 = false;
             LoadFromInitSaveFile();
         }
         else
         {
-            LoadFromSaveFile();
+            if (GA.goToNextScene) // 새로운 스테이지 -> 맵은 생성해야 함. GA.gotoNextScene == true; generateMap = false;
+            {
+                LoadNextScene();
+            }
+            else  // 로드 -> GA.gotoNextScene == false, generateMap = false;
+            {
+                LoadFromSaveFile(); 
+            }
         }
     }
 
@@ -112,6 +121,7 @@ public class GameManager : MonoBehaviour
     public void LoadFromInitSaveFile() // 초기화 후 로드. 이거는 인게임 내에서 초기화를 하고 싶을 때에도 사용 가능.
     {
         Debug.Log("초기화");
+        generateMap = true;
         SM.ClearMapData(); // 맵 데이터 초기화
         SO.ClearObjectData(); // 오브젝트 데이터 초기화
         SP.ClearPlayerData(); // 플레이어 데이터 초기화
@@ -121,6 +131,8 @@ public class GameManager : MonoBehaviour
     public void LoadFromSaveFile() // 세이브 파일을 로드할 때 사용.
     {
         Debug.Log("세이브 파일 불러오기");
+        generateMap = false;
+        GA.goToNextScene = false;
         //씬 이름 불러오기, 씬 로드
         SM.LoadMapData();
         SO.LoadObjectData(); // 여기서 기존 장애물 파괴도 동시에 진행해주어야 한다.
@@ -128,8 +140,9 @@ public class GameManager : MonoBehaviour
 
         SaveInGame();
     }
-    public void LoadNextScene() // 다음 씬으로 넘어갈 때 사용. 여기선 플레이어의 위치는 필요없고, 씬의 이름도 바뀌어야 한다. 그 뒤에 SaveInGame적용.
+    public void LoadNextScene() // 다음 씬에 진입했을 때 사용. 여기선 플레이어의 위치는 필요없고, 씬의 이름도 바뀌어야 한다. 그 뒤에 SaveInGame적용.
     {
+        generateMap = true;
         SP.LoadNextScene();
 
         SaveInGame();
@@ -144,9 +157,23 @@ public class GameManager : MonoBehaviour
 
     public void SaveForNextScene() // 다음 씬으로 넘어갈 때 호출되는 함수
     {
+        generateMap = true;
+        GA.goToNextScene = true;
         SP.SavePlayerData(); // 어차피 로드할 때 pos를 제외하고 로드하기에 따로 세이브를 할 필요는 없음.
         SO.ClearObjectData();
         SM.ClearMapData();
     }
     
+    public bool ShouldGenerateMap()
+    {
+        bool rtn = generateMap || GA.goToNextScene;
+        GA.goToNextScene = false;
+        return rtn;
+    }
+
+    public void ChangeGenerateMap()
+    {
+        generateMap = false;
+    }
+
 }

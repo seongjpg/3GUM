@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class MapGenerator : MonoBehaviour
-{	
+{
+	private GameManager gm;
+
 	[SerializeField] public MapCenter mc; // 각 방의 정보를 관리하는 스크립트.스포너가 맵에서 몬스터를 스폰하는 위치를 정할 수 있도록 하고, 활성화하는 역할 담당.
 	public LayerMask obstacle;
 
@@ -15,6 +17,8 @@ public class MapGenerator : MonoBehaviour
 	[SerializeField] private GameObject map; //lineRenderer를 사용해서 첫 맵의 사이즈를 보여주기 위함
 	[SerializeField] private GameObject roomLine; //lineRenderer를 사용해서 방의 사이즈를 보여주기 위함
 	[SerializeField] private int maximumDepth; //트리의 깊이, 깊을수록 방을 더 자세히 나누게 됨
+
+	[SerializeField] public List<Tile> allTiles;
 
 	[SerializeField] public Tilemap tileMap;
 	[SerializeField] public Tile roomTile; //방을 구성하는 타일
@@ -63,9 +67,17 @@ public class MapGenerator : MonoBehaviour
 
 	public int cnt = 1;
 
+
+
 	private void Start()
 	{
-		SpawnPrefab();
+		GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+		Debug.Log(gm == null);
+        if (gm.ShouldGenerateMap()) 
+		{
+            SpawnPrefab();
+        }
+		
 	}
 
     private void Update()

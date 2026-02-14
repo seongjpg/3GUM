@@ -18,4 +18,4 @@ MonoBehaviour:
   swingSpeed: 0
   isBullet: 1
   shotSpeed: 15
-  originalyPenetrate: 0
+  originalyPenetrate: 1
