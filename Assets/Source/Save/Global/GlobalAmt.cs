@@ -7,10 +7,17 @@ public class GlobalAmt : MonoBehaviour
     public string sceneName01;
     public bool isInitFile01 = true;
     public bool goToNextScene = false;
+    public static GlobalAmt Instance;
 
-    void Start()
+    void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void SetCurSceneName()

@@ -72,7 +72,6 @@ public class MapGenerator : MonoBehaviour
 	private void Start()
 	{
 		GameManager gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-		Debug.Log(gm == null);
         if (gm.ShouldGenerateMap()) 
 		{
             SpawnPrefab();
@@ -84,7 +83,7 @@ public class MapGenerator : MonoBehaviour
     {
         if (oSpawner == null && !destroyRoadExecuted)
 		{
-			Debug.Log($"DestroyRoad실행, {centers.Count}, {obstacleDic.Count}");
+			//Debug.Log($"DestroyRoad실행, {centers.Count}, {obstacleDic.Count}");
 			DestroyRoad();
 
 			centers = null;
@@ -264,23 +263,23 @@ public class MapGenerator : MonoBehaviour
             for (int i = Mathf.Min(left.x, right.x); i <= Mathf.Max(left.x, right.x); i++)
             {
 				Vector3 objLoc = new Vector3(i + 0.5f, left.y + 0.5f);
-				Debug.Log($"{objLoc}");
+				//Debug.Log($"{objLoc}");
 				if (obstacleDic.ContainsKey(objLoc))
 				{
 					Destroy(obstacleDic[objLoc]);
-					Debug.Log($"{objLoc}의 구조물 파괴");
+					//Debug.Log($"{objLoc}의 구조물 파괴");
 				}
             }
 
 			for (int j = Mathf.Min(left.y, right.y); j <= Mathf.Max(left.y, right.y); j++)
 			{
 				Vector3 objLoc = new Vector3(right.x + 0.5f, j + 0.5f);
-				Debug.Log($"{objLoc}");
+				//Debug.Log($"{objLoc}");
                 if (obstacleDic.ContainsKey(objLoc))
                 {
 
                     Destroy(obstacleDic[objLoc]);
-                    Debug.Log($"{objLoc}의 구조물 파괴");
+                    //Debug.Log($"{objLoc}의 구조물 파괴");
                 }
             }
         }

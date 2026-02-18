@@ -8,12 +8,14 @@ public class SceneGate : MonoBehaviour {
 	public SceneMoveManager moveManager;
 	[SerializeField] Scene_WTG_ASSET WTG_ASSET;
 	[SerializeField] GameManager GM;
+	[SerializeField] GlobalAmt GA;
 
     private void Start()
     {
 
 		gameManager = GameObject.FindWithTag("GameManager");
 		GM = gameManager.GetComponent<GameManager>();
+		GA = GlobalAmt.Instance;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,6 +27,7 @@ public class SceneGate : MonoBehaviour {
 			Debug.Log("이동!!!!!!!");
 			//GM.LoadNextScene();
 			GM.SaveForNextScene();
+			GA.goToNextScene = true;
 			moveManager.MoveToScene(WTG_ASSET.fts.targetScene);
 			GameObject.Destroy(gameObject);
 		}

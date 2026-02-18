@@ -33,15 +33,16 @@ public class GameManager : MonoBehaviour
         GlobalManager = GameObject.Find("GlobalManager");
         sceneManager = GameObject.Find("SceneManager");
         MG = mapGenerator.GetComponent<MapGenerator>();
-        GA = GlobalManager.GetComponent<GlobalAmt>();
+        GA = GlobalAmt.Instance;
         GSC = sceneManager.GetComponent<GlobalSceneControl>();
         SSN = sceneManager.GetComponent<SerializeSceneName>();
     }
 
     private void Start()
     {
+        Debug.Log($"GameManager Start - isInit: {GA.isInitFile01}, goToNext: {GA.goToNextScene}");
         //오브젝트 제작 시에는 꺼주고 해야 함.
-        if (GA.isInitFile01) // 시작 파일 - GA.gotoNextScene == false; generateMap = true;
+        if (GA.isInitFile01)
         {
             GA.isInitFile01 = false;
             LoadFromInitSaveFile();
@@ -120,7 +121,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadFromInitSaveFile() // 초기화 후 로드. 이거는 인게임 내에서 초기화를 하고 싶을 때에도 사용 가능.
     {
-        Debug.Log("초기화");
+        Debug.Log("초기화파일 사용");
         generateMap = true;
         SM.ClearMapData(); // 맵 데이터 초기화
         SO.ClearObjectData(); // 오브젝트 데이터 초기화
@@ -142,15 +143,17 @@ public class GameManager : MonoBehaviour
     }
     public void LoadNextScene() // 다음 씬에 진입했을 때 사용. 여기선 플레이어의 위치는 필요없고, 씬의 이름도 바뀌어야 한다. 그 뒤에 SaveInGame적용.
     {
+        Debug.Log("다음 씬 진입");
         generateMap = true;
-        SP.LoadNextScene();
+        GA.goToNextScene = true;
+        SP.LoadFromSaveData();
 
         SaveInGame();
     }
     public void SaveInGame() // 인게임에서 저장이 일어날 때(ex-게임 강제종료시, pause버튼 입력시, 아이템 먹을 때마다, 방 진입시 등등...)
     {
         SM.SaveMapData();
-        SO.SaveObjectData();
+        SO.LoadObjSave();
         SP.SavePlayerData();
         GSC.SaveScene(SceneManager.GetActiveScene().name);
     }
@@ -161,13 +164,13 @@ public class GameManager : MonoBehaviour
         GA.goToNextScene = true;
         SP.SavePlayerData(); // 어차피 로드할 때 pos를 제외하고 로드하기에 따로 세이브를 할 필요는 없음.
         SO.ClearObjectData();
-        SM.ClearMapData();
     }
     
     public bool ShouldGenerateMap()
     {
         bool rtn = generateMap || GA.goToNextScene;
         GA.goToNextScene = false;
+        Debug.Log($"rtn : {rtn}, generateMap : {generateMap}, GA.gotoNextScene : {GA.goToNextScene}");
         return rtn;
     }
 

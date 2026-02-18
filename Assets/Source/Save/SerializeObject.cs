@@ -37,6 +37,11 @@ public class SerializeObject : MonoBehaviour
 		*/
 	}
 
+	public void LoadObjSave()
+	{
+        LoadSceneObject(); // objects 리스트 채우기
+        SaveObjectData();
+    }
 
 	public void SaveObjectData() // 외부에서 json 파일 변환을 필요로 할 때 호출
 	{

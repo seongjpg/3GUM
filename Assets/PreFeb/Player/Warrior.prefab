@@ -141,7 +141,7 @@ MonoBehaviour:
   UI: {fileID: 0}
   pm: {fileID: 3415279566408897491}
   playerTr: {fileID: 3265975808359685208}
-  playerWeapon: {fileID: 5833074352330525816, guid: 49ea5580e55cfc2478974c03c8334592, type: 3}
+  playerWeapon: {fileID: 8292754467184260618, guid: cc030a0b25205c5439a5c32a6d262e26, type: 3}
   fireTimer: 0
   skill01Timer: 0
   skill02Timer: 0
