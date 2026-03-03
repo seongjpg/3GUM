@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Strv_Field_Script : MonoBehaviour {
 	[SerializeField] float durableTime = 10f;
@@ -18,7 +18,7 @@ public class Strv_Field_Script : MonoBehaviour {
 
 		if (collision.CompareTag("Enemy"))
 		{
-			MobManager mm = collision.GetComponent<MobManager>();
+			MobManager_Legacy mm = collision.GetComponent<MobManager_Legacy>();
 			mm.speed *= 1-slowP;
 		}
 	}
@@ -27,7 +27,7 @@ public class Strv_Field_Script : MonoBehaviour {
 	{
 		if (collision.CompareTag("Enemy"))
 		{
-			MobManager mm = collision.GetComponent<MobManager>();
+			MobManager_Legacy mm = collision.GetComponent<MobManager_Legacy>();
 			mm.speed /= 1-slowP;
 		}
 	}

@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class zako_longRich : MonoBehaviour
 {
@@ -6,15 +6,15 @@ public class zako_longRich : MonoBehaviour
 	[SerializeField] float fireRate;
 	[SerializeField] float fireTimer;
 	[SerializeField] private GameObject bulletPrefab;
-	private Transform target;                  // ÃßÀû ´ë»ó(ÇÃ·¹ÀÌ¾î)
+	private Transform target;                  // ì¶”ì  ëŒ€ìƒ(í”Œë ˆì´ì–´)
 	private GameObject p;
 	public GameObject m;
-	public MobManager mm;
+	public MobManager_Legacy mm;
 	public PlayerManager pm;
-	// ¿ÜºÎ¿¡¼­ ÃßÀû ´ë»óÀ» ÁöÁ¤
+	// ì™¸ë¶€ì—ì„œ ì¶”ì  ëŒ€ìƒì„ ì§€ì •
 	public void Seek()
 	{
-		mm = m.GetComponent<MobManager>();
+		mm = m.GetComponent<MobManager_Legacy>();
 		p = GameObject.FindWithTag("Player");
 		pm = p.GetComponent<PlayerManager>();
 		target = pm.transform;
@@ -29,20 +29,20 @@ public class zako_longRich : MonoBehaviour
 	{
 		if (target == null)
 		{
-			Debug.Log("ÃßÀû ´ë»ó ¼Ò½Ç");
+			Debug.Log("ì¶”ì  ëŒ€ìƒ ì†Œì‹¤");
 			return;
 		}
 
-		// 1) ¸ñÇ¥ ¹æÇâ °è»ê
+		// 1) ëª©í‘œ ë°©í–¥ ê³„ì‚°
 		Vector3 direction = target.position - transform.position;
 
-		//target°ú gameobjectÀÇ °Å¸®°¡ range ÀÌ»óÀÎ °æ¿ì¿¡¸¸ ÃßÀû
+		//targetê³¼ gameobjectì˜ ê±°ë¦¬ê°€ range ì´ìƒì¸ ê²½ìš°ì—ë§Œ ì¶”ì 
 		if (range < Mathf.Sqrt(direction.x*direction.x + direction.y * direction.y))
 		{	
-			// 2) ´ÜÀ§ º¤ÅÍÈ­
+			// 2) ë‹¨ìœ„ ë²¡í„°í™”
 			Vector3 normalizedDir = direction.normalized;
 			
-			// 3) ¼Óµµ Àû¿ë + DeltaTime
+			// 3) ì†ë„ ì ìš© + DeltaTime
 			transform.position += normalizedDir * mm.speed * Time.deltaTime;
 		}
 

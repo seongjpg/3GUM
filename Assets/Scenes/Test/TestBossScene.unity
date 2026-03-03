@@ -922,7 +922,7 @@ MonoBehaviour:
   line: {fileID: 7258204935433783430, guid: 93ff4d10d9cfba14a910f5ab1a7ede90, type: 3}
   map: {fileID: 3590569273475221565, guid: 821c71e20ecfb4c47a8cf396ebf53628, type: 3}
   roomLine: {fileID: 3590569273475221565, guid: 821c71e20ecfb4c47a8cf396ebf53628, type: 3}
-  maximumDepth: 4
+  maximumDepth: 1
   allTiles:
   - {fileID: 11400000, guid: 57686f2a4c29cda4db155deb9bdaac6b, type: 2}
   - {fileID: 11400000, guid: 52ff9b424f0fcde4aaf4765250dad68e, type: 2}

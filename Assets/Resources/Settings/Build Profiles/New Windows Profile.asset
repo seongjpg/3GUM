@@ -22,6 +22,18 @@ MonoBehaviour:
   m_Scenes:
   - m_enabled: 1
     m_path: Assets/Scenes/Test/BootScene.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Test/ConvertScene.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Test/GenMap.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Test/MainSceneTest.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Test/ObjectCreateScene.unity
+  - m_enabled: 1
+    m_path: Assets/Scenes/Test/TestBossScene.unity
+  - m_enabled: 0
+    m_path: Assets/Scenes/Test/TestInteraction.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
@@ -168,7 +180,9 @@ MonoBehaviour:
     - line: '|   visionOSBundleVersion: 1.0'
     - line: '|   tvOSBundleVersion: 1.0'
     - line: '|   bundleVersion: 1.0'
-    - line: '|   preloadedAssets: []'
+    - line: '|   preloadedAssets:'
+    - line: '|   - {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100,
+        type: 3}'
     - line: '|   metroInputSource: 0'
     - line: '|   wsaTransparentSwapchain: 0'
     - line: '|   m_HolographicPauseOnTrackingLoss: 1'

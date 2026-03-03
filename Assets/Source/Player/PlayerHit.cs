@@ -28,7 +28,7 @@ public class PlayerHit : MonoBehaviour
             {
 
                 Debug.Log("적과 접촉!");
-                MobManager mm = collided.GetComponent<MobManager>();
+                MobManager_Legacy mm = collided.GetComponent<MobManager_Legacy>();
                 // 피해 처리 (이펙트, 데미지 등)
                 if (Random.value > PlayerEntity.hitRate)
                 {

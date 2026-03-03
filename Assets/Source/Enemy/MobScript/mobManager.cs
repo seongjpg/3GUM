@@ -1,24 +1,46 @@
+ï»¿using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
 public class MobManager : MonoBehaviour
 {
-    //Àû ¶óÀÌÇÁ »çÀÌÅ¬ °ü¸®(Åº»ı, »ç¸Á), ÇÃ·¹ÀÌ¾î ½ºÅ×ÀÌÅÍ½º
-    [SerializeField] public float maxHealth; // ÃÖ´ë Ã¼·Â
-	[SerializeField] public float curHealth; // ÇöÀç Ã¼·Â
-	[SerializeField] public float speed; // ÀÌµ¿ ¼Óµµ
-	[SerializeField] public int damage; // °ø°İ·Â
+    [SerializeField] MobStat mobStat;
 
-	void Start()
+    public float maxHealth;
+    public float curHealth;
+    public float speed;
+    public int damage;
+    public bool hasRangeAttack;
+    public List<GameObject> projectTile;
+
+    void Start()
     {
-        
+        // ìŠ¤íƒ¯ ì´ˆê¸°í™”ë¥¼ ì§ì ‘ ì²˜ë¦¬
+        maxHealth = mobStat.maxHealth;
+        curHealth = mobStat.curHealth;
+        damage = mobStat.damage;
+        speed = mobStat.speed;
+        hasRangeAttack = mobStat.hasRangeAttack;
+        projectTile = mobStat.projectTile;
     }
 
-    void Update()
+    // ì¼ì‹œì  ì†ë„ ë³€ê²½
+    public void TempSpeedChange(float multiplier, float duration)
     {
-        if (curHealth <= 0)
-        {
-            Debug.Log($"{gameObject.name} »ç¸Á!");
-            Destroy(gameObject);
-        }
+        StartCoroutine(TempStatRoutine(() => speed, v => speed = v, multiplier, duration));
+    }
+
+    // ì¼ì‹œì  ê³µê²©ë ¥ ë³€ê²½
+    public void TempDamageChange(int multiplier, float duration)
+    {
+        StartCoroutine(TempStatRoutine(() => damage, v => damage = (int)v, multiplier, duration));
+    }
+
+    private IEnumerator TempStatRoutine(System.Func<float> getter, System.Action<float> setter, float multiplier, float duration)
+    {
+        float original = getter();
+        setter(original * multiplier);
+        yield return new WaitForSeconds(duration);
+        setter(original);
     }
 }
